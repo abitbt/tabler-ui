@@ -1,899 +1,1061 @@
-@extends('tabler::layouts.app')
+{{--
+    Form Components Demo
+
+    Comprehensive showcase of all form component variations, states, and features.
+    Based on Tabler UI form patterns with Laravel Blade components.
+
+    Components:
+    - <x-tabler::forms.input>
+    - <x-tabler::forms.textarea>
+    - <x-tabler::forms.select>
+    - <x-tabler::forms.checkbox>
+    - <x-tabler::forms.radio>
+    - <x-tabler::forms.switch>
+    - <x-tabler::forms.input-group>
+    - <x-tabler::forms.selectgroup>
+    - <x-tabler::forms.selectgroup-item>
+    - <x-tabler::forms.label>
+    - <x-tabler::forms.help>
+    - <x-tabler::forms.hint>
+    - <x-tabler::forms.valid-feedback>
+    - <x-tabler::forms.invalid-feedback>
+
+    Locations:
+    abitbt/tablerui/stubs/resources/views/tabler/forms/*.blade.php
+--}}
+
+@extends('layouts.app')
 
 @section('content')
-    <div class="container-xl">
-        <!-- Page header -->
-        <div class="page-header d-print-none mb-4">
-            <div class="row g-2 align-items-center">
-                <div class="col">
-                    <div class="page-pretitle">Component Demo</div>
-                    <h2 class="page-title">Form Components</h2>
-                    <p class="text-muted">A comprehensive showcase of all 20 Tabler UI form components with examples and variations.</p>
+    <div class="row row-cards">
+
+                {{-- Basic Text Input --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Basic Text Input</x-slot:title>
+                            <x-slot:subtitle>Simple text input with label and validation</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <x-tabler::forms.input
+                                name="email"
+                                label="Email Address"
+                                type="email"
+                                placeholder="user@example.com"
+                                required
+                            />
+
+                            <x-tabler::forms.input
+                                name="username"
+                                label="Username"
+                                placeholder="Enter username"
+                            />
+
+                            <x-tabler::forms.input
+                                name="password"
+                                label="Password"
+                                type="password"
+                                placeholder="Enter password"
+                                required
+                            />
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.input
+    name="email"
+    label="Email Address"
+    type="email"
+    placeholder="user@example.com"
+    required
+/&gt;</code></pre>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
                 </div>
-            </div>
-        </div>
 
-        <div class="row row-cards">
-            {{-- 1. Input Component --}}
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>1. Input Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Text input with icon support, validation, and various sizes</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <x-tabler::forms.input
-                                    name="basic_input"
-                                    label="Basic Input"
-                                    placeholder="Enter text here"
-                                />
+                {{-- Input with Icon --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Input with Icon</x-slot:title>
+                            <x-slot:subtitle>Text input with leading or trailing icons</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <x-tabler::forms.input
+                                name="search"
+                                label="Search"
+                                icon="search"
+                                placeholder="Search..."
+                            />
+
+                            <x-tabler::forms.input
+                                name="phone"
+                                label="Phone Number"
+                                type="tel"
+                                icon="phone"
+                                iconPosition="start"
+                                placeholder="+1 (555) 000-0000"
+                            />
+
+                            <x-tabler::forms.input
+                                name="loading_example"
+                                label="With Loading Spinner"
+                                loading
+                                placeholder="Processing..."
+                            />
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.input
+    name="search"
+    label="Search"
+    icon="search"
+    placeholder="Search..."
+/&gt;
+
+&lt;x-tabler::forms.input
+    name="phone"
+    icon="phone"
+    iconPosition="start"
+    placeholder="+1 (555) 000-0000"
+/&gt;</code></pre>
                             </div>
-                            <div class="col-md-6">
-                                <x-tabler::forms.input
-                                    name="email"
-                                    type="email"
-                                    label="Email with Icon"
-                                    icon="mail"
-                                    placeholder="email@example.com"
-                                />
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Input with Help Text --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Input with Help Text</x-slot:title>
+                            <x-slot:subtitle>Additional context and guidance for users</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <x-tabler::forms.input
+                                name="api_key"
+                                label="API Key"
+                                help="You can find your API key in Settings > Integrations"
+                                placeholder="Enter your API key"
+                                required
+                            />
+
+                            <x-tabler::forms.input
+                                name="slug"
+                                label="URL Slug"
+                                help="Only lowercase letters, numbers, and hyphens allowed"
+                                placeholder="my-article-slug"
+                            />
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.input
+    name="api_key"
+    label="API Key"
+    help="You can find your API key in Settings"
+    required
+/&gt;</code></pre>
                             </div>
-                        </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <x-tabler::forms.input
-                                    name="small"
-                                    label="Small Input"
-                                    size="sm"
-                                    placeholder="Small size"
-                                />
+                {{-- Input Sizes and Variants --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Input Sizes and Variants</x-slot:title>
+                            <x-slot:subtitle>Different sizes and styling options</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <x-tabler::forms.input
+                                name="small"
+                                label="Small Input"
+                                size="sm"
+                                placeholder="Small input"
+                            />
+
+                            <x-tabler::forms.input
+                                name="large"
+                                label="Large Input"
+                                size="lg"
+                                placeholder="Large input"
+                            />
+
+                            <x-tabler::forms.input
+                                name="light"
+                                label="Light Background"
+                                class="form-control-light"
+                                placeholder="Light variant"
+                            />
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.input size="sm" /&gt;
+&lt;x-tabler::forms.input size="lg" /&gt;
+&lt;x-tabler::forms.input class="form-control-light" /&gt;</code></pre>
                             </div>
-                            <div class="col-md-4">
-                                <x-tabler::forms.input
-                                    name="normal"
-                                    label="Normal Input"
-                                    placeholder="Normal size"
-                                />
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Textarea --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Textarea</x-slot:title>
+                            <x-slot:subtitle>Multi-line text input with auto-resize</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <x-tabler::forms.textarea
+                                name="description"
+                                label="Description"
+                                placeholder="Enter description..."
+                                :rows="3"
+                            />
+
+                            <x-tabler::forms.textarea
+                                name="notes"
+                                label="Notes (Auto-resize)"
+                                autosize
+                                placeholder="Start typing..."
+                                help="This textarea automatically grows as you type"
+                            />
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.textarea
+    name="description"
+    label="Description"
+    :rows="3"
+/&gt;
+
+&lt;x-tabler::forms.textarea
+    name="notes"
+    autosize
+    help="Auto-grows as you type"
+/&gt;</code></pre>
                             </div>
-                            <div class="col-md-4">
-                                <x-tabler::forms.input
-                                    name="large"
-                                    label="Large Input"
-                                    size="lg"
-                                    placeholder="Large size"
-                                />
-                            </div>
-                        </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
 
-                        <x-tabler::forms.input
-                            name="loading_input"
-                            label="Loading State"
-                            loading
-                            placeholder="Loading..."
-                        />
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.input name="email" type="email" label="Email" icon="mail" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 2. Textarea Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>2. Textarea Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Multi-line text input</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <x-tabler::forms.textarea
-                            name="description"
-                            label="Description"
-                            placeholder="Enter your description here..."
-                            rows="4"
-                        />
-
-                        <x-tabler::forms.textarea
-                            name="bio"
-                            label="Bio with Help Text"
-                            help="Tell us about yourself"
-                            placeholder="Your bio..."
-                            rows="3"
-                        />
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.textarea name="description" label="Description" rows="4" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 3. Select Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>3. Select Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Dropdown selection with optgroups support</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <x-tabler::forms.select
-                            name="country"
-                            label="Select Country"
-                            :options="[
+                {{-- Select Dropdown --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Select Dropdown</x-slot:title>
+                            <x-slot:subtitle>Dropdown selection with options and groups</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <x-tabler::forms.select
+                                name="country"
+                                label="Country"
+                                placeholder="Select a country..."
+                                :options="[
                                 'us' => 'United States',
                                 'uk' => 'United Kingdom',
                                 'ca' => 'Canada',
-                                'au' => 'Australia',
+                                'au' => 'Australia'
                             ]"
-                        />
+                                required
+                            />
 
-                        <x-tabler::forms.select
-                            name="status"
-                            label="Status"
-                            placeholder="Choose status..."
-                            :options="[
-                                'active' => 'Active',
-                                'inactive' => 'Inactive',
-                                'pending' => 'Pending',
+                            <x-tabler::forms.select
+                                name="fruit"
+                                label="Favorite Fruit"
+                                :options="[
+                                'Citrus' => [
+                                    'orange' => 'Orange',
+                                    'lemon' => 'Lemon',
+                                    'lime' => 'Lime'
+                                ],
+                                'Berries' => [
+                                    'strawberry' => 'Strawberry',
+                                    'blueberry' => 'Blueberry'
+                                ]
                             ]"
-                        />
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.select name="country" label="Select Country" :options="$countries" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
+                            />
 
-            {{-- 4. Checkbox Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>4. Checkbox Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Single or inline checkboxes</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <x-tabler::forms.checkbox
-                            name="terms"
-                            label="I agree to the terms and conditions"
-                        />
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.select
+    name="country"
+    label="Country"
+    placeholder="Select a country..."
+    :options="['us' => 'United States', ...]"
+/&gt;
 
-                        <x-tabler::forms.checkbox
-                            name="newsletter"
-                            label="Subscribe to newsletter"
-                            help="We'll send you weekly updates"
-                            checked
-                        />
-
-                        <div class="mb-3">
-                            <label class="form-label">Inline Checkboxes</label>
-                            <div>
-                                <x-tabler::forms.checkbox name="option1" label="Option 1" inline :wrapper="false" />
-                                <x-tabler::forms.checkbox name="option2" label="Option 2" inline :wrapper="false" />
-                                <x-tabler::forms.checkbox name="option3" label="Option 3" inline :wrapper="false" />
+{{-- With optgroups --}}
+&lt;x-tabler::forms.select
+    :options="[
+        'Citrus' => ['orange' => 'Orange'],
+        'Berries' => ['strawberry' => 'Strawberry']
+    ]"
+/&gt;</code></pre>
                             </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.checkbox name="terms" label="I agree" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
 
-            {{-- 5. Radio Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>5. Radio Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Radio button groups</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="mb-3">
-                            <label class="form-label">Payment Method</label>
-                            <x-tabler::forms.radio name="payment" value="card" label="Credit Card" checked :wrapper="false" />
-                            <x-tabler::forms.radio name="payment" value="paypal" label="PayPal" :wrapper="false" />
-                            <x-tabler::forms.radio name="payment" value="bank" label="Bank Transfer" :wrapper="false" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Inline Radio Buttons</label>
-                            <div>
-                                <x-tabler::forms.radio name="size" value="s" label="Small" inline :wrapper="false" />
-                                <x-tabler::forms.radio name="size" value="m" label="Medium" inline checked :wrapper="false" />
-                                <x-tabler::forms.radio name="size" value="l" label="Large" inline :wrapper="false" />
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.radio name="payment" value="card" label="Credit Card" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 6. Switch Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>6. Switch Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Toggle switches</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <x-tabler::forms.switch name="notifications" label="Enable Notifications" />
-                        <x-tabler::forms.switch name="dark_mode" label="Dark Mode" checked />
-                        <x-tabler::forms.switch name="auto_save" label="Auto Save" help="Automatically save your work" />
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.switch name="notifications" label="Enable Notifications" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 7. Label Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>7. Label Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Form labels with required indicator</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="mb-3">
-                            <x-tabler::forms.label for="username">Username</x-tabler::forms.label>
-                            <input type="text" class="form-control" id="username" />
-                        </div>
-
-                        <div class="mb-3">
-                            <x-tabler::forms.label for="password" required>Password</x-tabler::forms.label>
-                            <input type="password" class="form-control" id="password" />
-                        </div>
-
-                        <div class="mb-3">
-                            <x-tabler::forms.label for="api_key" required description="Found in settings">API Key</x-tabler::forms.label>
-                            <input type="text" class="form-control" id="api_key" />
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.label for="username" required&gt;Username&lt;/x-tabler::forms.label&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 8. Hint Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>8. Hint Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Help text below form controls</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <label class="form-label">Password</label>
-                        <input type="password" class="form-control" />
-                        <x-tabler::forms.hint>Must be at least 8 characters long</x-tabler::forms.hint>
-
-                        <label class="form-label mt-3">Username</label>
-                        <input type="text" class="form-control" />
-                        <x-tabler::forms.hint class="text-primary">Only lowercase letters and numbers allowed</x-tabler::forms.hint>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.hint&gt;Must be at least 8 characters long&lt;/x-tabler::forms.hint&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 9. Help Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>9. Help Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Popover help icons (requires Bootstrap JS)</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="mb-3">
-                            <label class="form-label">
-                                API Key
-                                <x-tabler::forms.help content="Your API key can be found in your account settings" />
-                            </label>
-                            <input type="text" class="form-control" placeholder="Enter your API key" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">
-                                Webhook URL
-                                <x-tabler::forms.help content="The URL where we'll send POST requests with event data" placement="right" />
-                            </label>
-                            <input type="url" class="form-control" placeholder="https://example.com/webhook" />
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.help content="Your API key can be found in settings" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 10. Color Check Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>10. Color Check Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Visual color selectors</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="mb-3">
-                            <label class="form-label">Choose Color</label>
-                            <div class="row g-2">
-                                <div class="col-auto">
-                                    <x-tabler::forms.color-check name="color" value="blue" color="blue" checked />
-                                </div>
-                                <div class="col-auto">
-                                    <x-tabler::forms.color-check name="color" value="red" color="red" />
-                                </div>
-                                <div class="col-auto">
-                                    <x-tabler::forms.color-check name="color" value="green" color="green" />
-                                </div>
-                                <div class="col-auto">
-                                    <x-tabler::forms.color-check name="color" value="yellow" color="yellow" />
-                                </div>
-                                <div class="col-auto">
-                                    <x-tabler::forms.color-check name="color" value="purple" color="purple" />
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.color-check name="color" value="blue" color="blue" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 11. Color Picker Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>11. Color Picker Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>HTML5 color picker</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <x-tabler::forms.color-picker
-                            name="brand_color"
-                            label="Brand Color"
-                            value="#066fd1"
-                        />
-
-                        <x-tabler::forms.color-picker
-                            name="accent_color"
-                            label="Accent Color"
-                            value="#10b981"
-                        />
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.color-picker name="brand_color" label="Brand Color" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 12. Image Check Component --}}
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>12. Image Check Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Image selection inputs</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="mb-3">
-                            <label class="form-label">Choose Avatar</label>
-                            <div class="row g-2">
-                                <div class="col-auto">
-                                    <x-tabler::forms.image-check
-                                        name="avatar"
-                                        value="1"
-                                        image="https://ui-avatars.com/api/?name=User+1&size=128&background=066fd1&color=fff"
-                                        checked
-                                    />
-                                </div>
-                                <div class="col-auto">
-                                    <x-tabler::forms.image-check
-                                        name="avatar"
-                                        value="2"
-                                        image="https://ui-avatars.com/api/?name=User+2&size=128&background=10b981&color=fff"
-                                    />
-                                </div>
-                                <div class="col-auto">
-                                    <x-tabler::forms.image-check
-                                        name="avatar"
-                                        value="3"
-                                        image="https://ui-avatars.com/api/?name=User+3&size=128&background=f59e0b&color=fff"
-                                    />
-                                </div>
-                                <div class="col-auto">
-                                    <x-tabler::forms.image-check
-                                        name="avatar"
-                                        value="4"
-                                        image="https://ui-avatars.com/api/?name=User+4&size=128&background=ef4444&color=fff"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.image-check name="avatar" value="1" image="path/to/image.jpg" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 13. Range Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>13. Range Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Range slider inputs</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <x-tabler::forms.range
-                            name="volume"
-                            label="Volume"
-                            value="75"
-                            min="0"
-                            max="100"
-                        />
-
-                        <x-tabler::forms.range
-                            name="price"
-                            label="Price Range"
-                            value="500"
-                            min="0"
-                            max="1000"
-                            step="50"
-                        />
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.range name="volume" label="Volume" value="75" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 14. File Component --}}
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>14. File Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>File upload inputs</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <x-tabler::forms.file
-                            name="document"
-                            label="Upload Document"
-                            accept=".pdf,.doc,.docx"
-                        />
-
-                        <x-tabler::forms.file
-                            name="images"
-                            label="Upload Images"
-                            accept="image/*"
-                            multiple
-                            help="You can select multiple images"
-                        />
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.file name="document" label="Upload Document" accept=".pdf" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 15. Input Group Component --}}
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>15. Input Group Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Input groups with prepend/append</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Website URL</label>
-                                    <x-tabler::forms.input-group prepend="https://">
-                                        <input type="text" class="form-control" placeholder="example.com" />
-                                    </x-tabler::forms.input-group>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Price</label>
-                                    <x-tabler::forms.input-group prepend="$" append=".00">
-                                        <input type="number" class="form-control" placeholder="0" />
-                                    </x-tabler::forms.input-group>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Username (Flat)</label>
-                                    <x-tabler::forms.input-group prepend="@" flat>
-                                        <input type="text" class="form-control" placeholder="username" />
-                                    </x-tabler::forms.input-group>
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.input-group prepend="$"&gt;...&lt;/x-tabler::forms.input-group&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 16. Fieldset Component --}}
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>16. Fieldset Component</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Group related form elements</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <x-tabler::forms.fieldset legend="Personal Information">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <x-tabler::forms.input name="first_name" label="First Name" placeholder="John" />
-                                </div>
-                                <div class="col-md-6">
-                                    <x-tabler::forms.input name="last_name" label="Last Name" placeholder="Doe" />
-                                </div>
-                            </div>
-                            <x-tabler::forms.input name="email" type="email" label="Email" placeholder="john@example.com" />
-                        </x-tabler::forms.fieldset>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.fieldset legend="Personal Information"&gt;...&lt;/x-tabler::forms.fieldset&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 17 & 18. Selectgroup Components --}}
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>17 & 18. Selectgroup Components</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Button-like selection groups</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="mb-3">
-                            <label class="form-label">Choose Plan (with Icons)</label>
-                            <x-tabler::forms.selectgroup>
-                                <x-tabler::forms.selectgroup-item
-                                    name="plan"
-                                    value="basic"
-                                    text="Basic"
-                                    icon="home"
-                                />
-                                <x-tabler::forms.selectgroup-item
-                                    name="plan"
-                                    value="pro"
-                                    text="Pro"
-                                    icon="star"
-                                    checked
-                                />
-                                <x-tabler::forms.selectgroup-item
-                                    name="plan"
-                                    value="enterprise"
-                                    text="Enterprise"
-                                    icon="building"
-                                />
-                            </x-tabler::forms.selectgroup>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Size (Pills Style)</label>
-                            <x-tabler::forms.selectgroup pills>
-                                <x-tabler::forms.selectgroup-item name="size" value="xs" text="XS" />
-                                <x-tabler::forms.selectgroup-item name="size" value="s" text="S" />
-                                <x-tabler::forms.selectgroup-item name="size" value="m" text="M" checked />
-                                <x-tabler::forms.selectgroup-item name="size" value="l" text="L" />
-                                <x-tabler::forms.selectgroup-item name="size" value="xl" text="XL" />
-                            </x-tabler::forms.selectgroup>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Features (Multiple Selection with Checkboxes)</label>
-                            <x-tabler::forms.selectgroup>
-                                <x-tabler::forms.selectgroup-item
-                                    type="checkbox"
-                                    name="features[]"
-                                    value="api"
-                                    text="API Access"
-                                    icon="cloud"
-                                />
-                                <x-tabler::forms.selectgroup-item
-                                    type="checkbox"
-                                    name="features[]"
-                                    value="support"
-                                    text="24/7 Support"
-                                    icon="phone"
-                                    checked
-                                />
-                                <x-tabler::forms.selectgroup-item
-                                    type="checkbox"
-                                    name="features[]"
-                                    value="analytics"
-                                    text="Analytics"
-                                    icon="chart-bar"
-                                />
-                            </x-tabler::forms.selectgroup>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.selectgroup&gt;&lt;x-tabler::forms.selectgroup-item ... /&gt;&lt;/x-tabler::forms.selectgroup&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- 19 & 20. Validation Feedback Components --}}
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>19 & 20. Validation Feedback Components</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>Success and error feedback messages</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Username (Valid)</label>
-                                    <input type="text" class="form-control is-valid" value="johndoe" />
-                                    <x-tabler::forms.valid-feedback message="Username is available!" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Email (Invalid)</label>
-                                    <input type="email" class="form-control is-invalid" value="invalid-email" />
-                                    <x-tabler::forms.invalid-feedback message="Please provide a valid email address." />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Password (Invalid with slot)</label>
-                                    <input type="password" class="form-control is-invalid" />
-                                    <x-tabler::forms.invalid-feedback>
-                                        <strong>Error:</strong> Password must be at least 8 characters long.
-                                    </x-tabler::forms.invalid-feedback>
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer transparent>
-                        <code>&lt;x-tabler::forms.valid-feedback message="Success!" /&gt;</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            {{-- Complete Form Example --}}
-            <div class="col-12">
-                <x-tabler::cards.card bgColor="primary-lt">
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Complete Form Example</x-tabler::cards.title>
-                        <x-tabler::cards.subtitle>All components working together</x-tabler::cards.subtitle>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <form>
-                            <x-tabler::forms.fieldset legend="Account Information">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <x-tabler::forms.input
-                                            name="username"
-                                            label="Username"
-                                            icon="user"
-                                            placeholder="johndoe"
-                                            required
-                                        />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <x-tabler::forms.input
-                                            name="email"
-                                            type="email"
-                                            label="Email"
-                                            icon="mail"
-                                            placeholder="john@example.com"
-                                            required
-                                        />
-                                    </div>
-                                </div>
-
-                                <x-tabler::forms.input
-                                    name="password"
-                                    type="password"
-                                    label="Password"
-                                    help="Must be at least 8 characters"
-                                    required
-                                />
-                            </x-tabler::forms.fieldset>
-
-                            <x-tabler::forms.fieldset legend="Profile Details">
-                                <x-tabler::forms.textarea
-                                    name="bio"
-                                    label="Bio"
-                                    placeholder="Tell us about yourself..."
-                                    rows="3"
-                                />
-
-                                <x-tabler::forms.select
-                                    name="country"
-                                    label="Country"
-                                    :options="[
-                                        'us' => 'United States',
-                                        'uk' => 'United Kingdom',
-                                        'ca' => 'Canada',
-                                    ]"
-                                />
-
-                                <div class="mb-3">
-                                    <label class="form-label">Choose Plan</label>
-                                    <x-tabler::forms.selectgroup>
-                                        <x-tabler::forms.selectgroup-item
-                                            name="plan"
-                                            value="free"
-                                            text="Free"
-                                            checked
-                                        />
-                                        <x-tabler::forms.selectgroup-item
-                                            name="plan"
-                                            value="pro"
-                                            text="Pro"
-                                        />
-                                    </x-tabler::forms.selectgroup>
-                                </div>
-                            </x-tabler::forms.fieldset>
-
-                            <x-tabler::forms.fieldset legend="Preferences">
-                                <x-tabler::forms.switch
-                                    name="notifications"
-                                    label="Enable Notifications"
-                                    checked
-                                />
-                                <x-tabler::forms.switch
-                                    name="newsletter"
-                                    label="Subscribe to Newsletter"
-                                />
-                            </x-tabler::forms.fieldset>
-
+                {{-- Checkboxes --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Checkboxes</x-slot:title>
+                            <x-slot:subtitle>Single or multiple selection options</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
                             <x-tabler::forms.checkbox
                                 name="terms"
                                 label="I agree to the terms and conditions"
                                 required
                             />
 
-                            <div class="mt-3">
-                                <x-tabler::button type="submit" color="primary" icon="check">
-                                    Create Account
-                                </x-tabler::button>
-                                <x-tabler::button type="button" variant="ghost" class="ms-2">
-                                    Cancel
-                                </x-tabler::button>
-                            </div>
-                        </form>
-                    </x-tabler::cards.body>
-                </x-tabler::cards.card>
-            </div>
+                            <x-tabler::forms.checkbox
+                                name="newsletter"
+                                label="Subscribe to newsletter"
+                                help="Receive weekly updates and promotions"
+                            />
 
-            {{-- Component Props Reference --}}
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Component Props Reference</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="table-responsive">
-                            <table class="table table-vcenter">
-                                <thead>
+                            <x-tabler::forms.checkbox
+                                name="remember"
+                                label="Remember me"
+                                checked
+                            />
+
+                            <div class="mb-3">
+                                <label class="form-label">Inline Checkboxes</label>
+                                <div>
+                                    <x-tabler::forms.checkbox name="opt1" label="Option 1" class="form-check-inline"
+                                                              :wrapper="false"/>
+                                    <x-tabler::forms.checkbox name="opt2" label="Option 2" class="form-check-inline"
+                                                              :wrapper="false"/>
+                                    <x-tabler::forms.checkbox name="opt3" label="Option 3" class="form-check-inline"
+                                                              :wrapper="false"/>
+                                </div>
+                            </div>
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.checkbox
+    name="terms"
+    label="I agree to terms"
+    required
+/&gt;
+
+&lt;x-tabler::forms.checkbox
+    name="remember"
+    label="Remember me"
+    checked
+/&gt;
+
+{{-- Inline checkboxes --}}
+&lt;x-tabler::forms.checkbox
+    name="opt1"
+    class="form-check-inline"
+    :wrapper="false"
+/&gt;</code></pre>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Radio Buttons --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Radio Buttons</x-slot:title>
+                            <x-slot:subtitle>Single selection from multiple options</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <div class="mb-3">
+                                <label class="form-label">Choose a Plan</label>
+                                <x-tabler::forms.radio name="plan" value="free" label="Free Plan"
+                                                       help="Basic features only" checked/>
+                                <x-tabler::forms.radio name="plan" value="pro" label="Pro Plan"
+                                                       help="Advanced features included"/>
+                                <x-tabler::forms.radio name="plan" value="enterprise" label="Enterprise Plan"
+                                                       help="All features + support"/>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Inline Radios</label>
+                                <div>
+                                    <x-tabler::forms.radio name="size" value="sm" label="Small"
+                                                           class="form-check-inline" :wrapper="false"/>
+                                    <x-tabler::forms.radio name="size" value="md" label="Medium"
+                                                           class="form-check-inline" :wrapper="false" checked/>
+                                    <x-tabler::forms.radio name="size" value="lg" label="Large"
+                                                           class="form-check-inline" :wrapper="false"/>
+                                </div>
+                            </div>
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.radio
+    name="plan"
+    value="free"
+    label="Free Plan"
+    checked
+/&gt;
+&lt;x-tabler::forms.radio
+    name="plan"
+    value="pro"
+    label="Pro Plan"
+/&gt;
+
+{{-- Inline radios --}}
+&lt;x-tabler::forms.radio
+    name="size"
+    value="sm"
+    class="form-check-inline"
+    :wrapper="false"
+/&gt;</code></pre>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Toggle Switches --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Toggle Switches</x-slot:title>
+                            <x-slot:subtitle>On/off toggle controls</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <x-tabler::forms.switch
+                                name="notifications"
+                                label="Enable notifications"
+                                checked
+                            />
+
+                            <x-tabler::forms.switch
+                                name="darkmode"
+                                label="Dark mode"
+                            />
+
+                            <x-tabler::forms.switch
+                                name="2fa"
+                                label="Two-factor authentication"
+                                help="Add an extra layer of security to your account"
+                            />
+
+                            <x-tabler::forms.switch
+                                name="public"
+                                label="Public profile"
+                                class="form-check-reverse"
+                            />
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.switch
+    name="notifications"
+    label="Enable notifications"
+    checked
+/&gt;
+
+&lt;x-tabler::forms.switch
+    name="2fa"
+    help="Add extra security"
+/&gt;
+
+{{-- Reverse layout --}}
+&lt;x-tabler::forms.switch
+    name="public"
+    class="form-check-reverse"
+/&gt;</code></pre>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Input Groups --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Input Groups</x-slot:title>
+                            <x-slot:subtitle>Inputs with prepend/append addons</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <div class="mb-3">
+                                <label class="form-label">Username</label>
+                                <x-tabler::forms.input-group prepend="@">
+                                    <input type="text" class="form-control" placeholder="username"/>
+                                </x-tabler::forms.input-group>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Website</label>
+                                <x-tabler::forms.input-group prepend="https://" append=".com">
+                                    <input type="text" class="form-control" placeholder="example"/>
+                                </x-tabler::forms.input-group>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Price</label>
+                                <x-tabler::forms.input-group prepend="$" append=".00">
+                                    <input type="number" class="form-control" placeholder="0"/>
+                                </x-tabler::forms.input-group>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Search</label>
+                                <x-tabler::forms.input-group>
+                                    <input type="text" class="form-control" placeholder="Search..."/>
+                                    <button class="btn btn-primary" type="button">Search</button>
+                                </x-tabler::forms.input-group>
+                            </div>
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.input-group prepend="@"&gt;
+    &lt;input type="text" class="form-control" /&gt;
+&lt;/x-tabler::forms.input-group&gt;
+
+&lt;x-tabler::forms.input-group prepend="$" append=".00"&gt;
+    &lt;input type="number" class="form-control" /&gt;
+&lt;/x-tabler::forms.input-group&gt;
+
+{{-- With button --}}
+&lt;x-tabler::forms.input-group&gt;
+    &lt;input type="text" class="form-control" /&gt;
+    &lt;button class="btn btn-primary"&gt;Search&lt;/button&gt;
+&lt;/x-tabler::forms.input-group&gt;</code></pre>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Select Groups --}}
+                <div class="col-md-12">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Select Groups</x-slot:title>
+                            <x-slot:subtitle>Visual button-style selection groups</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label">Choose Plan (Default Style)</label>
+                                    <x-tabler::forms.selectgroup>
+                                        <x-tabler::forms.selectgroup-item name="plan_default" value="free" text="Free"
+                                                                          checked/>
+                                        <x-tabler::forms.selectgroup-item name="plan_default" value="pro" text="Pro"/>
+                                        <x-tabler::forms.selectgroup-item name="plan_default" value="enterprise"
+                                                                          text="Enterprise"/>
+                                    </x-tabler::forms.selectgroup>
+
+                                    <label class="form-label">Choose Size (Pills Style)</label>
+                                    <x-tabler::forms.selectgroup class="form-selectgroup-pills">
+                                        <x-tabler::forms.selectgroup-item name="size_pills" value="sm" text="Small"/>
+                                        <x-tabler::forms.selectgroup-item name="size_pills" value="md" text="Medium"
+                                                                          checked/>
+                                        <x-tabler::forms.selectgroup-item name="size_pills" value="lg" text="Large"/>
+                                    </x-tabler::forms.selectgroup>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">View Mode (With Icons)</label>
+                                    <x-tabler::forms.selectgroup>
+                                        <x-tabler::forms.selectgroup-item name="view" value="grid" icon="layout-grid"
+                                                                          text="Grid" checked/>
+                                        <x-tabler::forms.selectgroup-item name="view" value="list" icon="list"
+                                                                          text="List"/>
+                                        <x-tabler::forms.selectgroup-item name="view" value="kanban"
+                                                                          icon="layout-kanban" text="Kanban"/>
+                                    </x-tabler::forms.selectgroup>
+
+                                    <label class="form-label">Features (Multiple Selection)</label>
+                                    <x-tabler::forms.selectgroup>
+                                        <x-tabler::forms.selectgroup-item name="features[]" value="wifi" text="WiFi"
+                                                                          type="checkbox" checked/>
+                                        <x-tabler::forms.selectgroup-item name="features[]" value="parking"
+                                                                          text="Parking" type="checkbox"/>
+                                        <x-tabler::forms.selectgroup-item name="features[]" value="pool" text="Pool"
+                                                                          type="checkbox" checked/>
+                                    </x-tabler::forms.selectgroup>
+                                </div>
+                            </div>
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;x-tabler::forms.selectgroup&gt;
+    &lt;x-tabler::forms.selectgroup-item name="plan" value="free" text="Free" checked /&gt;
+    &lt;x-tabler::forms.selectgroup-item name="plan" value="pro" text="Pro" /&gt;
+&lt;/x-tabler::forms.selectgroup&gt;
+
+{{-- Pills style --}}
+&lt;x-tabler::forms.selectgroup class="form-selectgroup-pills"&gt;
+    &lt;x-tabler::forms.selectgroup-item name="size" value="md" text="Medium" /&gt;
+&lt;/x-tabler::forms.selectgroup&gt;
+
+{{-- With icons --}}
+&lt;x-tabler::forms.selectgroup-item name="view" value="grid" icon="layout-grid" text="Grid" /&gt;
+
+{{-- Multiple selection (checkboxes) --}}
+&lt;x-tabler::forms.selectgroup-item name="features[]" value="wifi" text="WiFi" type="checkbox" /&gt;</code></pre>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Validation States --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Validation States</x-slot:title>
+                            <x-slot:subtitle>Valid and invalid input states</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <div class="mb-3">
+                                <label class="form-label">Valid Input</label>
+                                <input type="text" class="form-control is-valid" value="user@example.com"/>
+                                <div class="valid-feedback d-block">Looks good!</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Invalid Input</label>
+                                <input type="text" class="form-control is-invalid" value="invalid-email"/>
+                                <div class="invalid-feedback d-block">Please provide a valid email address.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Invalid Select</label>
+                                <select class="form-select is-invalid">
+                                    <option value="">Choose...</option>
+                                </select>
+                                <div class="invalid-feedback d-block">Please select an option.</div>
+                            </div>
+
+                            <label class="form-check is-invalid">
+                                <input type="checkbox" class="form-check-input is-invalid">
+                                <span class="form-check-label">Invalid Checkbox</span>
+                            </label>
+                            <div class="invalid-feedback d-block">You must agree before submitting.</div>
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;input class="form-control is-valid" /&gt;
+&lt;div class="valid-feedback d-block"&gt;Looks good!&lt;/div&gt;
+
+&lt;input class="form-control is-invalid" /&gt;
+&lt;div class="invalid-feedback d-block"&gt;Error message&lt;/div&gt;</code></pre>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Complete Form Example --}}
+                <div class="col-md-6">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Complete Form Example</x-slot:title>
+                            <x-slot:subtitle>Real-world form with multiple field types</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <form>
+                                <x-tabler::forms.input
+                                    name="full_name"
+                                    label="Full Name"
+                                    placeholder="John Doe"
+                                    required
+                                />
+
+                                <x-tabler::forms.input
+                                    name="user_email"
+                                    label="Email"
+                                    type="email"
+                                    icon="mail"
+                                    placeholder="john@example.com"
+                                    required
+                                />
+
+                                <x-tabler::forms.select
+                                    name="department"
+                                    label="Department"
+                                    placeholder="Select department..."
+                                    :options="[
+                                    'sales' => 'Sales',
+                                    'marketing' => 'Marketing',
+                                    'engineering' => 'Engineering',
+                                    'support' => 'Support'
+                                ]"
+                                    required
+                                />
+
+                                <x-tabler::forms.textarea
+                                    name="message"
+                                    label="Message"
+                                    placeholder="Enter your message..."
+                                    :rows="4"
+                                    required
+                                />
+
+                                <x-tabler::forms.checkbox
+                                    name="subscribe_form"
+                                    label="Send me updates and newsletters"
+                                />
+
+                                <x-tabler::forms.checkbox
+                                    name="terms_form"
+                                    label="I agree to the terms and conditions"
+                                    required
+                                />
+
+                                <div class="mt-3">
+                                    <x-tabler::button type="submit" color="primary">Submit Form</x-tabler::button>
+                                    <x-tabler::button type="button" class="ms-2">Cancel</x-tabler::button>
+                                </div>
+                            </form>
+
+                            <div class="mt-3">
+                            <pre class="p-3 rounded"><code>&lt;form&gt;
+    &lt;x-tabler::forms.input name="name" label="Name" required /&gt;
+    &lt;x-tabler::forms.input name="email" type="email" required /&gt;
+    &lt;x-tabler::forms.select name="dept" :options="[...]" /&gt;
+    &lt;x-tabler::forms.textarea name="message" /&gt;
+    &lt;x-tabler::forms.checkbox name="terms" required /&gt;
+    &lt;x-tabler::button type="submit"&gt;Submit&lt;/x-tabler::button&gt;
+&lt;/form&gt;</code></pre>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Props Reference: Input Component --}}
+                <div class="col-12">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Props Reference: Input Component</x-slot:title>
+                            <x-slot:subtitle>Complete list of available props for
+                                <code>&lt;x-tabler::forms.input&gt;</code></x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <div class="table-responsive">
+                                <table class="table table-vcenter">
+                                    <thead>
                                     <tr>
-                                        <th>Component</th>
-                                        <th>Key Props</th>
+                                        <th>Prop</th>
+                                        <th>Type</th>
+                                        <th>Default</th>
                                         <th>Description</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     <tr>
-                                        <td><code>forms.input</code></td>
-                                        <td>type, name, label, icon, size (sm/lg), loading, required</td>
-                                        <td>Text inputs with icons and validation</td>
+                                        <td><code>type</code></td>
+                                        <td><span class="badge bg-azure-lt">string</span></td>
+                                        <td><code>'text'</code></td>
+                                        <td>Input type: text, email, password, number, tel, url, etc.</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.textarea</code></td>
-                                        <td>name, label, rows, autosize</td>
-                                        <td>Multi-line text input</td>
+                                        <td><code>name</code></td>
+                                        <td><span class="badge bg-azure-lt">string|null</span></td>
+                                        <td><code>null</code></td>
+                                        <td>Input name attribute</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.select</code></td>
-                                        <td>name, label, options, placeholder, multiple</td>
-                                        <td>Dropdown with optgroups support</td>
+                                        <td><code>id</code></td>
+                                        <td><span class="badge bg-azure-lt">string|null</span></td>
+                                        <td><code>null</code></td>
+                                        <td>Input ID (auto-generated from name if not provided)</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.checkbox</code></td>
-                                        <td>name, value, label, checked, inline</td>
-                                        <td>Checkbox inputs</td>
+                                        <td><code>value</code></td>
+                                        <td><span class="badge bg-azure-lt">string|null</span></td>
+                                        <td><code>null</code></td>
+                                        <td>Input value</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.radio</code></td>
-                                        <td>name, value, label, checked, inline</td>
-                                        <td>Radio button inputs</td>
+                                        <td><code>placeholder</code></td>
+                                        <td><span class="badge bg-azure-lt">string|null</span></td>
+                                        <td><code>null</code></td>
+                                        <td>Placeholder text</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.switch</code></td>
-                                        <td>name, value, label, checked</td>
-                                        <td>Toggle switches</td>
+                                        <td><code>label</code></td>
+                                        <td><span class="badge bg-azure-lt">string|null</span></td>
+                                        <td><code>null</code></td>
+                                        <td>Label text displayed above input</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.label</code></td>
-                                        <td>for, required, description</td>
-                                        <td>Form labels with required indicator</td>
+                                        <td><code>help</code></td>
+                                        <td><span class="badge bg-azure-lt">string|null</span></td>
+                                        <td><code>null</code></td>
+                                        <td>Help text displayed above input</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.hint</code></td>
-                                        <td>-</td>
-                                        <td>Help text below controls</td>
+                                        <td><code>error</code></td>
+                                        <td><span class="badge bg-azure-lt">string|null</span></td>
+                                        <td><code>null</code></td>
+                                        <td>Error message (overrides Laravel validation errors)</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.help</code></td>
-                                        <td>content, placement</td>
-                                        <td>Popover help icons</td>
+                                        <td><code>required</code></td>
+                                        <td><span class="badge bg-purple-lt">bool</span></td>
+                                        <td><code>false</code></td>
+                                        <td>Mark as required field (adds asterisk to label)</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.color-check</code></td>
-                                        <td>name, value, color, checked</td>
-                                        <td>Visual color selectors</td>
+                                        <td><code>disabled</code></td>
+                                        <td><span class="badge bg-purple-lt">bool</span></td>
+                                        <td><code>false</code></td>
+                                        <td>Disable input</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.color-picker</code></td>
-                                        <td>name, label, value</td>
-                                        <td>HTML5 color picker</td>
+                                        <td><code>readonly</code></td>
+                                        <td><span class="badge bg-purple-lt">bool</span></td>
+                                        <td><code>false</code></td>
+                                        <td>Make input read-only</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.image-check</code></td>
-                                        <td>name, value, image, checked</td>
-                                        <td>Image selection inputs</td>
+                                        <td><code>size</code></td>
+                                        <td><span class="badge bg-azure-lt">string|null</span></td>
+                                        <td><code>null</code></td>
+                                        <td>Size variant: 'sm', 'lg'</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.range</code></td>
-                                        <td>name, label, value, min, max, step</td>
-                                        <td>Range sliders</td>
+                                        <td><code>icon</code></td>
+                                        <td><span class="badge bg-azure-lt">string|null</span></td>
+                                        <td><code>null</code></td>
+                                        <td>Tabler icon name (without 'tabler-' prefix)</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.file</code></td>
-                                        <td>name, label, accept, multiple</td>
-                                        <td>File upload inputs</td>
+                                        <td><code>iconPosition</code></td>
+                                        <td><span class="badge bg-azure-lt">string</span></td>
+                                        <td><code>'end'</code></td>
+                                        <td>Icon position: 'start', 'end'</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.input-group</code></td>
-                                        <td>prepend, append, flat</td>
-                                        <td>Input groups with addons</td>
+                                        <td><code>loading</code></td>
+                                        <td><span class="badge bg-purple-lt">bool</span></td>
+                                        <td><code>false</code></td>
+                                        <td>Show loading spinner instead of icon</td>
                                     </tr>
                                     <tr>
-                                        <td><code>forms.fieldset</code></td>
-                                        <td>legend</td>
-                                        <td>Group related form elements</td>
+                                        <td><code>wrapper</code></td>
+                                        <td><span class="badge bg-purple-lt">bool</span></td>
+                                        <td><code>true</code></td>
+                                        <td>Wrap in mb-3 div for consistent spacing</td>
                                     </tr>
-                                    <tr>
-                                        <td><code>forms.selectgroup</code></td>
-                                        <td>pills</td>
-                                        <td>Container for selectgroup items</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>forms.selectgroup-item</code></td>
-                                        <td>type (radio/checkbox), name, value, text, icon, checked</td>
-                                        <td>Button-like selection items</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>forms.valid-feedback</code></td>
-                                        <td>message</td>
-                                        <td>Success validation message</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>forms.invalid-feedback</code></td>
-                                        <td>message</td>
-                                        <td>Error validation message</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </x-tabler::cards.body>
-                </x-tabler::cards.card>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="mt-4">
+                                <h4>Similar Props for Other Form Components</h4>
+                                <ul class="text-secondary">
+                                    <li><strong>Textarea:</strong> Similar to input, adds <code>rows</code> (int,
+                                        default 3) and <code>autosize</code> (bool) props
+                                    </li>
+                                    <li><strong>Select:</strong> Similar to input, adds <code>options</code> (array),
+                                        <code>multiple</code> (bool), and <code>size</code> (int for visible options)
+                                        props
+                                    </li>
+                                    <li><strong>Checkbox/Radio/Switch:</strong> Uses <code>checked</code> (bool) instead
+                                        of value, adds <code>help</code> for description text
+                                    </li>
+                                    <li><strong>Input Group:</strong> Only <code>prepend</code> and <code>append</code>
+                                        props for addon text
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-4">
+                                <h4>Usage Notes</h4>
+                                <ul class="text-secondary">
+                                    <li>Icons use the <code>secondnetwork/blade-tabler-icons</code> package</li>
+                                    <li>Icon names should be provided without the 'tabler-' prefix (e.g., <code>icon="search"</code>)
+                                    </li>
+                                    <li>When <code>name</code> is set, component automatically handles
+                                        <code>old()</code> values for form repopulation
+                                    </li>
+                                    <li>Validation errors are automatically displayed when using Laravel's validation
+                                    </li>
+                                    <li>The <code>wrapper</code> prop controls whether the component is wrapped in a
+                                        <code>mb-3</code> div
+                                    </li>
+                                    <li>Set <code>wrapper="false"</code> for inline forms or custom layouts</li>
+                                </ul>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
+                {{-- Available CSS Classes --}}
+                <div class="col-12">
+                    <x-tabler::cards.card>
+                        <x-tabler::cards.header>
+                            <x-slot:title>Available CSS Classes</x-slot:title>
+                            <x-slot:subtitle>Additional styling options via class attribute</x-slot:subtitle>
+                        </x-tabler::cards.header>
+                        <x-tabler::cards.body>
+                            <p class="text-secondary">You can use these classes via the <code>class=""</code> attribute
+                                for additional styling:</p>
+
+                            <div class="mt-4">
+                                <h4>Input & Textarea Classes</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-vcenter">
+                                        <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><code>form-control-light</code></td>
+                                            <td>Light background variant for inputs</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>form-control-dark</code></td>
+                                            <td>Dark background variant for inputs</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>form-control-rounded</code></td>
+                                            <td>Rounded corners for inputs</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>form-control-flush</code></td>
+                                            <td>Remove background and borders</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>form-control-sm</code></td>
+                                            <td>Small input (also available via size prop)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>form-control-lg</code></td>
+                                            <td>Large input (also available via size prop)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>is-valid</code></td>
+                                            <td>Show valid state (green border)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>is-invalid</code></td>
+                                            <td>Show invalid state (red border)</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <h4>Checkbox, Radio & Switch Classes</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-vcenter">
+                                        <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><code>form-check-inline</code></td>
+                                            <td>Display inline instead of block</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>form-check-reverse</code></td>
+                                            <td>Align checkbox/radio/switch to the right</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>form-check-lg</code></td>
+                                            <td>Large checkbox/radio/switch</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <h4>Select Classes</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-vcenter">
+                                        <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><code>form-select-sm</code></td>
+                                            <td>Small select dropdown</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>form-select-lg</code></td>
+                                            <td>Large select dropdown</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <h4>Input Group Classes</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-vcenter">
+                                        <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><code>input-group-flat</code></td>
+                                            <td>Remove border radius from inner elements</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>input-group-sm</code></td>
+                                            <td>Small input group</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>input-group-lg</code></td>
+                                            <td>Large input group</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <h4>Select Group Classes</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-vcenter">
+                                        <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><code>form-selectgroup-pills</code></td>
+                                            <td>Pill-shaped buttons with spacing</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>form-selectgroup-boxes</code></td>
+                                            <td>Box-style buttons with borders</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <h4>Width Utilities</h4>
+                                <ul class="text-secondary">
+                                    <li><code>w-auto</code>, <code>w-25</code>, <code>w-50</code>, <code>w-75</code>,
+                                        <code>w-100</code> - Width percentages for form controls
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-4">
+                                <h4>Spacing Utilities</h4>
+                                <ul class="text-secondary">
+                                    <li><code>mb-2</code>, <code>mb-3</code>, <code>mt-2</code>, <code>mt-3</code> -
+                                        Margin utilities for custom spacing
+                                    </li>
+                                    <li><code>me-2</code>, <code>ms-2</code> - Margin end/start for inline elements</li>
+                                </ul>
+                            </div>
+                        </x-tabler::cards.body>
+                    </x-tabler::cards.card>
+                </div>
+
             </div>
-        </div>
-    </div>
 @endsection

@@ -1,3 +1,46 @@
+{{--
+    Form Color Picker Component
+
+    An HTML5 color picker input for selecting colors.
+
+    @prop string|null $name - Color picker name attribute
+    @prop string|null $id - Color picker ID (auto-generated from name if not provided)
+    @prop string $value - Default color value in hex format (default: '#066fd1')
+    @prop string|null $label - Label text
+    @prop bool $wrapper - Wrap in mb-3 div (default: true)
+
+    Available CSS Classes (use via class="" attribute):
+
+    Sizing:
+    - form-control-sm    - Small color picker
+    - form-control-lg    - Large color picker
+
+    Width Utilities:
+    - w-auto, w-25, w-50, w-75, w-100 - Width percentages
+
+    Usage Examples:
+
+    Basic color picker:
+    <x-tabler::forms.color-picker name="theme_color" label="Theme color" />
+
+    Custom default color:
+    <x-tabler::forms.color-picker
+        name="background"
+        label="Background color"
+        value="#ffffff"
+    />
+
+    Without wrapper:
+    <x-tabler::forms.color-picker name="accent" :wrapper="false" />
+
+    Small color picker:
+    <x-tabler::forms.color-picker
+        name="highlight"
+        label="Highlight"
+        class="form-control-sm"
+    />
+--}}
+
 @props([
     'name' => null,
     'id' => null,

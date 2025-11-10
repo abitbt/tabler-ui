@@ -1,594 +1,702 @@
-@extends('tabler::layouts.app')
+{{--
+    Button Component Demo
+
+    Comprehensive showcase of all button variations, states, and features.
+    Based on Tabler UI button patterns with Laravel Blade components.
+
+    Component: <x-tabler::button>
+    Location: abitbt/tablerui/stubs/resources/views/tabler/button.blade.php
+--}}
+
+@extends('layouts.app')
 
 @section('content')
-    <div class="container-xl">
-        <!-- Page header -->
-        <div class="page-header d-print-none mb-4">
-            <div class="row g-2 align-items-center">
-                <div class="col">
-                    <div class="page-pretitle">Component Demo</div>
-                    <h2 class="page-title">Button Component</h2>
-                    <p class="text-muted">Comprehensive showcase of all button variations, styles, and features.</p>
-                </div>
-            </div>
+    <div class="row row-cards">
+        {{-- Standard Buttons --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Standard Buttons</x-slot>
+                    <x-slot:subtitle>Default button style with various colors</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button color="primary">Primary</x-tabler::button>
+                        <x-tabler::button color="secondary">Secondary</x-tabler::button>
+                        <x-tabler::button color="success">Success</x-tabler::button>
+                        <x-tabler::button color="warning">Warning</x-tabler::button>
+                        <x-tabler::button color="danger">Danger</x-tabler::button>
+                        <x-tabler::button color="info">Info</x-tabler::button>
+                        <x-tabler::button color="light">Light</x-tabler::button>
+                        <x-tabler::button color="dark">Dark</x-tabler::button>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button color="primary"&gt;Primary&lt;/x-tabler::button&gt;
+&lt;x-tabler::button color="secondary"&gt;Secondary&lt;/x-tabler::button&gt;
+&lt;x-tabler::button color="success"&gt;Success&lt;/x-tabler::button&gt;
+&lt;x-tabler::button color="danger"&gt;Danger&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
         </div>
 
-        <div class="row row-cards">
-            <!-- Standard Colors -->
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Standard Colors</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="btn-list">
-                            <x-tabler::button>Default</x-tabler::button>
-                            <x-tabler::button color="primary">Primary</x-tabler::button>
-                            <x-tabler::button color="secondary">Secondary</x-tabler::button>
-                            <x-tabler::button color="success">Success</x-tabler::button>
-                            <x-tabler::button color="info">Info</x-tabler::button>
-                            <x-tabler::button color="warning">Warning</x-tabler::button>
-                            <x-tabler::button color="danger">Danger</x-tabler::button>
-                            <x-tabler::button color="light">Light</x-tabler::button>
-                            <x-tabler::button color="dark">Dark</x-tabler::button>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>color: primary | secondary | success | info | warning | danger | light | dark</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
+        {{-- Outline Buttons --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Outline Buttons</x-slot>
+                    <x-slot:subtitle>Transparent background with colored border</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button color="primary" variant="outline">Primary</x-tabler::button>
+                        <x-tabler::button color="secondary" variant="outline">Secondary</x-tabler::button>
+                        <x-tabler::button color="success" variant="outline">Success</x-tabler::button>
+                        <x-tabler::button color="warning" variant="outline">Warning</x-tabler::button>
+                        <x-tabler::button color="danger" variant="outline">Danger</x-tabler::button>
+                        <x-tabler::button color="info" variant="outline">Info</x-tabler::button>
+                        <x-tabler::button color="light" variant="outline">Light</x-tabler::button>
+                        <x-tabler::button color="dark" variant="outline">Dark</x-tabler::button>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button color="primary" variant="outline"&gt;Primary&lt;/x-tabler::button&gt;
+&lt;x-tabler::button color="danger" variant="outline"&gt;Danger&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-            <!-- Extended Colors -->
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Extended Color Palette</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="btn-list">
-                            <x-tabler::button color="blue">Blue</x-tabler::button>
-                            <x-tabler::button color="azure">Azure</x-tabler::button>
-                            <x-tabler::button color="indigo">Indigo</x-tabler::button>
-                            <x-tabler::button color="purple">Purple</x-tabler::button>
-                            <x-tabler::button color="pink">Pink</x-tabler::button>
-                            <x-tabler::button color="red">Red</x-tabler::button>
-                            <x-tabler::button color="orange">Orange</x-tabler::button>
-                            <x-tabler::button color="yellow">Yellow</x-tabler::button>
-                            <x-tabler::button color="lime">Lime</x-tabler::button>
-                            <x-tabler::button color="green">Green</x-tabler::button>
-                            <x-tabler::button color="teal">Teal</x-tabler::button>
-                            <x-tabler::button color="cyan">Cyan</x-tabler::button>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>color: blue | azure | indigo | purple | pink | red | orange | yellow | lime | green | teal | cyan</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
+        {{-- Ghost Buttons --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Ghost Buttons</x-slot>
+                    <x-slot:subtitle>Minimal style with hover effect</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button color="primary" variant="ghost">Primary</x-tabler::button>
+                        <x-tabler::button color="secondary" variant="ghost">Secondary</x-tabler::button>
+                        <x-tabler::button color="success" variant="ghost">Success</x-tabler::button>
+                        <x-tabler::button color="warning" variant="ghost">Warning</x-tabler::button>
+                        <x-tabler::button color="danger" variant="ghost">Danger</x-tabler::button>
+                        <x-tabler::button color="info" variant="ghost">Info</x-tabler::button>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button color="primary" variant="ghost"&gt;Primary&lt;/x-tabler::button&gt;
+&lt;x-tabler::button color="success" variant="ghost"&gt;Success&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-            <!-- Variants -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Outline Buttons</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="btn-list">
-                            <x-tabler::button variant="outline" color="primary">Primary</x-tabler::button>
-                            <x-tabler::button variant="outline" color="secondary">Secondary</x-tabler::button>
-                            <x-tabler::button variant="outline" color="success">Success</x-tabler::button>
-                            <x-tabler::button variant="outline" color="warning">Warning</x-tabler::button>
-                            <x-tabler::button variant="outline" color="danger">Danger</x-tabler::button>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>variant="outline"</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
+        {{-- Square Buttons --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Square Buttons</x-slot>
+                    <x-slot:subtitle>Buttons with sharp corners</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button color="primary" shape="square">Primary</x-tabler::button>
+                        <x-tabler::button color="secondary" shape="square">Secondary</x-tabler::button>
+                        <x-tabler::button color="success" shape="square">Success</x-tabler::button>
+                        <x-tabler::button color="warning" shape="square">Warning</x-tabler::button>
+                        <x-tabler::button color="danger" shape="square">Danger</x-tabler::button>
+                        <x-tabler::button color="info" shape="square">Info</x-tabler::button>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button color="primary" shape="square"&gt;Primary&lt;/x-tabler::button&gt;
+&lt;x-tabler::button color="danger" shape="square"&gt;Danger&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Ghost Buttons</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="btn-list">
-                            <x-tabler::button variant="ghost" color="primary">Primary</x-tabler::button>
-                            <x-tabler::button variant="ghost" color="secondary">Secondary</x-tabler::button>
-                            <x-tabler::button variant="ghost" color="success">Success</x-tabler::button>
-                            <x-tabler::button variant="ghost" color="warning">Warning</x-tabler::button>
-                            <x-tabler::button variant="ghost" color="danger">Danger</x-tabler::button>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>variant="ghost"</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
+        {{-- Pill Buttons --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Pill Buttons</x-slot>
+                    <x-slot:subtitle>Fully rounded buttons</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button color="primary" shape="pill">Primary</x-tabler::button>
+                        <x-tabler::button color="secondary" shape="pill">Secondary</x-tabler::button>
+                        <x-tabler::button color="success" shape="pill">Success</x-tabler::button>
+                        <x-tabler::button color="warning" shape="pill">Warning</x-tabler::button>
+                        <x-tabler::button color="danger" shape="pill">Danger</x-tabler::button>
+                        <x-tabler::button color="info" shape="pill">Info</x-tabler::button>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button color="primary" shape="pill"&gt;Primary&lt;/x-tabler::button&gt;
+&lt;x-tabler::button color="success" shape="pill"&gt;Success&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-            <!-- Sizes -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Button Sizes</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
+        {{-- Icon-Only Buttons --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Icon-Only Buttons</x-slot>
+                    <x-slot:subtitle>Compact buttons with icons only</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button icon="heart" iconOnly color="primary" aria-label="Like"/>
+                        <x-tabler::button icon="star" iconOnly color="warning" aria-label="Favorite"/>
+                        <x-tabler::button icon="bookmark" iconOnly color="info" aria-label="Bookmark"/>
+                        <x-tabler::button icon="share" iconOnly color="success" aria-label="Share"/>
+                        <x-tabler::button icon="trash" iconOnly color="danger" aria-label="Delete"/>
+                        <x-tabler::button icon="download" iconOnly color="secondary" aria-label="Download"/>
+                        <x-tabler::button icon="settings" iconOnly variant="outline" aria-label="Settings"/>
+                        <x-tabler::button icon="dots-vertical" class="btn-action" aria-label="More"/>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button icon="heart" iconOnly color="primary" aria-label="Like" /&gt;
+&lt;x-tabler::button icon="settings" iconOnly variant="outline" aria-label="Settings" /&gt;
+&lt;x-tabler::button icon="dots-vertical" class="btn-action" aria-label="More" /&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
+        {{-- Buttons with Leading Icons --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Buttons with Leading Icons</x-slot>
+                    <x-slot:subtitle>Icon positioned before text</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button icon="plus" color="primary">Add New</x-tabler::button>
+                        <x-tabler::button icon="download" color="success">Download</x-tabler::button>
+                        <x-tabler::button icon="upload" color="info">Upload</x-tabler::button>
+                        <x-tabler::button icon="trash" color="danger">Delete</x-tabler::button>
+                        <x-tabler::button icon="settings" variant="outline">Settings</x-tabler::button>
+                        <x-tabler::button icon="edit" variant="ghost">Edit</x-tabler::button>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button icon="plus" color="primary"&gt;Add New&lt;/x-tabler::button&gt;
+&lt;x-tabler::button icon="download" color="success"&gt;Download&lt;/x-tabler::button&gt;
+&lt;x-tabler::button icon="trash" color="danger"&gt;Delete&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
+        {{-- Buttons with Trailing Icons --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Buttons with Trailing Icons</x-slot>
+                    <x-slot:subtitle>Icon positioned after text</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button iconEnd="arrow-right" color="primary">Next</x-tabler::button>
+                        <x-tabler::button iconEnd="chevron-down" variant="outline">Dropdown</x-tabler::button>
+                        <x-tabler::button iconEnd="external-link" color="info">Open</x-tabler::button>
+                        <x-tabler::button iconEnd="send" color="success">Send</x-tabler::button>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button iconEnd="arrow-right" color="primary"&gt;Next&lt;/x-tabler::button&gt;
+&lt;x-tabler::button iconEnd="chevron-down" variant="outline"&gt;Dropdown&lt;/x-tabler::button&gt;
+&lt;x-tabler::button iconEnd="send" color="success"&gt;Send&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
+        {{-- Animated Icon Buttons --}}
+        <div class="col-md-12">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Animated Icon Buttons</x-slot>
+                    <x-slot:subtitle>Buttons with icon animations on hover</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button iconEnd="arrow-right" animate>Save</x-tabler::button>
+                        <x-tabler::button icon="plus" animate="rotate" color="primary">Add</x-tabler::button>
+                        <x-tabler::button icon="bell" animate="shake" color="warning">Notifications
+                        </x-tabler::button>
+                        <x-tabler::button icon="settings" animate="rotate" variant="outline">Settings
+                        </x-tabler::button>
+                        <x-tabler::button icon="heart" animate="pulse" color="danger">Love</x-tabler::button>
+                        <x-tabler::button icon="x" animate="rotate" color="secondary">Close</x-tabler::button>
+                        <x-tabler::button icon="check" animate="tada" color="success">Confirm</x-tabler::button>
+                        <x-tabler::button iconEnd="chevron-right" animate>Next</x-tabler::button>
+                        <x-tabler::button icon="chevron-left" animate="move-start" variant="ghost">Previous
+                        </x-tabler::button>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button iconEnd="arrow-right" animate&gt;Save&lt;/x-tabler::button&gt;
+&lt;x-tabler::button icon="plus" animate="rotate" color="primary"&gt;Add&lt;/x-tabler::button&gt;
+&lt;x-tabler::button icon="bell" animate="shake" color="warning"&gt;Notifications&lt;/x-tabler::button&gt;
+&lt;x-tabler::button icon="heart" animate="pulse" color="danger"&gt;Love&lt;/x-tabler::button&gt;
+&lt;x-tabler::button icon="check" animate="tada" color="success"&gt;Confirm&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
+        {{-- Button Sizes --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Button Sizes</x-slot>
+                    <x-slot:subtitle>Small, medium (default), and large sizes</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="space-y">
+                        {{-- Small --}}
                         <div class="btn-list">
                             <x-tabler::button size="sm" color="primary">Small</x-tabler::button>
-                            <x-tabler::button color="primary">Default</x-tabler::button>
+                            <x-tabler::button size="sm" icon="star" iconOnly color="primary" aria-label="Star"/>
+                            <x-tabler::button size="sm" icon="star" color="success">With Icon</x-tabler::button>
+                            <x-tabler::button size="sm" iconEnd="arrow-right" variant="outline">With Trail
+                                Icon
+                            </x-tabler::button>
+                        </div>
+
+                        {{-- Medium (Default) --}}
+                        <div class="btn-list">
+                            <x-tabler::button color="primary">Medium</x-tabler::button>
+                            <x-tabler::button icon="star" iconOnly color="primary" aria-label="Star"/>
+                            <x-tabler::button icon="star" color="success">With Icon</x-tabler::button>
+                            <x-tabler::button iconEnd="arrow-right" variant="outline">With Trail Icon
+                            </x-tabler::button>
+                        </div>
+
+                        {{-- Large --}}
+                        <div class="btn-list">
                             <x-tabler::button size="lg" color="primary">Large</x-tabler::button>
-                            <x-tabler::button size="xl" color="primary">Extra Large</x-tabler::button>
+                            <x-tabler::button size="lg" icon="star" iconOnly color="primary" aria-label="Star"/>
+                            <x-tabler::button size="lg" icon="star" color="success">With Icon</x-tabler::button>
+                            <x-tabler::button size="lg" iconEnd="arrow-right" variant="outline">With Trail
+                                Icon
+                            </x-tabler::button>
                         </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>size: sm | lg | xl</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Button Shapes</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="btn-list">
-                            <x-tabler::button color="primary">Default</x-tabler::button>
-                            <x-tabler::button color="primary" shape="square">Square</x-tabler::button>
-                            <x-tabler::button color="primary" shape="pill">Pill</x-tabler::button>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>shape: square | pill</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Icons -->
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Buttons with Icons</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="space-y">
-                            <div>
-                                <h4 class="subheader mb-2">Leading Icons</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button icon="upload" color="primary">Upload</x-tabler::button>
-                                    <x-tabler::button icon="download" color="success">Download</x-tabler::button>
-                                    <x-tabler::button icon="plus" color="info">Add New</x-tabler::button>
-                                    <x-tabler::button icon="trash" color="danger">Delete</x-tabler::button>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="subheader mb-2">Trailing Icons</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button iconEnd="arrow-right" color="primary">Next</x-tabler::button>
-                                    <x-tabler::button iconEnd="external-link" color="info">Open</x-tabler::button>
-                                    <x-tabler::button iconEnd="chevron-down" color="secondary">More</x-tabler::button>
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>icon="icon-name" | iconEnd="icon-name"</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Icon Only -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Icon-Only Buttons</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="btn-list">
-                            <x-tabler::button icon="star" iconOnly color="primary" aria-label="Favorite" />
-                            <x-tabler::button icon="heart" iconOnly color="danger" aria-label="Like" />
-                            <x-tabler::button icon="settings" iconOnly color="secondary" aria-label="Settings" />
-                            <x-tabler::button icon="bell" iconOnly color="warning" aria-label="Notifications" />
-                            <x-tabler::button icon="trash" iconOnly color="danger" aria-label="Delete" />
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>iconOnly aria-label="Label"</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Animated Icons -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Animated Icons</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="btn-list">
-                            <x-tabler::button icon="arrow-right" animate color="primary">Slide</x-tabler::button>
-                            <x-tabler::button icon="plus" animate="rotate" color="success">Rotate</x-tabler::button>
-                            <x-tabler::button icon="bell" animate="shake" color="warning">Shake</x-tabler::button>
-                            <x-tabler::button icon="heart" animate="pulse" color="danger">Pulse</x-tabler::button>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>animate: rotate | shake | pulse | tada</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- States -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Button States</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="space-y">
-                            <div>
-                                <h4 class="subheader mb-2">Normal</h4>
-                                <x-tabler::button color="primary">Normal Button</x-tabler::button>
-                            </div>
-                            <div>
-                                <h4 class="subheader mb-2">Loading</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button color="primary" loading>Loading...</x-tabler::button>
-                                    <x-tabler::button color="success" loading>Saving</x-tabler::button>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="subheader mb-2">Disabled</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button color="primary" disabled>Disabled</x-tabler::button>
-                                    <x-tabler::button color="secondary" disabled>Can't Click</x-tabler::button>
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>loading | disabled</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Full Width -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Full Width</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="space-y">
-                            <x-tabler::button color="primary" fullWidth>Primary Button</x-tabler::button>
-                            <x-tabler::button variant="outline" color="secondary" fullWidth>Outline Button</x-tabler::button>
-                            <x-tabler::button color="success" fullWidth icon="check">With Icon</x-tabler::button>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>fullWidth</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Links -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Link Buttons</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="space-y">
-                            <div>
-                                <h4 class="subheader mb-2">As Link (href)</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button href="#" color="primary">Link Button</x-tabler::button>
-                                    <x-tabler::button href="#" variant="outline" color="success">Outline Link</x-tabler::button>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="subheader mb-2">Link Style</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button link>Default Link</x-tabler::button>
-                                    <x-tabler::button link color="primary">Primary Link</x-tabler::button>
-                                    <x-tabler::button link color="danger">Danger Link</x-tabler::button>
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>href="#" | link</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Action Buttons</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="space-y">
-                            <div>
-                                <h4 class="subheader mb-2">Single Actions</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button action icon="edit" iconOnly aria-label="Edit" />
-                                    <x-tabler::button action icon="copy" iconOnly aria-label="Copy" />
-                                    <x-tabler::button action icon="trash" iconOnly aria-label="Delete" />
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="subheader mb-2">Action Group</h4>
-                                <div class="btn-actions">
-                                    <x-tabler::button action icon="refresh" iconOnly aria-label="Refresh" />
-                                    <x-tabler::button action icon="chevron-up" iconOnly aria-label="Expand" />
-                                    <x-tabler::button action icon="dots-vertical" iconOnly aria-label="More" />
-                                    <x-tabler::button action icon="x" iconOnly aria-label="Close" />
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>action | .btn-actions wrapper</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Social Buttons -->
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Social Media Buttons</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="space-y">
-                            <div>
-                                <h4 class="subheader mb-2">With Text</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button color="facebook" icon="brand-facebook">Facebook</x-tabler::button>
-                                    <x-tabler::button color="twitter" icon="brand-twitter">Twitter</x-tabler::button>
-                                    <x-tabler::button color="github" icon="brand-github">GitHub</x-tabler::button>
-                                    <x-tabler::button color="google" icon="brand-google">Google</x-tabler::button>
-                                    <x-tabler::button color="instagram" icon="brand-instagram">Instagram</x-tabler::button>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="subheader mb-2">Icon Only</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button color="facebook" icon="brand-facebook" iconOnly aria-label="Facebook" />
-                                    <x-tabler::button color="twitter" icon="brand-twitter" iconOnly aria-label="Twitter" />
-                                    <x-tabler::button color="github" icon="brand-github" iconOnly aria-label="GitHub" />
-                                    <x-tabler::button color="google" icon="brand-google" iconOnly aria-label="Google" />
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>color: facebook | twitter | github | google | instagram</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Button Groups -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Button Groups</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="space-y">
-                            <div>
-                                <h4 class="subheader mb-2">Horizontal</h4>
-                                <div class="btn-group" role="group">
-                                    <x-tabler::button>Left</x-tabler::button>
-                                    <x-tabler::button>Middle</x-tabler::button>
-                                    <x-tabler::button>Right</x-tabler::button>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="subheader mb-2">Vertical</h4>
-                                <div class="btn-group-vertical" role="group">
-                                    <x-tabler::button>Top</x-tabler::button>
-                                    <x-tabler::button>Middle</x-tabler::button>
-                                    <x-tabler::button>Bottom</x-tabler::button>
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>.btn-group | .btn-group-vertical</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Button Lists -->
-            <div class="col-md-6">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Button Lists</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="space-y">
-                            <div>
-                                <h4 class="subheader mb-2">Standard</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button color="success">Save</x-tabler::button>
-                                    <x-tabler::button>Continue</x-tabler::button>
-                                    <x-tabler::button color="danger">Cancel</x-tabler::button>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="subheader mb-2">Right Aligned</h4>
-                                <div class="btn-list justify-content-end">
-                                    <x-tabler::button>Cancel</x-tabler::button>
-                                    <x-tabler::button color="primary">Save</x-tabler::button>
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>.btn-list | .justify-content-end</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Custom Content -->
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Custom Attributes & Badges</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="space-y">
-                            <div>
-                                <h4 class="subheader mb-2">With Badges</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button color="primary">
-                                        Notifications
-                                        <span class="badge bg-red ms-2">14</span>
-                                    </x-tabler::button>
-                                    <x-tabler::button color="success">
-                                        Messages
-                                        <span class="badge bg-green ms-2">3</span>
-                                    </x-tabler::button>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="subheader mb-2">With Custom Attributes</h4>
-                                <div class="btn-list">
-                                    <x-tabler::button color="danger" data-confirm="Are you sure?" id="delete-btn">
-                                        Delete Record
-                                    </x-tabler::button>
-                                    <x-tabler::button color="info" data-action="export" class="shadow-lg">
-                                        Export Data
-                                    </x-tabler::button>
-                                </div>
-                            </div>
-                        </div>
-                    </x-tabler::cards.body>
-                    <x-tabler::cards.footer>
-                        <code>Custom classes, data-* attributes, and slot content</code>
-                    </x-tabler::cards.footer>
-                </x-tabler::cards.card>
-            </div>
-
-            <!-- Props Reference -->
-            <div class="col-12">
-                <x-tabler::cards.card>
-                    <x-tabler::cards.header>
-                        <x-tabler::cards.title>Component Props Reference</x-tabler::cards.title>
-                    </x-tabler::cards.header>
-                    <x-tabler::cards.body>
-                        <div class="table-responsive">
-                            <table class="table table-vcenter">
-                                <thead>
-                                    <tr>
-                                        <th>Prop</th>
-                                        <th>Type</th>
-                                        <th>Default</th>
-                                        <th>Options</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><code>type</code></td>
-                                        <td>string</td>
-                                        <td>button</td>
-                                        <td>button, submit, reset</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>href</code></td>
-                                        <td>string</td>
-                                        <td>null</td>
-                                        <td>URL (renders as &lt;a&gt;)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>color</code></td>
-                                        <td>string</td>
-                                        <td>null</td>
-                                        <td>primary, secondary, success, danger, blue, red, etc.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>variant</code></td>
-                                        <td>string</td>
-                                        <td>null</td>
-                                        <td>outline, ghost</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>size</code></td>
-                                        <td>string</td>
-                                        <td>null</td>
-                                        <td>sm, lg, xl</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>shape</code></td>
-                                        <td>string</td>
-                                        <td>null</td>
-                                        <td>square, pill</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>icon</code></td>
-                                        <td>string</td>
-                                        <td>null</td>
-                                        <td>Tabler icon name (leading)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>iconEnd</code></td>
-                                        <td>string</td>
-                                        <td>null</td>
-                                        <td>Tabler icon name (trailing)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>iconOnly</code></td>
-                                        <td>boolean</td>
-                                        <td>false</td>
-                                        <td>Removes text padding</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>loading</code></td>
-                                        <td>boolean</td>
-                                        <td>false</td>
-                                        <td>Shows spinner</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>disabled</code></td>
-                                        <td>boolean</td>
-                                        <td>false</td>
-                                        <td>Disables interaction</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>animate</code></td>
-                                        <td>string</td>
-                                        <td>null</td>
-                                        <td>true, rotate, shake, pulse, tada</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>fullWidth</code></td>
-                                        <td>boolean</td>
-                                        <td>false</td>
-                                        <td>100% width</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>link</code></td>
-                                        <td>boolean</td>
-                                        <td>false</td>
-                                        <td>Link style button</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>action</code></td>
-                                        <td>boolean</td>
-                                        <td>false</td>
-                                        <td>Minimal action button</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </x-tabler::cards.body>
-                </x-tabler::cards.card>
-            </div>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button size="sm" color="primary"&gt;Small&lt;/x-tabler::button&gt;
+&lt;x-tabler::button size="sm" icon="star" iconOnly color="primary" aria-label="Star" /&gt;
+&lt;x-tabler::button color="primary"&gt;Medium&lt;/x-tabler::button&gt;
+&lt;x-tabler::button size="lg" color="primary"&gt;Large&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
         </div>
+
+        {{-- Button States --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Button States</x-slot>
+                    <x-slot:subtitle>Loading, disabled, and active states</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="space-y">
+                        {{-- Loading State --}}
+                        <div>
+                            <div class="mb-2 text-secondary">Loading State</div>
+                            <div class="btn-list">
+                                <x-tabler::button loading color="primary">Loading...</x-tabler::button>
+                                <x-tabler::button loading color="success">Processing...</x-tabler::button>
+                                <x-tabler::button loading variant="outline">Please wait...</x-tabler::button>
+                            </div>
+                        </div>
+
+                        {{-- Disabled State --}}
+                        <div>
+                            <div class="mb-2 text-secondary">Disabled State</div>
+                            <div class="btn-list">
+                                <x-tabler::button disabled color="primary">Disabled</x-tabler::button>
+                                <x-tabler::button disabled color="success">Disabled</x-tabler::button>
+                                <x-tabler::button disabled variant="outline">Disabled</x-tabler::button>
+                            </div>
+                        </div>
+
+                        {{-- Link Buttons --}}
+                        <div>
+                            <div class="mb-2 text-secondary">Link Buttons (renders as &lt;a&gt;)</div>
+                            <div class="btn-list">
+                                <x-tabler::button href="#" color="primary">Link Button</x-tabler::button>
+                                <x-tabler::button href="#" color="success" icon="external-link">External Link
+                                </x-tabler::button>
+                                <x-tabler::button href="#" disabled variant="outline">Disabled Link
+                                </x-tabler::button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button loading color="primary"&gt;Loading...&lt;/x-tabler::button&gt;
+&lt;x-tabler::button disabled color="primary"&gt;Disabled&lt;/x-tabler::button&gt;
+&lt;x-tabler::button href="#" color="primary"&gt;Link Button&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
+        {{-- Special Button Styles (CSS Classes) --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Special Button Styles</x-slot>
+                    <x-slot:subtitle>Using additional CSS classes</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="space-y">
+                        {{-- Text Button --}}
+                        <div>
+                            <div class="mb-2 text-secondary">Text Button (btn-link)</div>
+                            <div class="btn-list">
+                                <x-tabler::button class="btn-link">Text Button</x-tabler::button>
+                                <x-tabler::button class="btn-link" icon="arrow-right">With Icon
+                                </x-tabler::button>
+                            </div>
+                        </div>
+
+                        {{-- Action Buttons --}}
+                        <div>
+                            <div class="mb-2 text-secondary">Action Buttons (btn-action)</div>
+                            <div class="btn-list">
+                                <x-tabler::button class="btn-action" icon="edit" aria-label="Edit"/>
+                                <x-tabler::button class="btn-action" icon="copy" aria-label="Copy"/>
+                                <x-tabler::button class="btn-action" icon="settings" aria-label="Settings"/>
+                                <x-tabler::button class="btn-action" icon="trash" aria-label="Delete"/>
+                                <x-tabler::button class="btn-action" icon="x" aria-label="Close"/>
+                            </div>
+                        </div>
+
+                        {{-- Buttons with Shadows --}}
+                        <div>
+                            <div class="mb-2 text-secondary">Buttons with Shadows</div>
+                            <div class="btn-list">
+                                <x-tabler::button color="primary" class="shadow-sm">Small Shadow
+                                </x-tabler::button>
+                                <x-tabler::button color="success" class="shadow">Default Shadow
+                                </x-tabler::button>
+                                <x-tabler::button color="danger" class="shadow-lg">Large Shadow
+                                </x-tabler::button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button class="btn-link"&gt;Text Button&lt;/x-tabler::button&gt;
+&lt;x-tabler::button class="btn-action" icon="edit" aria-label="Edit" /&gt;
+&lt;x-tabler::button color="primary" class="shadow-lg"&gt;With Shadow&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
+        {{-- Full Width Buttons --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Full Width Buttons</x-slot>
+                    <x-slot:subtitle>Buttons that stretch to container width</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="space-y">
+                        <x-tabler::button fullWidth color="primary">Full Width Primary</x-tabler::button>
+                        <x-tabler::button fullWidth color="success" icon="check">Full Width with Icon
+                        </x-tabler::button>
+                        <x-tabler::button fullWidth variant="outline">Full Width Outline</x-tabler::button>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;x-tabler::button fullWidth color="primary"&gt;Full Width Primary&lt;/x-tabler::button&gt;
+&lt;x-tabler::button fullWidth color="success" icon="check"&gt;Full Width with Icon&lt;/x-tabler::button&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
+        {{-- Button Groups --}}
+        <div class="col-md-12">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Button Groups</x-slot>
+                    <x-slot:subtitle>Common button group patterns</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="space-y">
+                        {{-- Form Actions --}}
+                        <div>
+                            <div class="mb-2 text-secondary">Form Actions</div>
+                            <div class="btn-list">
+                                <x-tabler::button type="submit" color="primary">Save Changes</x-tabler::button>
+                                <x-tabler::button type="button" variant="outline">Cancel</x-tabler::button>
+                            </div>
+                        </div>
+
+                        {{-- CRUD Actions --}}
+                        <div>
+                            <div class="mb-2 text-secondary">CRUD Actions</div>
+                            <div class="btn-list">
+                                <x-tabler::button icon="plus" color="primary">Create New</x-tabler::button>
+                                <x-tabler::button icon="edit" color="info">Edit</x-tabler::button>
+                                <x-tabler::button icon="copy" color="secondary">Duplicate</x-tabler::button>
+                                <x-tabler::button icon="trash" color="danger">Delete</x-tabler::button>
+                            </div>
+                        </div>
+
+                        {{-- Modal Actions --}}
+                        <div>
+                            <div class="mb-2 text-secondary">Modal Actions (right-aligned)</div>
+                            <div class="d-flex">
+                                <x-tabler::button class="btn-link">Cancel</x-tabler::button>
+                                <x-tabler::button color="primary" class="ms-auto">Confirm</x-tabler::button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                                <pre class="p-3 rounded"><code>&lt;!-- Form Actions --&gt;
+&lt;x-tabler::button type="submit" color="primary"&gt;Save Changes&lt;/x-tabler::button&gt;
+&lt;x-tabler::button type="button" variant="outline"&gt;Cancel&lt;/x-tabler::button&gt;
+
+&lt;!-- Modal Actions (right-aligned) --&gt;
+&lt;div class="d-flex"&gt;
+&lt;x-tabler::button class="btn-link"&gt;Cancel&lt;/x-tabler::button&gt;
+&lt;x-tabler::button color="primary" class="ms-auto"&gt;Confirm&lt;/x-tabler::button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
+        {{-- Props Reference Table --}}
+        <div class="col-12">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Props Reference</x-slot>
+                    <x-slot:subtitle>Complete list of available button component props</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>Prop</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>type</code></td>
+                                <td><span class="badge bg-azure-lt">string</span></td>
+                                <td><code>'button'</code></td>
+                                <td>Button type attribute. Options: <code>button</code>, <code>submit</code>,
+                                    <code>reset</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>href</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>URL to link to. When set, renders as <code>&lt;a&gt;</code> instead of
+                                    <code>&lt;button&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>color</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>Button color. Options: <code>primary</code>, <code>secondary</code>, <code>success</code>,
+                                    <code>danger</code>, <code>warning</code>, <code>info</code>,
+                                    <code>light</code>, <code>dark</code>, or any Tabler color
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>variant</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>Button style variant. Options: <code>outline</code>, <code>ghost</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>size</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>Button size. Options: <code>sm</code>, <code>lg</code> (omit for
+                                    default/medium)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>shape</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>Button shape. Options: <code>square</code>, <code>pill</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>icon</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>Leading icon name (without <code>tabler-</code> prefix). Example:
+                                    <code>plus</code>, <code>download</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>iconEnd</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>Trailing icon name (without <code>tabler-</code> prefix)</td>
+                            </tr>
+                            <tr>
+                                <td><code>iconOnly</code></td>
+                                <td><span class="badge bg-purple-lt">bool</span></td>
+                                <td><code>false</code></td>
+                                <td>Icon-only button with no text. Requires <code>icon</code> or
+                                    <code>iconEnd</code> prop
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>loading</code></td>
+                                <td><span class="badge bg-purple-lt">bool</span></td>
+                                <td><code>false</code></td>
+                                <td>Show loading spinner state. Button becomes disabled automatically</td>
+                            </tr>
+                            <tr>
+                                <td><code>disabled</code></td>
+                                <td><span class="badge bg-purple-lt">bool</span></td>
+                                <td><code>false</code></td>
+                                <td>Disable button interaction</td>
+                            </tr>
+                            <tr>
+                                <td><code>animate</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>Icon animation on hover. Options: <code>rotate</code>, <code>shake</code>,
+                                    <code>pulse</code>, <code>tada</code>, <code>move-start</code>, or <code>true</code>
+                                    for default
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>fullWidth</code></td>
+                                <td><span class="badge bg-purple-lt">bool</span></td>
+                                <td><code>false</code></td>
+                                <td>Make button full width (adds <code>w-100</code> class)</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-4">
+                        <h4>Usage Notes</h4>
+                        <ul class="text-secondary">
+                            <li>Icons use the <code>secondnetwork/blade-tabler-icons</code> package. Icon names
+                                should be provided without the <code>tabler-</code> prefix.
+                            </li>
+                            <li>When <code>href</code> is set, the component renders as an
+                                <code>&lt;a&gt;</code> element with <code>role="button"</code>.
+                            </li>
+                            <li>Icon-only buttons automatically generate an <code>aria-label</code> if not
+                                provided for accessibility.
+                            </li>
+                            <li>The <code>loading</code> state automatically disables the button.</li>
+                            <li>All standard HTML attributes can be passed via the <code>$attributes</code> bag
+                                (e.g., <code>data-*</code>, <code>id</code>, <code>onclick</code>).
+                            </li>
+                            <li>Colors can be any valid Tabler color: <code>primary</code>,
+                                <code>secondary</code>, <code>success</code>, <code>danger</code>,
+                                <code>warning</code>, <code>info</code>, <code>light</code>, <code>dark</code>,
+                                <code>blue</code>, <code>azure</code>, <code>indigo</code>, <code>purple</code>,
+                                <code>pink</code>, <code>red</code>, <code>orange</code>, <code>yellow</code>,
+                                <code>lime</code>, <code>green</code>, <code>teal</code>, <code>cyan</code>.
+                            </li>
+                            <li><strong>Important:</strong> Use <code>iconOnly</code> prop for regular icon-only
+                                buttons. Use <code>class="btn-action"</code> for minimal action buttons (without
+                                <code>iconOnly</code> prop). Don't combine both as they conflict.
+                            </li>
+                        </ul>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
+        {{-- Available CSS Classes --}}
+        <div class="col-12">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Available CSS Classes</x-slot>
+                    <x-slot:subtitle>Additional styling options via class attribute</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <p class="text-secondary">You can use these classes via the <code>class=""</code> attribute
+                        for additional styling:</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>btn-link</code></td>
+                                <td>Text button style with no background</td>
+                            </tr>
+                            <tr>
+                                <td><code>btn-action</code></td>
+                                <td>Minimal action button (typically for icon-only buttons)</td>
+                            </tr>
+                            <tr>
+                                <td><code>btn-floating</code></td>
+                                <td>Floating action button</td>
+                            </tr>
+                            <tr>
+                                <td><code>shadow-sm</code>, <code>shadow</code>, <code>shadow-lg</code></td>
+                                <td>Add shadow effects (small, default, large)</td>
+                            </tr>
+                            <tr>
+                                <td><code>w-100</code></td>
+                                <td>Full width button (also available via <code>fullWidth</code> prop)</td>
+                            </tr>
+                            <tr>
+                                <td><code>me-2</code>, <code>ms-2</code>, <code>mb-2</code>, <code>mt-2</code>
+                                </td>
+                                <td>Margin utilities for button spacing in groups</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-4">
+                        <h4>Color Classes</h4>
+                        <p class="text-secondary">
+                            <strong>Available colors:</strong>
+                            <code>primary</code>, <code>secondary</code>, <code>success</code>,
+                            <code>danger</code>,
+                            <code>warning</code>, <code>info</code>, <code>light</code>, <code>dark</code>,
+                            <code>blue</code>, <code>azure</code>, <code>indigo</code>, <code>purple</code>,
+                            <code>pink</code>, <code>red</code>, <code>orange</code>, <code>yellow</code>,
+                            <code>lime</code>, <code>green</code>, <code>teal</code>, <code>cyan</code>
+                        </p>
+                    </div>
+
+                    <div class="mt-4">
+                        <h4>Utility Classes</h4>
+                        <ul class="text-secondary">
+                            <li><code>mb-2</code>, <code>mt-2</code>, <code>me-2</code>, <code>ms-2</code> -
+                                Margin utilities for spacing
+                            </li>
+                            <li><code>w-100</code> - Full width (also available via <code>fullWidth</code> prop)
+                            </li>
+                            <li><code>d-flex</code>, <code>d-block</code>, <code>d-none</code> - Display
+                                utilities
+                            </li>
+                        </ul>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
+
     </div>
 @endsection

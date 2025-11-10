@@ -1,3 +1,21 @@
+{{--
+    Card Stamp Component
+
+    Decorative icon stamp positioned in the card corner.
+
+    @prop string|null $icon - Tabler icon name (without 'tabler-' prefix)
+    @prop string $color - Background color: 'primary', 'success', etc. (default: 'primary')
+    @prop bool $large - Use larger stamp size
+
+    @slot default - Custom stamp content (alternative to icon prop)
+
+    Usage:
+    <x-tabler::cards.card>
+        <x-tabler::cards.stamp icon="star" color="warning" />
+        <x-tabler::cards.body>Card content</x-tabler::cards.body>
+    </x-tabler::cards.card>
+--}}
+
 @props([
     'icon' => null,
     'color' => 'primary',

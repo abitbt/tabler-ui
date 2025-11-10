@@ -7,3 +7,19 @@
         margin-right: 0;
     }
 }
+
+// Dropdown menu items with icons - reduce left padding
+// Sidebar (vertical navbar) dropdown items with icons
+.navbar-vertical.navbar-expand-lg .navbar-collapse .dropdown-menu .dropdown-item:has(.dropdown-item-icon) {
+    padding-left: 1.5rem !important;
+}
+
+// Top navbar dropdown items with icons
+.navbar:not(.navbar-vertical) .dropdown-menu .dropdown-item:has(.dropdown-item-icon) {
+    padding-left: 1rem;
+}
+
+// Dropdown menu columns with icons
+.dropdown-menu-column .dropdown-item:has(.dropdown-item-icon) {
+    padding-left: 1rem;
+}

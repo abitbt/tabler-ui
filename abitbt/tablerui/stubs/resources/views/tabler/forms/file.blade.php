@@ -1,3 +1,61 @@
+{{--
+    Form File Input Component
+
+    A file upload input with label, help text, and validation support.
+
+    @prop string|null $name - File input name attribute
+    @prop string|null $id - File input ID (auto-generated from name if not provided)
+    @prop string|null $label - Label text
+    @prop string|null $help - Help text (displayed above input)
+    @prop string|null $error - Error message (overrides Laravel validation errors)
+    @prop string|null $accept - Accepted file types (e.g., "image/*", ".pdf,.doc")
+    @prop bool $multiple - Allow multiple file selection
+    @prop bool $required - Mark as required field
+    @prop bool $disabled - Disable file input
+    @prop bool $wrapper - Wrap in mb-3 div (default: true)
+
+    Available CSS Classes (use via class="" attribute):
+
+    States:
+    - is-valid           - Show valid state (green border)
+    - is-invalid         - Show invalid state (red border, auto-added on error)
+
+    Sizing:
+    - form-control-sm    - Small file input
+    - form-control-lg    - Large file input
+
+    Width Utilities:
+    - w-auto, w-25, w-50, w-75, w-100 - Width percentages
+
+    Usage Examples:
+
+    Basic file input:
+    <x-tabler::forms.file name="document" label="Upload document" />
+
+    Accept specific file types:
+    <x-tabler::forms.file
+        name="avatar"
+        label="Profile picture"
+        accept="image/png,image/jpeg"
+    />
+
+    Multiple file upload:
+    <x-tabler::forms.file
+        name="attachments"
+        label="Attachments"
+        multiple
+        help="You can select multiple files"
+    />
+
+    Required field:
+    <x-tabler::forms.file
+        name="resume"
+        label="Resume"
+        accept=".pdf,.doc,.docx"
+        required
+    />
+--}}
+
 @props([
     'name' => null,
     'id' => null,

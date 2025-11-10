@@ -22,10 +22,12 @@ class TablerServiceProvider extends ServiceProvider
 
     public function bootComponentPath(): void
     {
+        // Register package components
+        Blade::anonymousComponentPath(__DIR__.'/../stubs/resources/views/tabler', 'tabler');
+
+        // Register user's custom tabler components (override package components)
         if (file_exists(resource_path('views/tabler'))) {
             Blade::anonymousComponentPath(resource_path('views/tabler'), 'tabler');
         }
-
-        Blade::anonymousComponentPath(__DIR__.'/../stubs/resources/views/tabler', 'tabler');
     }
 }
