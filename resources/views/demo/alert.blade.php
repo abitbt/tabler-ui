@@ -10,8 +10,12 @@
 
 @extends('layouts.app')
 
-@section('page-header', 'Alert Components')
-@section('page-subtitle', 'Comprehensive showcase of all alert variations')
+@section('page-header')
+    <x-tabler::page-header
+        title="Alert Components"
+        subtitle="Comprehensive showcase of all alert variations"
+    />
+@endsection
 
 @section('content')
     <div class="row row-cards">

@@ -10,6 +10,13 @@
 
 @extends('layouts.app')
 
+@section('page-header')
+    <x-tabler::page-header
+        title="Button Components"
+        subtitle="Comprehensive showcase of all button variations"
+    />
+@endsection
+
 @section('content')
     <div class="row row-cards">
         {{-- Standard Buttons --}}
@@ -509,7 +516,8 @@
                                 <td><code>color</code></td>
                                 <td><span class="badge bg-azure-lt">string|null</span></td>
                                 <td><code>null</code></td>
-                                <td>Button color. Options: <code>primary</code>, <code>secondary</code>, <code>success</code>,
+                                <td>Button color. Options: <code>primary</code>, <code>secondary</code>,
+                                    <code>success</code>,
                                     <code>danger</code>, <code>warning</code>, <code>info</code>,
                                     <code>light</code>, <code>dark</code>, or any Tabler color
                                 </td>

@@ -71,8 +71,12 @@ For demo-specific styles, use `@push('styles')`:
 ### 4. Page Structure (Required)
 
 ```blade
-@section('page-header', '{Component Name})
-@section('page-subtitle', 'Brief description')
+@section('page-header')
+    <x-tabler::page-header
+        title="{Component Name}"
+        subtitle="Brief description"
+    />
+@endsection
 
 @section('content')
     <div class="row row-cards">

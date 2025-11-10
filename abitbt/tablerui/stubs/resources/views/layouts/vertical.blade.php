@@ -10,13 +10,48 @@
 
     Optional sections:
     - @section('topbar') - Override topbar
-    - @section('pageHeader') - Custom page header
+    - @section('page-header') - Custom page header (use page-header component)
     - @section('footer') - Custom footer
+
+    Layout Variables:
+
+    HTML Level:
+    - $htmlDir = 'rtl'           // RTL text direction
+    - $bsThemeBase               // Theme base color
+    - $bsThemeFont               // Theme font
+    - $bsThemePrimary            // Primary color
+    - $bsThemeRadius             // Border radius
+
+    Body Level:
+    - $bodyClass                 // Custom body classes
+    - $layoutBoxed = true        // Centered, max-width layout
+    - $layoutFluid = true        // Full-width layout
+
+    Sidebar:
+    - $sidebarDark = true        // Dark sidebar theme (default: true)
+    - $sidebarPosition = 'left'  // Sidebar position: 'left' or 'right'
+    - $sidebarTransparent = true // Transparent sidebar background
+    - $sidebarBackground = 'primary' // Custom background color
+    - $sidebarBreakpoint = 'lg'  // Collapse breakpoint
+    - $hideSidebarBrand = true   // Hide logo/brand
+    - $sidebarCustomClass        // Additional CSS classes
+    - $navItems = []             // Navigation items
+    - $sidebarItems = []         // Alternative sidebar items
+
+    Topbar:
+    - $hideTopbar = false        // Show top navbar (default: hidden)
+
+    Page Header:
+    (use @section('page-header') with page-header component)
+
+    Footer:
+    (use @section('footer'))
 --}}
 
 <!DOCTYPE html>
 <html
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    @if(isset($htmlDir) && $htmlDir === 'rtl') dir="rtl" @endif
     data-bs-theme-base="{{ $bsThemeBase ?? 'gray' }}"
     data-bs-theme-font="{{ $bsThemeFont ?? 'sans-serif' }}"
     data-bs-theme-primary="{{ $bsThemePrimary ?? 'blue' }}"
@@ -30,7 +65,14 @@
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     @stack('styles')
 </head>
-<body>
+@php
+    $bodyClasses = collect([
+        $bodyClass ?? null,
+        ($layoutBoxed ?? false) ? 'layout-boxed' : null,
+        ($layoutFluid ?? false) ? 'layout-fluid' : null,
+    ])->filter()->implode(' ');
+@endphp
+<body @if($bodyClasses) class="{{ $bodyClasses }}" @endif>
 
 <div class="page">
     {{-- BEGIN SIDEBAR --}}
@@ -56,8 +98,8 @@
 
     <div class="page-wrapper">
         {{-- Page Header (optional) --}}
-        @hasSection('pageHeader')
-            @yield('pageHeader')
+        @hasSection('page-header')
+            @yield('page-header')
         @endif
 
         {{-- Page Content --}}

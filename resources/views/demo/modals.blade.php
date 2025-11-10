@@ -10,22 +10,29 @@
 
 @extends('layouts.app')
 
+@section('page-header')
+    <x-tabler::page-header
+        title="Modal Components"
+        subtitle="Comprehensive showcase of all modal variations"
+    />
+@endsection
+
 @section('content')
     <div class="row row-cards">
 
-                {{-- Basic Modal --}}
-                <div class="col-md-6">
-                    <x-tabler::cards.card>
-                        <x-tabler::cards.header>
-                            <x-slot:title>Basic Modal</x-slot>
-                            <x-slot:subtitle>Standard modal with header, body, and footer</x-slot>
-                        </x-tabler::cards.header>
-                        <x-tabler::cards.body>
-                            <x-tabler::button color="primary" data-bs-toggle="modal" data-bs-target="#modal-simple">
-                                Launch Modal
-                            </x-tabler::button>
+        {{-- Basic Modal --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Basic Modal</x-slot>
+                    <x-slot:subtitle>Standard modal with header, body, and footer</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <x-tabler::button color="primary" data-bs-toggle="modal" data-bs-target="#modal-simple">
+                        Launch Modal
+                    </x-tabler::button>
 
-                            <div class="mt-3">
+                    <div class="mt-3">
                                         <pre class="p-3 rounded"><code>&lt;x-tabler::modals.modal id="modal-simple"&gt;
     &lt;x-tabler::modals.header title="Modal Title" /&gt;
     &lt;x-tabler::modals.body&gt;
@@ -36,60 +43,60 @@
         &lt;x-tabler::button color="primary"&gt;Save&lt;/x-tabler::button&gt;
     &lt;/x-tabler::modals.footer&gt;
 &lt;/x-tabler::modals.modal&gt;</code></pre>
-                            </div>
-                        </x-tabler::cards.body>
-                    </x-tabler::cards.card>
-                </div>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-                {{-- Modal Sizes --}}
-                <div class="col-md-6">
-                    <x-tabler::cards.card>
-                        <x-tabler::cards.header>
-                            <x-slot:title>Modal Sizes</x-slot>
-                            <x-slot:subtitle>Small, default, large, and extra large</x-slot>
-                        </x-tabler::cards.header>
-                        <x-tabler::cards.body>
-                            <div class="btn-list">
-                                <x-tabler::button size="sm" data-bs-toggle="modal" data-bs-target="#modal-small">
-                                    Small Modal
-                                </x-tabler::button>
-                                <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-default">
-                                    Default
-                                </x-tabler::button>
-                                <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-large">
-                                    Large
-                                </x-tabler::button>
-                                <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-xl">
-                                    Extra Large
-                                </x-tabler::button>
-                                <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-fullscreen">
-                                    Fullscreen
-                                </x-tabler::button>
-                            </div>
+        {{-- Modal Sizes --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Modal Sizes</x-slot>
+                    <x-slot:subtitle>Small, default, large, and extra large</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button size="sm" data-bs-toggle="modal" data-bs-target="#modal-small">
+                            Small Modal
+                        </x-tabler::button>
+                        <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-default">
+                            Default
+                        </x-tabler::button>
+                        <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-large">
+                            Large
+                        </x-tabler::button>
+                        <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-xl">
+                            Extra Large
+                        </x-tabler::button>
+                        <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-fullscreen">
+                            Fullscreen
+                        </x-tabler::button>
+                    </div>
 
-                            <div class="mt-3">
+                    <div class="mt-3">
                                         <pre class="p-3 rounded"><code>&lt;x-tabler::modals.modal id="modal-small" size="sm"&gt;...&lt;/x-tabler::modals.modal&gt;
 &lt;x-tabler::modals.modal id="modal-large" size="lg"&gt;...&lt;/x-tabler::modals.modal&gt;
 &lt;x-tabler::modals.modal id="modal-xl" size="xl"&gt;...&lt;/x-tabler::modals.modal&gt;
 &lt;x-tabler::modals.modal id="modal-full" size="fullscreen"&gt;...&lt;/x-tabler::modals.modal&gt;</code></pre>
-                            </div>
-                        </x-tabler::cards.body>
-                    </x-tabler::cards.card>
-                </div>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-                {{-- Success Alert Modal --}}
-                <div class="col-md-6">
-                    <x-tabler::cards.card>
-                        <x-tabler::cards.header>
-                            <x-slot:title>Success Alert</x-slot>
-                            <x-slot:subtitle>Confirmation and success messages</x-slot>
-                        </x-tabler::cards.header>
-                        <x-tabler::cards.body>
-                            <x-tabler::button color="success" data-bs-toggle="modal" data-bs-target="#modal-success">
-                                Show Success
-                            </x-tabler::button>
+        {{-- Success Alert Modal --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Success Alert</x-slot>
+                    <x-slot:subtitle>Confirmation and success messages</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <x-tabler::button color="success" data-bs-toggle="modal" data-bs-target="#modal-success">
+                        Show Success
+                    </x-tabler::button>
 
-                            <div class="mt-3">
+                    <div class="mt-3">
                                         <pre class="p-3 rounded"><code>&lt;x-tabler::modals.modal id="modal-success" size="sm"&gt;
     &lt;x-tabler::modals.close /&gt;
     &lt;x-tabler::modals.status color="success" /&gt;
@@ -108,24 +115,24 @@
         &lt;/div&gt;
     &lt;/x-tabler::modals.footer&gt;
 &lt;/x-tabler::modals.modal&gt;</code></pre>
-                            </div>
-                        </x-tabler::cards.body>
-                    </x-tabler::cards.card>
-                </div>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-                {{-- Danger Confirmation Modal --}}
-                <div class="col-md-6">
-                    <x-tabler::cards.card>
-                        <x-tabler::cards.header>
-                            <x-slot:title>Danger Confirmation</x-slot>
-                            <x-slot:subtitle>Destructive action confirmations</x-slot>
-                        </x-tabler::cards.header>
-                        <x-tabler::cards.body>
-                            <x-tabler::button color="danger" data-bs-toggle="modal" data-bs-target="#modal-danger">
-                                Delete Files
-                            </x-tabler::button>
+        {{-- Danger Confirmation Modal --}}
+        <div class="col-md-6">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Danger Confirmation</x-slot>
+                    <x-slot:subtitle>Destructive action confirmations</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <x-tabler::button color="danger" data-bs-toggle="modal" data-bs-target="#modal-danger">
+                        Delete Files
+                    </x-tabler::button>
 
-                            <div class="mt-3">
+                    <div class="mt-3">
                                         <pre class="p-3 rounded"><code>&lt;x-tabler::modals.modal id="modal-danger" size="sm"&gt;
     &lt;x-tabler::modals.close /&gt;
     &lt;x-tabler::modals.status color="danger" /&gt;
@@ -147,25 +154,25 @@
         &lt;/div&gt;
     &lt;/x-tabler::modals.footer&gt;
 &lt;/x-tabler::modals.modal&gt;</code></pre>
-                            </div>
-                        </x-tabler::cards.body>
-                    </x-tabler::cards.card>
-                </div>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-                {{-- Modal with Form --}}
-                <div class="col-md-12">
-                    <x-tabler::cards.card>
-                        <x-tabler::cards.header>
-                            <x-slot:title>Modal with Form</x-slot>
-                            <x-slot:subtitle>Large modal containing a complete form</x-slot>
-                        </x-tabler::cards.header>
-                        <x-tabler::cards.body>
-                            <x-tabler::button color="primary" icon="plus" data-bs-toggle="modal"
-                                              data-bs-target="#modal-report">
-                                New Report
-                            </x-tabler::button>
+        {{-- Modal with Form --}}
+        <div class="col-md-12">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Modal with Form</x-slot>
+                    <x-slot:subtitle>Large modal containing a complete form</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <x-tabler::button color="primary" icon="plus" data-bs-toggle="modal"
+                                      data-bs-target="#modal-report">
+                        New Report
+                    </x-tabler::button>
 
-                            <div class="mt-3">
+                    <div class="mt-3">
                                         <pre class="p-3 rounded"><code>&lt;x-tabler::modals.modal id="modal-report" size="lg"&gt;
     &lt;x-tabler::modals.header title="New report" /&gt;
     &lt;x-tabler::modals.body&gt;
@@ -180,32 +187,32 @@
         &lt;x-tabler::button color="primary" icon="plus" class="ms-auto"&gt;Create&lt;/x-tabler::button&gt;
     &lt;/x-tabler::modals.footer&gt;
 &lt;/x-tabler::modals.modal&gt;</code></pre>
-                            </div>
-                        </x-tabler::cards.body>
-                    </x-tabler::cards.card>
-                </div>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-                {{-- Scrollable & Static Modals --}}
-                <div class="col-md-12">
-                    <x-tabler::cards.card>
-                        <x-tabler::cards.header>
-                            <x-slot:title>Special Modal Options</x-slot>
-                            <x-slot:subtitle>Scrollable content and static backdrop</x-slot>
-                        </x-tabler::cards.header>
-                        <x-tabler::cards.body>
-                            <div class="btn-list">
-                                <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-scrollable">
-                                    Scrollable Modal
-                                </x-tabler::button>
-                                <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-static">
-                                    Static Backdrop
-                                </x-tabler::button>
-                                <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-no-center">
-                                    Not Centered
-                                </x-tabler::button>
-                            </div>
+        {{-- Scrollable & Static Modals --}}
+        <div class="col-md-12">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Special Modal Options</x-slot>
+                    <x-slot:subtitle>Scrollable content and static backdrop</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <div class="btn-list">
+                        <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-scrollable">
+                            Scrollable Modal
+                        </x-tabler::button>
+                        <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-static">
+                            Static Backdrop
+                        </x-tabler::button>
+                        <x-tabler::button data-bs-toggle="modal" data-bs-target="#modal-no-center">
+                            Not Centered
+                        </x-tabler::button>
+                    </div>
 
-                            <div class="mt-3">
+                    <div class="mt-3">
                                         <pre class="p-3 rounded"><code>&lt;!-- Scrollable: body content scrolls if too long --&gt;
 &lt;x-tabler::modals.modal id="modal-scrollable" scrollable&gt;...&lt;/x-tabler::modals.modal&gt;
 
@@ -214,293 +221,294 @@
 
 &lt;!-- Not centered: appears at top instead of center --&gt;
 &lt;x-tabler::modals.modal id="modal-top" :centered="false"&gt;...&lt;/x-tabler::modals.modal&gt;</code></pre>
-                            </div>
-                        </x-tabler::cards.body>
-                    </x-tabler::cards.card>
-                </div>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-                {{-- Props Reference Table --}}
-                <div class="col-12">
-                    <x-tabler::cards.card>
-                        <x-tabler::cards.header>
-                            <x-slot:title>Component Reference</x-slot>
-                            <x-slot:subtitle>All modal components and their props</x-slot>
-                        </x-tabler::cards.header>
-                        <x-tabler::cards.body>
-                            <h4>Modal Component Props</h4>
-                            <div class="table-responsive">
-                                <table class="table table-vcenter">
-                                    <thead>
-                                    <tr>
-                                        <th>Prop</th>
-                                        <th>Type</th>
-                                        <th>Default</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><code>id</code></td>
-                                        <td><span class="badge bg-azure-lt">string</span></td>
-                                        <td><code>required</code></td>
-                                        <td>Unique modal ID (required for <code>data-bs-target</code>)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>size</code></td>
-                                        <td><span class="badge bg-azure-lt">string|null</span></td>
-                                        <td><code>null</code></td>
-                                        <td>Modal size: <code>sm</code>, <code>lg</code>, <code>xl</code>, <code>fullscreen</code>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>scrollable</code></td>
-                                        <td><span class="badge bg-purple-lt">bool</span></td>
-                                        <td><code>false</code></td>
-                                        <td>Enable scrollable modal body for long content</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>centered</code></td>
-                                        <td><span class="badge bg-purple-lt">bool</span></td>
-                                        <td><code>true</code></td>
-                                        <td>Center modal vertically on screen</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>blur</code></td>
-                                        <td><span class="badge bg-purple-lt">bool</span></td>
-                                        <td><code>true</code></td>
-                                        <td>Apply blur effect to backdrop (Tabler default)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>static</code></td>
-                                        <td><span class="badge bg-purple-lt">bool</span></td>
-                                        <td><code>false</code></td>
-                                        <td>Prevent closing modal by clicking backdrop</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+        {{-- Props Reference Table --}}
+        <div class="col-12">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Component Reference</x-slot>
+                    <x-slot:subtitle>All modal components and their props</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <h4>Modal Component Props</h4>
+                    <div class="table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>Prop</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td><span class="badge bg-azure-lt">string</span></td>
+                                <td><code>required</code></td>
+                                <td>Unique modal ID (required for <code>data-bs-target</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><code>size</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>Modal size: <code>sm</code>, <code>lg</code>, <code>xl</code>,
+                                    <code>fullscreen</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>scrollable</code></td>
+                                <td><span class="badge bg-purple-lt">bool</span></td>
+                                <td><code>false</code></td>
+                                <td>Enable scrollable modal body for long content</td>
+                            </tr>
+                            <tr>
+                                <td><code>centered</code></td>
+                                <td><span class="badge bg-purple-lt">bool</span></td>
+                                <td><code>true</code></td>
+                                <td>Center modal vertically on screen</td>
+                            </tr>
+                            <tr>
+                                <td><code>blur</code></td>
+                                <td><span class="badge bg-purple-lt">bool</span></td>
+                                <td><code>true</code></td>
+                                <td>Apply blur effect to backdrop (Tabler default)</td>
+                            </tr>
+                            <tr>
+                                <td><code>static</code></td>
+                                <td><span class="badge bg-purple-lt">bool</span></td>
+                                <td><code>false</code></td>
+                                <td>Prevent closing modal by clicking backdrop</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                            <h4 class="mt-4">Header Component Props</h4>
-                            <div class="table-responsive">
-                                <table class="table table-vcenter">
-                                    <thead>
-                                    <tr>
-                                        <th>Prop</th>
-                                        <th>Type</th>
-                                        <th>Default</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><code>title</code></td>
-                                        <td><span class="badge bg-azure-lt">string|null</span></td>
-                                        <td><code>null</code></td>
-                                        <td>Modal title text</td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>hideClose</code></td>
-                                        <td><span class="badge bg-purple-lt">bool</span></td>
-                                        <td><code>false</code></td>
-                                        <td>Hide the close button</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                    <h4 class="mt-4">Header Component Props</h4>
+                    <div class="table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>Prop</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>title</code></td>
+                                <td><span class="badge bg-azure-lt">string|null</span></td>
+                                <td><code>null</code></td>
+                                <td>Modal title text</td>
+                            </tr>
+                            <tr>
+                                <td><code>hideClose</code></td>
+                                <td><span class="badge bg-purple-lt">bool</span></td>
+                                <td><code>false</code></td>
+                                <td>Hide the close button</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                            <h4 class="mt-4">Status Component Props</h4>
-                            <div class="table-responsive">
-                                <table class="table table-vcenter">
-                                    <thead>
-                                    <tr>
-                                        <th>Prop</th>
-                                        <th>Type</th>
-                                        <th>Default</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><code>color</code></td>
-                                        <td><span class="badge bg-azure-lt">string</span></td>
-                                        <td><code>required</code></td>
-                                        <td>Status color: <code>primary</code>, <code>success</code>,
-                                            <code>danger</code>, <code>warning</code>, <code>info</code>, etc.
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                    <h4 class="mt-4">Status Component Props</h4>
+                    <div class="table-responsive">
+                        <table class="table table-vcenter">
+                            <thead>
+                            <tr>
+                                <th>Prop</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>color</code></td>
+                                <td><span class="badge bg-azure-lt">string</span></td>
+                                <td><code>required</code></td>
+                                <td>Status color: <code>primary</code>, <code>success</code>,
+                                    <code>danger</code>, <code>warning</code>, <code>info</code>, etc.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                            <h4 class="mt-4">Other Components</h4>
-                            <ul class="text-secondary">
-                                <li><strong>Body Component:</strong> No props - pure wrapper for modal content</li>
-                                <li><strong>Footer Component:</strong> No props - pure wrapper for modal actions</li>
-                                <li><strong>Close Component:</strong> No props - standalone close button</li>
-                            </ul>
+                    <h4 class="mt-4">Other Components</h4>
+                    <ul class="text-secondary">
+                        <li><strong>Body Component:</strong> No props - pure wrapper for modal content</li>
+                        <li><strong>Footer Component:</strong> No props - pure wrapper for modal actions</li>
+                        <li><strong>Close Component:</strong> No props - standalone close button</li>
+                    </ul>
 
-                            <h4 class="mt-4">Usage Notes</h4>
-                            <ul class="text-secondary">
-                                <li>Modal requires Bootstrap 5 JavaScript to function</li>
-                                <li>Trigger modals using <code>data-bs-toggle="modal"</code> and <code>data-bs-target="#modal-id"</code>
-                                </li>
-                                <li>Close modals with <code>data-bs-dismiss="modal"</code> attribute on buttons</li>
-                                <li>Alert-style modals should use: close button, status bar, centered body, and
-                                    full-width button grid
-                                </li>
-                                <li>Use <code>size="sm"</code> for alert/confirmation modals</li>
-                                <li>Use <code>size="lg"</code> or <code>size="xl"</code> for form modals</li>
-                                <li>The <code>static</code> prop prevents backdrop clicks from closing (use for required
-                                    actions)
-                                </li>
-                                <li>Icons use <code>secondnetwork/blade-tabler-icons</code> package</li>
-                            </ul>
-                        </x-tabler::cards.body>
-                    </x-tabler::cards.card>
-                </div>
+                    <h4 class="mt-4">Usage Notes</h4>
+                    <ul class="text-secondary">
+                        <li>Modal requires Bootstrap 5 JavaScript to function</li>
+                        <li>Trigger modals using <code>data-bs-toggle="modal"</code> and <code>data-bs-target="#modal-id"</code>
+                        </li>
+                        <li>Close modals with <code>data-bs-dismiss="modal"</code> attribute on buttons</li>
+                        <li>Alert-style modals should use: close button, status bar, centered body, and
+                            full-width button grid
+                        </li>
+                        <li>Use <code>size="sm"</code> for alert/confirmation modals</li>
+                        <li>Use <code>size="lg"</code> or <code>size="xl"</code> for form modals</li>
+                        <li>The <code>static</code> prop prevents backdrop clicks from closing (use for required
+                            actions)
+                        </li>
+                        <li>Icons use <code>secondnetwork/blade-tabler-icons</code> package</li>
+                    </ul>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-                {{-- Available CSS Classes --}}
-                <div class="col-12">
-                    <x-tabler::cards.card>
-                        <x-tabler::cards.header>
-                            <x-slot:title>Available CSS Classes</x-slot>
-                            <x-slot:subtitle>Additional styling options via class attribute</x-slot>
-                        </x-tabler::cards.header>
-                        <x-tabler::cards.body>
-                            <p class="text-secondary">You can use these classes via the <code>class=""</code> attribute
-                                for additional styling:</p>
+        {{-- Available CSS Classes --}}
+        <div class="col-12">
+            <x-tabler::cards.card>
+                <x-tabler::cards.header>
+                    <x-slot:title>Available CSS Classes</x-slot>
+                    <x-slot:subtitle>Additional styling options via class attribute</x-slot>
+                </x-tabler::cards.header>
+                <x-tabler::cards.body>
+                    <p class="text-secondary">You can use these classes via the <code>class=""</code> attribute
+                        for additional styling:</p>
 
-                            <div class="mt-4">
-                                <h4>Modal Size Classes</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-vcenter">
-                                        <thead>
-                                        <tr>
-                                            <th>Class</th>
-                                            <th>Description</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td><code>modal-sm</code></td>
-                                            <td>Small modal (also available via <code>size="sm"</code> prop)</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-lg</code></td>
-                                            <td>Large modal (also available via <code>size="lg"</code> prop)</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-xl</code></td>
-                                            <td>Extra large modal (also available via <code>size="xl"</code> prop)</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-fullscreen</code></td>
-                                            <td>Full screen modal</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-fullscreen-sm-down</code></td>
-                                            <td>Full screen on small screens and below</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-fullscreen-md-down</code></td>
-                                            <td>Full screen on medium screens and below</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-fullscreen-lg-down</code></td>
-                                            <td>Full screen on large screens and below</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-fullscreen-xl-down</code></td>
-                                            <td>Full screen on extra large screens and below</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-fullscreen-xxl-down</code></td>
-                                            <td>Full screen on 2x extra large screens and below</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    <div class="mt-4">
+                        <h4>Modal Size Classes</h4>
+                        <div class="table-responsive">
+                            <table class="table table-vcenter">
+                                <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><code>modal-sm</code></td>
+                                    <td>Small modal (also available via <code>size="sm"</code> prop)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-lg</code></td>
+                                    <td>Large modal (also available via <code>size="lg"</code> prop)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-xl</code></td>
+                                    <td>Extra large modal (also available via <code>size="xl"</code> prop)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-fullscreen</code></td>
+                                    <td>Full screen modal</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-fullscreen-sm-down</code></td>
+                                    <td>Full screen on small screens and below</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-fullscreen-md-down</code></td>
+                                    <td>Full screen on medium screens and below</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-fullscreen-lg-down</code></td>
+                                    <td>Full screen on large screens and below</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-fullscreen-xl-down</code></td>
+                                    <td>Full screen on extra large screens and below</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-fullscreen-xxl-down</code></td>
+                                    <td>Full screen on 2x extra large screens and below</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                            <div class="mt-4">
-                                <h4>Modal Dialog Classes</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-vcenter">
-                                        <thead>
-                                        <tr>
-                                            <th>Class</th>
-                                            <th>Description</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td><code>modal-dialog-centered</code></td>
-                                            <td>Center modal vertically (also available via <code>centered</code> prop)
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-dialog-scrollable</code></td>
-                                            <td>Make modal body scrollable (also available via <code>scrollable</code>
-                                                prop)
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-blur</code></td>
-                                            <td>Blur backdrop effect (also available via <code>blur</code> prop)</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    <div class="mt-4">
+                        <h4>Modal Dialog Classes</h4>
+                        <div class="table-responsive">
+                            <table class="table table-vcenter">
+                                <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><code>modal-dialog-centered</code></td>
+                                    <td>Center modal vertically (also available via <code>centered</code> prop)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-dialog-scrollable</code></td>
+                                    <td>Make modal body scrollable (also available via <code>scrollable</code>
+                                        prop)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-blur</code></td>
+                                    <td>Blur backdrop effect (also available via <code>blur</code> prop)</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                            <div class="mt-4">
-                                <h4>Status Color Classes</h4>
-                                <p class="text-secondary">Apply to <code>&lt;x-tabler::modals.status&gt;</code>
-                                    component:</p>
-                                <div class="table-responsive">
-                                    <table class="table table-vcenter">
-                                        <thead>
-                                        <tr>
-                                            <th>Class</th>
-                                            <th>Description</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td><code>modal-status-success</code></td>
-                                            <td>Green status bar for success modals</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-status-danger</code></td>
-                                            <td>Red status bar for danger/error modals</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-status-warning</code></td>
-                                            <td>Yellow status bar for warning modals</td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>modal-status-info</code></td>
-                                            <td>Blue status bar for info modals</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    <div class="mt-4">
+                        <h4>Status Color Classes</h4>
+                        <p class="text-secondary">Apply to <code>&lt;x-tabler::modals.status&gt;</code>
+                            component:</p>
+                        <div class="table-responsive">
+                            <table class="table table-vcenter">
+                                <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><code>modal-status-success</code></td>
+                                    <td>Green status bar for success modals</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-status-danger</code></td>
+                                    <td>Red status bar for danger/error modals</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-status-warning</code></td>
+                                    <td>Yellow status bar for warning modals</td>
+                                </tr>
+                                <tr>
+                                    <td><code>modal-status-info</code></td>
+                                    <td>Blue status bar for info modals</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                            <div class="mt-4">
-                                <h4>Utility Classes</h4>
-                                <ul class="text-secondary">
-                                    <li><code>text-center</code> - Center align modal content</li>
-                                    <li><code>d-grid</code> - Make button container full width grid</li>
-                                    <li><code>gap-2</code>, <code>gap-3</code> - Spacing between buttons in grid</li>
-                                    <li><code>btn-list</code> - Horizontal button group with spacing</li>
-                                </ul>
-                            </div>
-                        </x-tabler::cards.body>
-                    </x-tabler::cards.card>
-                </div>
+                    <div class="mt-4">
+                        <h4>Utility Classes</h4>
+                        <ul class="text-secondary">
+                            <li><code>text-center</code> - Center align modal content</li>
+                            <li><code>d-grid</code> - Make button container full width grid</li>
+                            <li><code>gap-2</code>, <code>gap-3</code> - Spacing between buttons in grid</li>
+                            <li><code>btn-list</code> - Horizontal button group with spacing</li>
+                        </ul>
+                    </div>
+                </x-tabler::cards.body>
+            </x-tabler::cards.card>
+        </div>
 
-            </div>
+    </div>
 
     {{-- Modal Definitions --}}
 
