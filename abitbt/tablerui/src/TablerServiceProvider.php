@@ -2,21 +2,22 @@
 
 namespace Tabler;
 
-use Illuminate\View\ComponentAttributeBag;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Arr;
+use Illuminate\Support\ServiceProvider;
 
 class TablerServiceProvider extends ServiceProvider
 {
-    public function register(): void
-    {
-
-    }
+    public function register(): void {}
 
     public function boot(): void
     {
+        $this->bootViews();
         $this->bootComponentPath();
+    }
+
+    public function bootViews(): void
+    {
+        $this->loadViewsFrom(__DIR__.'/../stubs/resources/views', 'tabler');
     }
 
     public function bootComponentPath(): void

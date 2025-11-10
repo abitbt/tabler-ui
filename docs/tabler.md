@@ -2,1237 +2,7 @@
 
 > Comprehensive reference for Tabler UI components - extracted from Tabler v1.4.0
 
-## Table of Contents
-
-1. [Buttons](#buttons)
-2. [Cards](#cards)
-3. [Avatars](#avatars)
-4. [Badges](#badges)
-5. [Forms](#forms)
-6. [Tables](#tables)
-7. [Navigation](#navigation)
-8. [Alerts](#alerts)
-9. [Modals](#modals)
-10. [Progress](#progress)
-11. [Status & Indicators](#status--indicators)
-12. [Steps & Timeline](#steps--timeline)
-13. [Dropdowns](#dropdowns)
-14. [Empty States](#empty-states)
-15. [Ribbons](#ribbons)
-16. [Layout Structure](#layout-structure)
-17. [Dark Mode](#dark-mode)
-18. [Color System](#color-system)
-19. [Spacing & Sizing](#spacing--sizing)
-20. [Typography](#typography)
-21. [Border & Radius](#border--radius)
-22. [Utility Classes](#utility-classes)
-23. [JavaScript Components](#javascript-components)
-24. [Responsive Breakpoints](#responsive-breakpoints)
-25. [Icons](#icons)
-
----
-
-## 1. Buttons
-
-### Class Structure
-
-**Base Classes:**
-- `.btn` - Base button class (inline-flex, centered content)
-
-**Button Variants:**
-- `.btn-{color}` - Solid color buttons (primary, secondary, success, info, warning, danger, light, dark)
-- `.btn-outline-{color}` - Outline style with border
-- `.btn-ghost-{color}` - Transparent background, hover to solid
-- `.btn-link` - Link-style button
-
-**Sizes:**
-- `.btn-sm` - Small (padding: 0.3125rem 0.5rem, font: 0.75rem)
-- `.btn-md` - Default (padding: 0.5625rem 1rem, font: 0.875rem)
-- `.btn-lg` - Large (padding: 0.6875rem 1.5rem, font: 1rem)
-- `.btn-xl` - Extra large (padding: 0.6875rem 2rem, font: 1.5rem)
-
-**Shapes:**
-- `.btn-pill` - Fully rounded (border-radius: 10rem)
-- `.btn-square` - No border radius
-- `.btn-icon` - Icon-only square button
-
-**States:**
-- `.btn-loading` - Shows spinner, hides content
-- `.btn-action` - Minimal action button style
-- `.disabled` - Disabled state (opacity: 0.4)
-
-**Special Animations:**
-- `.btn-animate-icon` - Icon moves on hover
-- `.btn-animate-icon-rotate` - Icon rotates
-- `.btn-animate-icon-shake` - Icon shakes
-- `.btn-animate-icon-pulse` - Icon pulses
-- `.btn-animate-icon-tada` - Icon tada animation
-
-### HTML Examples
-
-```html
-<!-- Standard button -->
-<a class="btn btn-primary">
-  <svg class="icon">...</svg>
-  Button Text
-</a>
-
-<!-- Outline button -->
-<button class="btn btn-outline-danger">Delete</button>
-
-<!-- Icon button -->
-<button class="btn btn-icon btn-primary">
-  <svg class="icon">...</svg>
-</button>
-
-<!-- Button with animation -->
-<a class="btn btn-animate-icon">
-  Save
-  <svg class="icon icon-end">...</svg>
-</a>
-
-<!-- Loading button -->
-<button class="btn btn-primary btn-loading">Processing</button>
-
-<!-- Button list (auto-spacing) -->
-<div class="btn-list">
-  <button class="btn btn-primary">Save</button>
-  <button class="btn">Cancel</button>
-</div>
-```
-
----
-
-## 2. Cards
-
-### Class Structure
-
-**Base Classes:**
-- `.card` - Main container (bg: surface, border-radius: 8px)
-- `.card-header` - Top section with title
-- `.card-body` - Main content area (padding: 1.25rem)
-- `.card-footer` - Bottom section
-
-**Card Variants:**
-- `.card-borderless` - No borders
-- `.card-active` - Active state (primary border, active bg)
-- `.card-inactive` - Disabled appearance (opacity: 0.64)
-- `.card-stacked` - Stacked card effect
-- `.card-sm` - Smaller padding (1rem)
-- `.card-md` - Medium padding (2.5rem on md+)
-- `.card-lg` - Large padding (2-4rem on lg+)
-
-**Card Status Bars:**
-- `.card-status-top` - Colored bar at top (2px height)
-- `.card-status-start` - Colored bar at left
-- `.card-status-bottom` - Colored bar at bottom
-
-**Card Stamps:**
-- `.card-stamp` - Decorative corner icon (7rem, top-right)
-- `.card-stamp-lg` - Larger stamp (13rem)
-- `.card-stamp-icon` - Icon container in stamp
-
-**Card Effects:**
-- `.card-link` - Clickable card with hover effect
-- `.card-link-rotate` - Rotates on hover
-- `.card-link-pop` - Lifts up on hover
-- `.card-rotate-end` / `.card-rotate-start` - Pre-rotated
-
-**Card Cover:**
-- `.card-cover` - Background image overlay
-- `.card-cover-blurred` - Adds backdrop blur
-
-**Card Headers:**
-- `.card-header-light` - Light background
-- `.card-header-tabs` - Tabs in header
-
-**Card Footer:**
-- `.card-footer-transparent` - Transparent footer
-- `.card-footer-borderless` - No top border
-
-### HTML Examples
-
-```html
-<!-- Basic card -->
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Card Title</h3>
-  </div>
-  <div class="card-body">
-    Card content here
-  </div>
-</div>
-
-<!-- Card with status bar -->
-<div class="card">
-  <div class="card-status-top bg-danger"></div>
-  <div class="card-body">...</div>
-</div>
-
-<!-- Card with stamp -->
-<div class="card">
-  <div class="card-stamp">
-    <div class="card-stamp-icon bg-yellow">
-      <svg class="icon">...</svg>
-    </div>
-  </div>
-  <div class="card-body">...</div>
-</div>
-
-<!-- Card with image -->
-<div class="card">
-  <img src="image.jpg" class="card-img-top">
-  <div class="card-body">...</div>
-</div>
-
-<!-- Clickable card -->
-<a href="#" class="card card-link card-link-pop">
-  <div class="card-body">Hover me</div>
-</a>
-
-<!-- Card with footer -->
-<div class="card">
-  <div class="card-body">...</div>
-  <div class="card-footer">
-    <button class="btn btn-primary">Action</button>
-  </div>
-</div>
-```
-
----
-
-## 3. Avatars
-
-### Class Structure
-
-**Base Class:**
-- `.avatar` - Base avatar (2.5rem square, border-radius: 6px)
-
-**Sizes:**
-- `.avatar-xxs` - 1rem
-- `.avatar-xs` - 1.25rem
-- `.avatar-sm` - 2rem
-- `.avatar-md` - 2.5rem (default)
-- `.avatar-lg` - 3rem
-- `.avatar-xl` - 5rem
-- `.avatar-2xl` - 7rem
-
-**Shapes:**
-- `.avatar-rounded` - Fully circular (border-radius: 100rem)
-
-**Avatar List:**
-- `.avatar-list` - Container for multiple avatars
-- `.avatar-list-stacked` - Overlapping avatars
-
-**Status Badge:**
-- Add `.badge` inside avatar for status indicator
-
-**Special:**
-- `.avatar-upload` - Upload placeholder style
-- `.avatar-cover` - Avatar overlapping card edge
-- `.avatar-brand` - Small brand icon overlay
-
-### HTML Examples
-
-```html
-<!-- Basic avatar with image -->
-<span class="avatar" style="background-image: url(photo.jpg)"></span>
-
-<!-- Avatar with initials -->
-<span class="avatar">AB</span>
-
-<!-- Avatar with icon -->
-<span class="avatar">
-  <svg class="icon avatar-icon">...</svg>
-</span>
-
-<!-- Avatar with status -->
-<span class="avatar">
-  <span class="badge bg-success"></span>
-</span>
-
-<!-- Sized avatars -->
-<span class="avatar avatar-xs">XS</span>
-<span class="avatar avatar-sm">SM</span>
-<span class="avatar avatar-lg">LG</span>
-
-<!-- Rounded avatar -->
-<span class="avatar avatar-rounded" style="background-image: url(photo.jpg)"></span>
-
-<!-- Avatar list -->
-<div class="avatar-list">
-  <span class="avatar">AB</span>
-  <span class="avatar">CD</span>
-  <span class="avatar">EF</span>
-</div>
-
-<!-- Stacked avatar list -->
-<div class="avatar-list avatar-list-stacked">
-  <span class="avatar">AB</span>
-  <span class="avatar">CD</span>
-  <span class="avatar">+3</span>
-</div>
-```
-
----
-
-## 4. Badges
-
-### Class Structure
-
-**Base Class:**
-- `.badge` - Inline-flex badge
-
-**Sizes:**
-- `.badge-sm` - Small (font: 0.71428571em, padding: 2px 0.25rem)
-- `.badge-lg` - Large (font: 1em, padding: 0.25rem 0.5rem)
-
-**Variants:**
-- `.badge-outline` - Outlined badge
-- `.badge-pill` - Fully rounded
-
-**Colors:**
-- `.bg-{color}` with `.text-{color}-fg` - Solid color badges
-- Use theme colors: primary, secondary, success, info, warning, danger
-
-**Special:**
-- `.badge-dot` - Small dot badge (10px circle)
-- `.badge-notification` - Positioned badge for notifications
-- `.badge-blink` - Animated blinking badge
-
-### HTML Examples
-
-```html
-<!-- Basic badge -->
-<span class="badge bg-primary text-primary-fg">Primary</span>
-
-<!-- Small badge -->
-<span class="badge badge-sm bg-success text-success-fg">New</span>
-
-<!-- Outline badge -->
-<span class="badge badge-outline text-warning">Warning</span>
-
-<!-- Badge with icon -->
-<span class="badge bg-info text-info-fg">
-  <svg class="icon">...</svg>
-  Info
-</span>
-
-<!-- Dot badge -->
-<span class="badge badge-dot bg-danger"></span>
-
-<!-- Notification badge -->
-<button class="btn btn-icon">
-  <svg class="icon">...</svg>
-  <span class="badge badge-notification bg-danger">3</span>
-</button>
-
-<!-- Badges list -->
-<div class="badges-list">
-  <span class="badge bg-primary text-primary-fg">Tag 1</span>
-  <span class="badge bg-secondary text-secondary-fg">Tag 2</span>
-</div>
-```
-
----
-
-## 5. Forms
-
-### Class Structure
-
-**Form Controls:**
-- `.form-control` - Base input style
-- `.form-control-light` - Light gray background
-- `.form-control-dark` - Dark transparent style
-- `.form-control-rounded` - Fully rounded (border-radius: 10rem)
-- `.form-control-flush` - No styling (transparent)
-
-**Form Labels:**
-- `.form-label` - Standard label (font-weight: 500)
-- `.form-label.required` - Adds red asterisk
-
-**Form Hints:**
-- `.form-hint` - Helper text (color: secondary)
-- `.form-label-description` - Floated right description
-
-**Input Groups:**
-- `.input-group` - Grouped inputs
-- `.input-group-flat` - Flat style with focus effect
-- `.input-group-text` - Addon text
-
-**Form Sizes:**
-- `.form-control-sm` - Small inputs
-- `.form-control-lg` - Large inputs
-
-**Checkboxes & Radios:**
-- `.form-check` - Wrapper
-- `.form-check-input` - Checkbox/radio input (1.25rem)
-- `.form-check-label` - Label text
-- `.form-switch` - Toggle switch (2rem × 1.25rem)
-
-**Select:**
-- `.form-select` - Styled select dropdown
-
-**Other:**
-- `.form-footer` - Footer section (margin-top: 2rem)
-- `.form-fieldset` - Grouped fields with background
-
-### HTML Examples
-
-```html
-<!-- Basic input -->
-<div class="mb-3">
-  <label class="form-label">Email</label>
-  <input type="email" class="form-control" placeholder="Email">
-</div>
-
-<!-- Required field -->
-<div class="mb-3">
-  <label class="form-label required">Name</label>
-  <input type="text" class="form-control">
-</div>
-
-<!-- Input with hint -->
-<div class="mb-3">
-  <label class="form-label">Password</label>
-  <input type="password" class="form-control">
-  <small class="form-hint">Must be at least 8 characters</small>
-</div>
-
-<!-- Input group -->
-<div class="input-group">
-  <span class="input-group-text">@</span>
-  <input type="text" class="form-control" placeholder="Username">
-</div>
-
-<!-- Checkbox -->
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" id="check1">
-  <label class="form-check-label" for="check1">
-    Remember me
-  </label>
-</div>
-
-<!-- Switch -->
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" id="switch1">
-  <label class="form-check-label" for="switch1">
-    Enable notifications
-  </label>
-</div>
-
-<!-- Select -->
-<select class="form-select">
-  <option>Option 1</option>
-  <option>Option 2</option>
-</select>
-
-<!-- Textarea -->
-<textarea class="form-control" rows="3" placeholder="Your message"></textarea>
-```
-
----
-
-## 6. Tables
-
-### Class Structure
-
-**Base:**
-- `.table` - Base table style
-
-**Variants:**
-- `.table-striped` - Striped rows (even rows)
-- `.table-hover` - Hover effect
-- `.table-bordered` - All borders
-- `.table-borderless` - No borders
-- `.table-transparent` - Transparent header
-
-**Modifiers:**
-- `.table-vcenter` - Vertically center content
-- `.table-center` - Center all content
-- `.table-nowrap` - No text wrapping
-
-**Responsive:**
-- `.table-responsive` - Scrollable on mobile
-- `.table-mobile` - Mobile-friendly layout
-
-**Sorting:**
-- `.table-sort` - Sortable column header
-
-**Selectable:**
-- `.table-selectable` - Checkbox selection support
-
-### HTML Examples
-
-```html
-<!-- Basic table -->
-<div class="table-responsive">
-  <table class="table table-vcenter">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John Doe</td>
-        <td>john@example.com</td>
-        <td><span class="badge bg-success">Active</span></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- Sortable table -->
-<table class="table">
-  <thead>
-    <tr>
-      <th><button class="table-sort">Name</button></th>
-      <th><button class="table-sort asc">Date</button></th>
-    </tr>
-  </thead>
-</table>
-
-<!-- Striped hover table -->
-<table class="table table-striped table-hover">
-  <tbody>
-    <tr><td>Row 1</td></tr>
-    <tr><td>Row 2</td></tr>
-  </tbody>
-</table>
-```
-
----
-
-## 7. Navigation
-
-### Navbar
-
-**Classes:**
-- `.navbar` - Main navbar container (height: 3.5rem)
-- `.navbar-expand-{breakpoint}` - Responsive collapse
-- `.navbar-brand` - Logo/brand section
-- `.navbar-nav` - Navigation items container
-- `.navbar-vertical` - Vertical sidebar (width: 15rem)
-
-**Navbar Variants:**
-- `.navbar-transparent` - Transparent background
-- `.navbar-overlap` - Extends 9rem below
-
-**Nav Items:**
-- `.nav-link` - Navigation link
-- `.nav-link.active` - Active state
-
-### Tabs & Pills
-
-- `.nav-tabs` - Tab navigation
-- `.nav-pills` - Pill style
-- `.nav-bordered` - Bordered bottom tabs
-- `.nav-vertical` - Vertical navigation
-
-### HTML Examples
-
-```html
-<!-- Horizontal navbar -->
-<div class="navbar navbar-expand-md">
-  <div class="container-xl">
-    <a class="navbar-brand" href="#">
-      <img src="logo.svg" class="navbar-brand-image">
-    </a>
-    <div class="navbar-nav">
-      <a class="nav-link active" href="#">Home</a>
-      <a class="nav-link" href="#">About</a>
-    </div>
-  </div>
-</div>
-
-<!-- Tabs -->
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Tab 1</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Tab 2</a>
-  </li>
-</ul>
-
-<!-- Pills -->
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-</ul>
-
-<!-- Bordered tabs -->
-<ul class="nav nav-bordered">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Selected</a>
-  </li>
-</ul>
-```
-
----
-
-## 8. Alerts
-
-### Class Structure
-
-- `.alert` - Base alert container
-- `.alert-{color}` - Colored alerts (primary, success, warning, danger, info)
-- `.alert-important` - Solid color style
-- `.alert-minor` - Subtle style
-- `.alert-dismissible` - With close button
-
-**Alert Components:**
-- `.alert-icon` - Icon container
-- `.alert-heading` - Title text
-- `.alert-description` - Secondary text
-- `.alert-action` - Action link
-
-### HTML Examples
-
-```html
-<!-- Basic alert -->
-<div class="alert alert-success">
-  <svg class="icon alert-icon">...</svg>
-  <div>
-    <h4 class="alert-heading">Success!</h4>
-    <div class="alert-description">Your changes have been saved.</div>
-  </div>
-</div>
-
-<!-- Important alert -->
-<div class="alert alert-important alert-danger">
-  Critical error message
-</div>
-
-<!-- Dismissible alert -->
-<div class="alert alert-warning alert-dismissible">
-  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  Warning message
-</div>
-```
-
----
-
-## 9. Modals
-
-### Class Structure
-
-- `.modal` - Base modal
-- `.modal-dialog` - Dialog container
-- `.modal-content` - Content wrapper
-- `.modal-header` - Top section
-- `.modal-body` - Content area
-- `.modal-footer` - Bottom section
-
-**Sizes:**
-- `.modal-sm` - Small (380px)
-- `.modal-md` - Medium (540px)
-- `.modal-lg` - Large (720px)
-- `.modal-xl` - Extra large (1140px)
-- `.modal-full-width` - Full width minus margin
-
-**Variants:**
-- `.modal-blur` - Blurred backdrop
-- `.modal-status` - Status bar at top
-
-### HTML Examples
-
-```html
-<!-- Basic modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal Title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        Modal content here
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-bs-dismiss="modal">Cancel</button>
-        <button class="btn btn-primary">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal with status -->
-<div class="modal-content">
-  <div class="modal-status bg-success"></div>
-  <div class="modal-body">...</div>
-</div>
-```
-
----
-
-## 10. Progress
-
-### Class Structure
-
-- `.progress` - Progress container
-- `.progress-bar` - Progress fill
-- `.progress-sm` / `.progress-lg` / `.progress-xl` - Sizes
-
-**Variants:**
-- `.progress-bar-indeterminate` - Animated indeterminate
-- `.progress-separated` - With spacing
-
-**Progress Steps:**
-- `.progress-steps` - Step indicators
-- `.progress-steps-item` - Individual step
-
-### HTML Examples
-
-```html
-<!-- Basic progress -->
-<div class="progress">
-  <div class="progress-bar" style="width: 75%"></div>
-</div>
-
-<!-- Colored progress -->
-<div class="progress">
-  <div class="progress-bar bg-success" style="width: 50%"></div>
-</div>
-
-<!-- Progress steps -->
-<ul class="progress-steps">
-  <li class="progress-steps-item">Step 1</li>
-  <li class="progress-steps-item active">Step 2</li>
-  <li class="progress-steps-item">Step 3</li>
-</ul>
-```
-
----
-
-## 11. Status & Indicators
-
-### Status Badge
-
-- `.status` - Status badge (pill-shaped)
-- `.status-{color}` - Colored status
-- `.status-lite` - Subtle style
-- `.status-dot` - Small dot (0.5rem)
-- `.status-dot-animated` - Pulsing animation
-
-### Status Indicator
-
-- `.status-indicator` - Large animated indicator (2.5rem)
-- `.status-indicator-circle` - Circle layers
-- `.status-indicator-animated` - Animated version
-
-### HTML Examples
-
-```html
-<!-- Status badge -->
-<span class="status status-success">
-  <span class="status-dot"></span>
-  Active
-</span>
-
-<!-- Animated dot -->
-<span class="status-dot status-dot-animated bg-success"></span>
-
-<!-- Status indicator -->
-<div class="status-indicator status-indicator-animated status-success">
-  <div class="status-indicator-circle"></div>
-  <div class="status-indicator-circle"></div>
-  <div class="status-indicator-circle"></div>
-</div>
-```
-
----
-
-## 12. Steps & Timeline
-
-### Steps
-
-- `.steps` - Steps container
-- `.step-item` - Individual step
-- `.step-item.active` - Current step
-- `.steps-counter` - Numbered steps
-- `.steps-vertical` - Vertical layout
-
-### Timeline
-
-- `.timeline` - Timeline container
-- `.timeline-event` - Event item
-- `.timeline-event-icon` - Icon/avatar
-- `.timeline-event-card` - Content card
-- `.timeline-simple` - No icons
-
-### HTML Examples
-
-```html
-<!-- Steps -->
-<ul class="steps">
-  <li class="step-item">Completed</li>
-  <li class="step-item active">Current</li>
-  <li class="step-item">Upcoming</li>
-</ul>
-
-<!-- Counter steps -->
-<ul class="steps steps-counter">
-  <li class="step-item">Step 1</li>
-  <li class="step-item active">Step 2</li>
-  <li class="step-item">Step 3</li>
-</ul>
-
-<!-- Timeline -->
-<ul class="timeline">
-  <li class="timeline-event">
-    <div class="timeline-event-icon">
-      <svg class="icon">...</svg>
-    </div>
-    <div class="timeline-event-card">
-      <div class="card">
-        <div class="card-body">Event details</div>
-      </div>
-    </div>
-  </li>
-</ul>
-```
-
----
-
-## 13. Dropdowns
-
-### Class Structure
-
-- `.dropdown` - Wrapper
-- `.dropdown-toggle` - Trigger button
-- `.dropdown-menu` - Menu container
-- `.dropdown-item` - Menu item
-
-**Variants:**
-- `.dropdown-menu-arrow` - Arrow pointer
-- `.dropdown-menu-end` - Right-aligned
-- `.dropdown-menu-scrollable` - Max height with scroll
-- `.dropdown-menu-card` - Card style menu
-
-**Menu Items:**
-- `.dropdown-item-icon` - Icon in item
-- `.dropdown-header` - Section header
-- `.dropdown-divider` - Separator
-
-### HTML Examples
-
-```html
-<!-- Basic dropdown -->
-<div class="dropdown">
-  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
-    Dropdown
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action 1</a>
-    <a class="dropdown-item" href="#">Action 2</a>
-  </div>
-</div>
-
-<!-- Dropdown with icons -->
-<div class="dropdown-menu">
-  <a class="dropdown-item">
-    <svg class="icon dropdown-item-icon">...</svg>
-    Edit
-  </a>
-  <div class="dropdown-divider"></div>
-  <a class="dropdown-item">Delete</a>
-</div>
-```
-
----
-
-## 14. Empty States
-
-### Class Structure
-
-- `.empty` - Container (centered flex)
-- `.empty-icon` - Icon (3rem)
-- `.empty-img` - Image
-- `.empty-header` - Large number/text (4rem)
-- `.empty-title` - Title text
-- `.empty-subtitle` - Description
-- `.empty-action` - Action buttons
-- `.empty-bordered` - With border
-
-### HTML Examples
-
-```html
-<!-- Empty state -->
-<div class="empty">
-  <div class="empty-icon">
-    <svg class="icon">...</svg>
-  </div>
-  <h3 class="empty-title">No results found</h3>
-  <p class="empty-subtitle">Try adjusting your search</p>
-  <div class="empty-action">
-    <button class="btn btn-primary">Clear filters</button>
-  </div>
-</div>
-```
-
----
-
-## 15. Ribbons
-
-### Class Structure
-
-- `.ribbon` - Base ribbon (positioned absolute)
-- `.ribbon-top` - Top edge position
-- `.ribbon-bottom` - Bottom position
-- `.ribbon-start` / `.ribbon-end` - Left/right
-- `.ribbon-bookmark` - Bookmark style
-
-**Colors:** Use `.bg-{color}` classes
-
-### HTML Examples
-
-```html
-<!-- Card with ribbon -->
-<div class="card">
-  <div class="ribbon bg-red">NEW</div>
-  <div class="card-body">Content</div>
-</div>
-
-<!-- Top ribbon -->
-<div class="card">
-  <div class="ribbon ribbon-top bg-yellow">
-    <svg class="icon">...</svg>
-  </div>
-  <div class="card-body">Content</div>
-</div>
-```
-
----
-
-## 16. Layout Structure
-
-### Page Structure
-
-```html
-<div class="page">
-  <!-- Optional: Navbar -->
-  <div class="navbar navbar-expand-md">...</div>
-
-  <!-- Main wrapper -->
-  <div class="page-wrapper">
-    <!-- Page header -->
-    <div class="page-header">
-      <div class="container-xl">
-        <div class="page-pretitle">Pretitle</div>
-        <h2 class="page-title">Page Title</h2>
-      </div>
-    </div>
-
-    <!-- Page content -->
-    <div class="page-body">
-      <div class="container-xl">
-        <!-- Your content -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Optional: Footer -->
-  <footer class="footer">...</footer>
-</div>
-```
-
-### Container Classes
-
-- `.container` - Fixed width responsive
-- `.container-xl` - Extra large container
-- `.container-fluid` - Full width
-- `.container-tight` - Narrow (32rem)
-- `.container-narrow` - Medium narrow (61.875rem)
-
-### Grid System
-
-- Standard Bootstrap 5 grid (12 columns)
-- `.row` - Row container
-- `.col-{breakpoint}-{size}` - Column sizing
-- `.row-cards` - Row with card spacing
-- `.g-{size}` - Gap utilities (0-5)
-
----
-
-## 17. Dark Mode
-
-### Implementation
-
-Dark mode uses CSS custom properties and the `[data-bs-theme="dark"]` attribute:
-
-```html
-<!-- Enable dark mode -->
-<html data-bs-theme="dark">
-```
-
-**Dark Mode Classes:**
-- `.hide-theme-dark` - Hide in dark mode
-- `.hide-theme-light` - Hide in light mode
-- `.img-dark` - Dark mode image variant
-- `.img-light` - Light mode image variant
-
-**Auto-dark Images:**
-- `.navbar-brand-autodark` - Inverts brand image in dark mode
-
----
-
-## 18. Color System
-
-### Theme Colors
-
-- `primary` - Blue (#066fd1)
-- `secondary` - Gray-500
-- `success` - Green (#2fb344)
-- `info` - Azure (#4299e1)
-- `warning` - Yellow (#f59f00)
-- `danger` - Red (#d63939)
-- `light` - Gray-50
-- `dark` - Gray-800
-
-### Extra Colors
-
-- `blue`, `azure`, `indigo`, `purple`, `pink`, `red`
-- `orange`, `yellow`, `lime`, `green`, `teal`, `cyan`
-
-### Gray Scale
-
-- `gray-50` to `gray-950` (11 shades)
-
-### Background Utilities
-
-- `.bg-{color}` - Background color
-- `.bg-{color}-lt` - Light tint (10% opacity)
-- `.text-{color}` - Text color
-- `.text-{color}-fg` - Foreground (contrasting) color
-- `.text-secondary` - Secondary text (gray-500)
-- `.text-muted` - Muted text
-
----
-
-## 19. Spacing & Sizing
-
-### Spacing Scale
-
-- `0` - 0
-- `1` - 0.25rem (4px)
-- `2` - 0.5rem (8px)
-- `3` - 1rem (16px) - default spacer
-- `4` - 1.5rem (24px)
-- `5` - 2rem (32px)
-- `6` - 2.5rem (40px)
-
-**Extended:**
-- `7` to `12` - 3rem to 8rem
-
-### Margin/Padding Utilities
-
-- `.m{side}-{size}` - Margin
-- `.p{side}-{size}` - Padding
-- Sides: `t` (top), `b` (bottom), `s` (start), `e` (end), `x` (horizontal), `y` (vertical)
-
-### Width/Height
-
-- `.w-{size}` - Width (25, 33, 50, 66, 75, 100, auto)
-- `.h-{size}` - Height (same values)
-- `.w-full` - 100% width
-- `.h-full` - 100% height
-
----
-
-## 20. Typography
-
-### Headings
-
-- `h1` - 1.5rem / 2rem line-height
-- `h2` - 1.25rem / 1.75rem
-- `h3` - 1rem / 1.5rem
-- `h4` - 0.875rem / 1.25rem
-- `h5` - 0.75rem / 1rem
-- `h6` - 0.625rem / 1rem
-
-### Font Weights
-
-- `.fw-light` - 300
-- `.fw-normal` - 400
-- `.fw-medium` - 500
-- `.fw-bold` - 600
-- `.fw-black` - 700
-
-### Text Utilities
-
-- `.text-start` / `.text-center` / `.text-end` - Alignment
-- `.text-truncate` - Ellipsis overflow
-- `.text-uppercase` / `.text-lowercase` - Transform
-- `.text-nowrap` - No wrapping
-
----
-
-## 21. Border & Radius
-
-### Borders
-
-- `.border` - All sides (1px)
-- `.border-{side}` - Single side (top, end, bottom, start)
-- `.border-wide` - 2px border
-- `.border-0` - Remove border
-
-### Border Radius
-
-- `.rounded` - 6px (default)
-- `.rounded-xs` - 2px
-- `.rounded-sm` - 4px
-- `.rounded-lg` - 8px
-- `.rounded-pill` - 100rem (fully rounded)
-- `.rounded-0` - No radius
-- `.rounded-{side}` - Single side
-
----
-
-## 22. Utility Classes
-
-### Display
-
-- `.d-none` / `.d-block` / `.d-flex` / `.d-inline-flex`
-- Responsive: `.d-{breakpoint}-{value}`
-
-### Flexbox
-
-- `.flex-row` / `.flex-column`
-- `.justify-content-{value}` - start, center, end, between, around
-- `.align-items-{value}` - start, center, end, stretch
-- `.flex-wrap` / `.flex-nowrap`
-- `.gap-{size}` - Gap between items
-
-### Position
-
-- `.position-relative` / `.position-absolute` / `.position-fixed`
-- `.top-0` / `.bottom-0` / `.start-0` / `.end-0`
-
-### Cursor
-
-- `.cursor-pointer` - Pointer cursor
-- `.cursor-not-allowed` - Disabled cursor
-
-### Object Fit
-
-- `.object-contain` / `.object-cover` / `.object-fill`
-
----
-
-## 23. JavaScript Components
-
-Components requiring JavaScript (Bootstrap 5 JS):
-
-1. **Dropdowns** - `data-bs-toggle="dropdown"`
-2. **Modals** - `data-bs-toggle="modal" data-bs-target="#id"`
-3. **Toasts** - `data-bs-toggle="toast"`
-4. **Collapse/Accordion** - `data-bs-toggle="collapse"`
-5. **Tabs** - `data-bs-toggle="tab"`
-6. **Tooltips** - `data-bs-toggle="tooltip"` (requires initialization)
-7. **Popovers** - `data-bs-toggle="popover"` (requires initialization)
-8. **Offcanvas** - `data-bs-toggle="offcanvas"`
-9. **Carousel** - Carousel navigation
-
-**Initialization Example:**
-
-```javascript
-// Enable tooltips
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
-```
-
----
-
-## 24. Responsive Breakpoints
-
-```scss
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
-)
-```
-
-Use breakpoint infixes in responsive classes:
-- `.col-md-6` - Column at medium breakpoint
-- `.d-lg-none` - Display at large breakpoint
-- `.mb-sm-3` - Margin at small breakpoint
-
----
-
-## 25. Icons
-
-Tabler uses inline SVG icons. Icon structure:
-
-```html
-<svg class="icon">
-  <use xlink:href="path/to/tabler-icons.svg#icon-name"/>
-</svg>
-```
-
-**Icon Utilities:**
-- `.icon` - Base icon class (1.25rem)
-- `.icon-sm` - Small icon
-- `.icon-lg` - Large icon
-- Icon color inherits from parent
-
----
-
-## Laravel Blade Component Recommendations
-
-Based on this analysis, prioritize creating these components:
-
-### Core Components (Must-Have)
-1. **Button** - All variants, sizes, states
-2. **Card** - With header, body, footer slots
-3. **Alert** - All colors, dismissible option
-4. **Badge** - Colors, sizes, outline variant
-5. **Avatar** - Sizes, shapes, status indicator
-
-### Form Components
-6. **Input** - With label, hint, validation states
-7. **Textarea** - Similar to input
-8. **Select** - Styled dropdown
-9. **Checkbox** - With label
-10. **Radio** - With label
-11. **Switch** - Toggle component
-
-### Layout Components
-12. **Page** - Base page structure
-13. **Container** - Responsive containers
-14. **Navbar** - Main navigation
-15. **Card** - Already listed above
-
-### Data Display
-16. **Table** - Responsive, sortable
-17. **Empty** - Empty state component
-18. **Timeline** - Event timeline
-
-### Interactive Components
-19. **Modal** - Dialog component
-20. **Dropdown** - Menu component
-21. **Tabs** - Tab navigation
-22. **Progress** - Progress bars
-
-### Additional Components
-23. **Status** - Status indicators
-24. **Steps** - Step indicators
-25. **Ribbon** - Decorative ribbons
-
-### Component Design Principles
+## Component Design Principles
 
 Each component should:
 - Accept Laravel-friendly props (color, size, variant)
@@ -1242,3 +12,560 @@ Each component should:
 - Follow Tabler's CSS class naming conventions
 - Be accessibility-friendly (ARIA attributes)
 - Include sensible defaults
+
+## Table of Contents
+
+### Getting Started
+1. [Installation](#1-installation)
+2. [Download](#2-download)
+3. [Browser Support](#3-browser-support)
+4. [Customize](#4-customize)
+5. [License](#5-license)
+6. [FAQ](#6-faq)
+7. [How to Contribute](#7-how-to-contribute)
+8. [References](#8-references)
+
+### Base Styles
+9. [Colors](#9-colors)
+10. [Typography](#10-typography)
+
+### User Input Components
+11. [Buttons](#11-buttons)
+12. [Form Elements](#12-form-elements)
+13. [Form Validation](#13-form-validation)
+14. [Form Helpers](#14-form-helpers)
+15. [Form Fieldset](#15-form-fieldset)
+16. [Form Color Check](#16-form-color-check)
+17. [Form Image Check](#17-form-image-check)
+18. [Form Input Mask](#18-form-input-mask)
+19. [Form Selectboxes](#19-form-selectboxes)
+20. [Autosize](#20-autosize)
+21. [Dropzone](#21-dropzone)
+22. [Range Slider](#22-range-slider)
+23. [Segmented Control](#23-segmented-control)
+24. [Switch Icon](#24-switch-icon)
+
+### Feedback & Notifications
+25. [Alerts](#25-alerts)
+26. [Modals](#26-modals)
+27. [Toasts](#27-toasts)
+28. [Progress](#28-progress)
+29. [Spinners](#29-spinners)
+30. [Placeholder](#30-placeholder)
+
+### Layout & Navigation
+31. [Page Headers](#31-page-headers)
+32. [Page Layouts](#32-page-layouts)
+33. [Navbars](#33-navbars)
+34. [Navs & Tabs (Navigation)](#34-navs--tabs-navigation)
+35. [Breadcrumb](#35-breadcrumb)
+36. [Pagination](#36-pagination)
+37. [Steps](#37-steps)
+
+### Content Display
+38. [Cards](#38-cards)
+39. [Tables](#39-tables)
+40. [Empty States](#40-empty-states)
+41. [Divider](#41-divider)
+42. [Timelines](#42-timelines)
+
+### Data Visualization
+43. [Charts](#43-charts)
+44. [Datagrid](#44-datagrid)
+45. [Vector Maps](#45-vector-maps)
+46. [Countup](#46-countup)
+47. [Tracking](#47-tracking)
+
+### Visual Elements
+48. [Avatars](#48-avatars)
+49. [Badges](#49-badges)
+50. [Icons](#50-icons)
+51. [Statuses](#51-statuses)
+52. [Ribbons](#52-ribbons)
+
+### Interactive Components
+53. [Dropdowns](#53-dropdowns)
+54. [Tabs](#54-tabs)
+55. [Offcanvas](#55-offcanvas)
+56. [Carousel](#56-carousel)
+57. [Popover](#57-popover)
+58. [Tooltips](#58-tooltips)
+
+### Advanced Components
+59. [WYSIWYG](#59-wysiwyg)
+60. [Inline Player](#60-inline-player)
+
+### Plugins
+61. [Flags](#61-flags)
+62. [Payment Icons](#62-payment-icons)
+63. [Social Icons](#63-social-icons)
+
+### Utilities
+64. [Borders](#64-borders)
+65. [Cursors](#65-cursors)
+66. [Interactions](#66-interactions)
+67. [Margins](#67-margins)
+68. [Vertical Align](#68-vertical-align)
+69. [Visually Hidden](#69-visually-hidden)
+
+---
+
+## Getting Started
+
+### 1. Installation
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/getting-started/installation.md`](../tabler/docs/content/ui/getting-started/installation.md)
+**Preview:** [`tabler/docs/dist/ui/getting-started/installation/index.html`](../tabler/docs/dist/ui/getting-started/installation/index.html)
+
+### 2. Download
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/getting-started/download.md`](../tabler/docs/content/ui/getting-started/download.md)
+**Preview:** [`tabler/docs/dist/ui/getting-started/download/index.html`](../tabler/docs/dist/ui/getting-started/download/index.html)
+
+### 3. Browser Support
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/getting-started/browser-support.md`](../tabler/docs/content/ui/getting-started/browser-support.md)
+**Preview:** [`tabler/docs/dist/ui/getting-started/browser-support/index.html`](../tabler/docs/dist/ui/getting-started/browser-support/index.html)
+
+### 4. Customize
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/getting-started/customize.md`](../tabler/docs/content/ui/getting-started/customize.md)
+**Preview:** [`tabler/docs/dist/ui/getting-started/customize/index.html`](../tabler/docs/dist/ui/getting-started/customize/index.html)
+
+### 5. License
+
+**Template:** [`tabler/preview/pages/license.html`](../tabler/preview/pages/license.html)
+**Documentation:** [`tabler/docs/content/ui/getting-started/license.md`](../tabler/docs/content/ui/getting-started/license.md)
+**Preview:** [`tabler/docs/dist/ui/getting-started/license/index.html`](../tabler/docs/dist/ui/getting-started/license/index.html)
+
+### 6. FAQ
+
+**Template:** [`tabler/preview/pages/faq.html`](../tabler/preview/pages/faq.html)
+**Documentation:** [`tabler/docs/content/ui/getting-started/faq.md`](../tabler/docs/content/ui/getting-started/faq.md)
+**Preview:** [`tabler/docs/dist/ui/getting-started/faq/index.html`](../tabler/docs/dist/ui/getting-started/faq/index.html)
+
+### 7. How to Contribute
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/getting-started/how-to-contribute.md`](../tabler/docs/content/ui/getting-started/how-to-contribute.md)
+**Preview:** [`tabler/docs/dist/ui/getting-started/how-to-contribute/index.html`](../tabler/docs/dist/ui/getting-started/how-to-contribute/index.html)
+
+### 8. References
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/getting-started/references.md`](../tabler/docs/content/ui/getting-started/references.md)
+**Preview:** [`tabler/docs/dist/ui/getting-started/references/index.html`](../tabler/docs/dist/ui/getting-started/references/index.html)
+
+---
+
+## Base Styles
+
+### 9. Colors
+
+**Template:** [`tabler/preview/pages/colors.html`](../tabler/preview/pages/colors.html)
+**Documentation:** [`tabler/docs/content/ui/base/colors.md`](../tabler/docs/content/ui/base/colors.md)
+**Preview:** [`tabler/docs/dist/ui/base/colors/index.html`](../tabler/docs/dist/ui/base/colors/index.html)
+
+### 10. Typography
+
+**Template:** [`tabler/preview/pages/typography.html`](../tabler/preview/pages/typography.html)
+**Documentation:** [`tabler/docs/content/ui/base/typography.md`](../tabler/docs/content/ui/base/typography.md)
+**Preview:** [`tabler/docs/dist/ui/base/typography/index.html`](../tabler/docs/dist/ui/base/typography/index.html)
+
+---
+
+## User Input Components
+
+### 11. Buttons
+
+**Template:** [`tabler/preview/pages/buttons.html`](../tabler/preview/pages/buttons.html)
+**Documentation:** [`tabler/docs/content/ui/components/buttons.md`](../tabler/docs/content/ui/components/buttons.md)
+**Preview:** [`tabler/docs/dist/ui/components/buttons/index.html`](../tabler/docs/dist/ui/components/buttons/index.html)
+
+### 12. Form Elements
+
+**Template:** [`tabler/preview/pages/form-elements.html`](../tabler/preview/pages/form-elements.html)
+**Documentation:** [`tabler/docs/content/ui/forms/form-elements.md`](../tabler/docs/content/ui/forms/form-elements.md)
+**Preview:** [`tabler/docs/dist/ui/forms/form-elements/index.html`](../tabler/docs/dist/ui/forms/form-elements/index.html)
+
+### 13. Form Validation
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/forms/form-validation.md`](../tabler/docs/content/ui/forms/form-validation.md)
+**Preview:** [`tabler/docs/dist/ui/forms/form-validation/index.html`](../tabler/docs/dist/ui/forms/form-validation/index.html)
+
+### 14. Form Helpers
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/forms/form-helpers.md`](../tabler/docs/content/ui/forms/form-helpers.md)
+**Preview:** [`tabler/docs/dist/ui/forms/form-helpers/index.html`](../tabler/docs/dist/ui/forms/form-helpers/index.html)
+
+### 15. Form Fieldset
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/forms/form-fieldset.md`](../tabler/docs/content/ui/forms/form-fieldset.md)
+**Preview:** [`tabler/docs/dist/ui/forms/form-fieldset/index.html`](../tabler/docs/dist/ui/forms/form-fieldset/index.html)
+
+### 16. Form Color Check
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/forms/form-color-check.md`](../tabler/docs/content/ui/forms/form-color-check.md)
+**Preview:** [`tabler/docs/dist/ui/forms/form-color-check/index.html`](../tabler/docs/dist/ui/forms/form-color-check/index.html)
+
+### 17. Form Image Check
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/forms/form-image-check.md`](../tabler/docs/content/ui/forms/form-image-check.md)
+**Preview:** [`tabler/docs/dist/ui/forms/form-image-check/index.html`](../tabler/docs/dist/ui/forms/form-image-check/index.html)
+
+### 18. Form Input Mask
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/forms/form-input-mask.md`](../tabler/docs/content/ui/forms/form-input-mask.md)
+**Preview:** [`tabler/docs/dist/ui/forms/form-input-mask/index.html`](../tabler/docs/dist/ui/forms/form-input-mask/index.html)
+
+### 19. Form Selectboxes
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/forms/form-selectboxes.md`](../tabler/docs/content/ui/forms/form-selectboxes.md)
+**Preview:** [`tabler/docs/dist/ui/forms/form-selectboxes/index.html`](../tabler/docs/dist/ui/forms/form-selectboxes/index.html)
+
+### 20. Autosize
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/autosize.md`](../tabler/docs/content/ui/components/autosize.md)
+**Preview:** [`tabler/docs/dist/ui/components/autosize/index.html`](../tabler/docs/dist/ui/components/autosize/index.html)
+
+### 21. Dropzone
+
+**Template:** [`tabler/preview/pages/dropzone.html`](../tabler/preview/pages/dropzone.html)
+**Documentation:** [`tabler/docs/content/ui/components/dropzone.md`](../tabler/docs/content/ui/components/dropzone.md)
+**Preview:** [`tabler/docs/dist/ui/components/dropzone/index.html`](../tabler/docs/dist/ui/components/dropzone/index.html)
+
+### 22. Range Slider
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/range-slider.md`](../tabler/docs/content/ui/components/range-slider.md)
+**Preview:** [`tabler/docs/dist/ui/components/range-slider/index.html`](../tabler/docs/dist/ui/components/range-slider/index.html)
+
+### 23. Segmented Control
+
+**Template:** [`tabler/preview/pages/segmented-control.html`](../tabler/preview/pages/segmented-control.html)
+**Documentation:** [`tabler/docs/content/ui/components/segmented-control.md`](../tabler/docs/content/ui/components/segmented-control.md)
+**Preview:** [`tabler/docs/dist/ui/components/segmented-control/index.html`](../tabler/docs/dist/ui/components/segmented-control/index.html)
+
+### 24. Switch Icon
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/switch-icon.md`](../tabler/docs/content/ui/components/switch-icon.md)
+**Preview:** [`tabler/docs/dist/ui/components/switch-icon/index.html`](../tabler/docs/dist/ui/components/switch-icon/index.html)
+
+---
+
+## Feedback & Notifications
+
+### 25. Alerts
+
+**Template:** [`tabler/preview/pages/alerts.html`](../tabler/preview/pages/alerts.html)
+**Documentation:** [`tabler/docs/content/ui/components/alerts.md`](../tabler/docs/content/ui/components/alerts.md)
+**Preview:** [`tabler/docs/dist/ui/components/alerts/index.html`](../tabler/docs/dist/ui/components/alerts/index.html)
+
+### 26. Modals
+
+**Template:** [`tabler/preview/pages/modals.html`](../tabler/preview/pages/modals.html)
+**Documentation:** [`tabler/docs/content/ui/components/modals.md`](../tabler/docs/content/ui/components/modals.md)
+**Preview:** [`tabler/docs/dist/ui/components/modals/index.html`](../tabler/docs/dist/ui/components/modals/index.html)
+
+### 27. Toasts
+
+**Template:** [`tabler/preview/pages/toasts.html`](../tabler/preview/pages/toasts.html)
+**Documentation:** [`tabler/docs/content/ui/components/toasts.md`](../tabler/docs/content/ui/components/toasts.md)
+**Preview:** [`tabler/docs/dist/ui/components/toasts/index.html`](../tabler/docs/dist/ui/components/toasts/index.html)
+
+### 28. Progress
+
+**Template:** [`tabler/preview/pages/progress.html`](../tabler/preview/pages/progress.html)
+**Documentation:** [`tabler/docs/content/ui/components/progress.md`](../tabler/docs/content/ui/components/progress.md)
+**Preview:** [`tabler/docs/dist/ui/components/progress/index.html`](../tabler/docs/dist/ui/components/progress/index.html)
+
+### 29. Spinners
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/spinners.md`](../tabler/docs/content/ui/components/spinners.md)
+**Preview:** [`tabler/docs/dist/ui/components/spinners/index.html`](../tabler/docs/dist/ui/components/spinners/index.html)
+
+### 30. Placeholder
+
+**Template:** [`tabler/preview/pages/placeholder.html`](../tabler/preview/pages/placeholder.html)
+**Documentation:** [`tabler/docs/content/ui/components/placeholder.md`](../tabler/docs/content/ui/components/placeholder.md)
+**Preview:** [`tabler/docs/dist/ui/components/placeholder/index.html`](../tabler/docs/dist/ui/components/placeholder/index.html)
+
+---
+
+## Layout & Navigation
+
+### 31. Page Headers
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/layout/page-headers.md`](../tabler/docs/content/ui/layout/page-headers.md)
+**Preview:** [`tabler/docs/dist/ui/layout/page-headers/index.html`](../tabler/docs/dist/ui/layout/page-headers/index.html)
+
+### 32. Page Layouts
+
+**Template:** [`tabler/preview/pages/layout-boxed.html`](../tabler/preview/pages/layout-boxed.html)
+**Documentation:** [`tabler/docs/content/ui/layout/page-layouts.md`](../tabler/docs/content/ui/layout/page-layouts.md)
+**Preview:** [`tabler/docs/dist/ui/layout/page-layouts/index.html`](../tabler/docs/dist/ui/layout/page-layouts/index.html)
+
+### 33. Navbars
+
+**Template:** [`tabler/preview/pages/layout-navbar-dark.html`](../tabler/preview/pages/layout-navbar-dark.html)
+**Documentation:** [`tabler/docs/content/ui/layout/navbars.md`](../tabler/docs/content/ui/layout/navbars.md)
+**Preview:** [`tabler/docs/dist/ui/layout/navbars/index.html`](../tabler/docs/dist/ui/layout/navbars/index.html)
+
+### 34. Navs & Tabs (Navigation)
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/layout/navs-tabs.md`](../tabler/docs/content/ui/layout/navs-tabs.md)
+**Preview:** [`tabler/docs/dist/ui/layout/navs-tabs/index.html`](../tabler/docs/dist/ui/layout/navs-tabs/index.html)
+
+### 35. Breadcrumb
+
+**Template:** [`tabler/preview/pages/navigation.html`](../tabler/preview/pages/navigation.html)
+**Documentation:** [`tabler/docs/content/ui/components/breadcrumb.md`](../tabler/docs/content/ui/components/breadcrumb.md)
+**Preview:** [`tabler/docs/dist/ui/components/breadcrumb/index.html`](../tabler/docs/dist/ui/components/breadcrumb/index.html)
+
+### 36. Pagination
+
+**Template:** [`tabler/preview/pages/pagination.html`](../tabler/preview/pages/pagination.html)
+**Documentation:** [`tabler/docs/content/ui/components/pagination.md`](../tabler/docs/content/ui/components/pagination.md)
+**Preview:** [`tabler/docs/dist/ui/components/pagination/index.html`](../tabler/docs/dist/ui/components/pagination/index.html)
+
+### 37. Steps
+
+**Template:** [`tabler/preview/pages/steps.html`](../tabler/preview/pages/steps.html)
+**Documentation:** [`tabler/docs/content/ui/components/steps.md`](../tabler/docs/content/ui/components/steps.md)
+**Preview:** [`tabler/docs/dist/ui/components/steps/index.html`](../tabler/docs/dist/ui/components/steps/index.html)
+
+---
+
+## Content Display
+
+### 38. Cards
+
+**Template:** [`tabler/preview/pages/cards.html`](../tabler/preview/pages/cards.html)
+**Documentation:** [`tabler/docs/content/ui/components/cards.md`](../tabler/docs/content/ui/components/cards.md)
+**Preview:** [`tabler/docs/dist/ui/components/cards/index.html`](../tabler/docs/dist/ui/components/cards/index.html)
+
+### 39. Tables
+
+**Template:** [`tabler/preview/pages/tables.html`](../tabler/preview/pages/tables.html)
+**Documentation:** [`tabler/docs/content/ui/components/tables.md`](../tabler/docs/content/ui/components/tables.md)
+**Preview:** [`tabler/docs/dist/ui/components/tables/index.html`](../tabler/docs/dist/ui/components/tables/index.html)
+
+### 40. Empty States
+
+**Template:** [`tabler/preview/pages/empty.html`](../tabler/preview/pages/empty.html)
+**Documentation:** [`tabler/docs/content/ui/components/empty.md`](../tabler/docs/content/ui/components/empty.md)
+**Preview:** [`tabler/docs/dist/ui/components/empty/index.html`](../tabler/docs/dist/ui/components/empty/index.html)
+
+### 41. Divider
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/divider.md`](../tabler/docs/content/ui/components/divider.md)
+**Preview:** [`tabler/docs/dist/ui/components/divider/index.html`](../tabler/docs/dist/ui/components/divider/index.html)
+
+### 42. Timelines
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/timelines.md`](../tabler/docs/content/ui/components/timelines.md)
+**Preview:** [`tabler/docs/dist/ui/components/timelines/index.html`](../tabler/docs/dist/ui/components/timelines/index.html)
+
+---
+
+## Data Visualization
+
+### 43. Charts
+
+**Template:** [`tabler/preview/pages/charts.html`](../tabler/preview/pages/charts.html)
+**Documentation:** [`tabler/docs/content/ui/components/charts.md`](../tabler/docs/content/ui/components/charts.md)
+**Preview:** [`tabler/docs/dist/ui/components/charts/index.html`](../tabler/docs/dist/ui/components/charts/index.html)
+
+### 44. Datagrid
+
+**Template:** [`tabler/preview/pages/datagrid.html`](../tabler/preview/pages/datagrid.html)
+**Documentation:** [`tabler/docs/content/ui/components/datagrid.md`](../tabler/docs/content/ui/components/datagrid.md)
+**Preview:** [`tabler/docs/dist/ui/components/datagrid/index.html`](../tabler/docs/dist/ui/components/datagrid/index.html)
+
+### 45. Vector Maps
+
+**Template:** [`tabler/preview/pages/maps-vector.html`](../tabler/preview/pages/maps-vector.html)
+**Documentation:** [`tabler/docs/content/ui/components/vector-maps.md`](../tabler/docs/content/ui/components/vector-maps.md)
+**Preview:** [`tabler/docs/dist/ui/components/vector-maps/index.html`](../tabler/docs/dist/ui/components/vector-maps/index.html)
+
+### 46. Countup
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/countup.md`](../tabler/docs/content/ui/components/countup.md)
+**Preview:** [`tabler/docs/dist/ui/components/countup/index.html`](../tabler/docs/dist/ui/components/countup/index.html)
+
+### 47. Tracking
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/tracking.md`](../tabler/docs/content/ui/components/tracking.md)
+**Preview:** [`tabler/docs/dist/ui/components/tracking/index.html`](../tabler/docs/dist/ui/components/tracking/index.html)
+
+---
+
+## Visual Elements
+
+### 48. Avatars
+
+**Template:** [`tabler/preview/pages/avatars.html`](../tabler/preview/pages/avatars.html)
+**Documentation:** [`tabler/docs/content/ui/components/avatars.md`](../tabler/docs/content/ui/components/avatars.md)
+**Preview:** [`tabler/docs/dist/ui/components/avatars/index.html`](../tabler/docs/dist/ui/components/avatars/index.html)
+
+### 49. Badges
+
+**Template:** [`tabler/preview/pages/badges.html`](../tabler/preview/pages/badges.html)
+**Documentation:** [`tabler/docs/content/ui/components/badges.md`](../tabler/docs/content/ui/components/badges.md)
+**Preview:** [`tabler/docs/dist/ui/components/badges/index.html`](../tabler/docs/dist/ui/components/badges/index.html)
+
+### 50. Icons
+
+**Template:** [`tabler/preview/pages/icons.html`](../tabler/preview/pages/icons.html)
+**Documentation:** [`tabler/docs/content/ui/components/icons.md`](../tabler/docs/content/ui/components/icons.md)
+**Preview:** [`tabler/docs/dist/ui/components/icons/index.html`](../tabler/docs/dist/ui/components/icons/index.html)
+
+### 51. Statuses
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/statuses.md`](../tabler/docs/content/ui/components/statuses.md)
+**Preview:** [`tabler/docs/dist/ui/components/statuses/index.html`](../tabler/docs/dist/ui/components/statuses/index.html)
+
+### 52. Ribbons
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/ribbons.md`](../tabler/docs/content/ui/components/ribbons.md)
+**Preview:** [`tabler/docs/dist/ui/components/ribbons/index.html`](../tabler/docs/dist/ui/components/ribbons/index.html)
+
+---
+
+## Interactive Components
+
+### 53. Dropdowns
+
+**Template:** [`tabler/preview/pages/dropdowns.html`](../tabler/preview/pages/dropdowns.html)
+**Documentation:** [`tabler/docs/content/ui/components/dropdowns.md`](../tabler/docs/content/ui/components/dropdowns.md)
+**Preview:** [`tabler/docs/dist/ui/components/dropdowns/index.html`](../tabler/docs/dist/ui/components/dropdowns/index.html)
+
+### 54. Tabs
+
+**Template:** [`tabler/preview/pages/tabs.html`](../tabler/preview/pages/tabs.html)
+**Documentation:** [`tabler/docs/content/ui/components/tabs.md`](../tabler/docs/content/ui/components/tabs.md)
+**Preview:** [`tabler/docs/dist/ui/components/tabs/index.html`](../tabler/docs/dist/ui/components/tabs/index.html)
+
+### 55. Offcanvas
+
+**Template:** [`tabler/preview/pages/offcanvas.html`](../tabler/preview/pages/offcanvas.html)
+**Documentation:** [`tabler/docs/content/ui/components/offcanvas.md`](../tabler/docs/content/ui/components/offcanvas.md)
+**Preview:** [`tabler/docs/dist/ui/components/offcanvas/index.html`](../tabler/docs/dist/ui/components/offcanvas/index.html)
+
+### 56. Carousel
+
+**Template:** [`tabler/preview/pages/carousel.html`](../tabler/preview/pages/carousel.html)
+**Documentation:** [`tabler/docs/content/ui/components/carousel.md`](../tabler/docs/content/ui/components/carousel.md)
+**Preview:** [`tabler/docs/dist/ui/components/carousel/index.html`](../tabler/docs/dist/ui/components/carousel/index.html)
+
+### 57. Popover
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/popover.md`](../tabler/docs/content/ui/components/popover.md)
+**Preview:** [`tabler/docs/dist/ui/components/popover/index.html`](../tabler/docs/dist/ui/components/popover/index.html)
+
+### 58. Tooltips
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/components/tooltips.md`](../tabler/docs/content/ui/components/tooltips.md)
+**Preview:** [`tabler/docs/dist/ui/components/tooltips/index.html`](../tabler/docs/dist/ui/components/tooltips/index.html)
+
+---
+
+## Advanced Components
+
+### 59. WYSIWYG
+
+**Template:** [`tabler/preview/pages/wysiwyg.html`](../tabler/preview/pages/wysiwyg.html)
+**Documentation:** [`tabler/docs/content/ui/components/wysiwyg.md`](../tabler/docs/content/ui/components/wysiwyg.md)
+**Preview:** [`tabler/docs/dist/ui/components/wysiwyg/index.html`](../tabler/docs/dist/ui/components/wysiwyg/index.html)
+
+### 60. Inline Player
+
+**Template:** [`tabler/preview/pages/inline-player.html`](../tabler/preview/pages/inline-player.html)
+**Documentation:** [`tabler/docs/content/ui/components/inline-player.md`](../tabler/docs/content/ui/components/inline-player.md)
+**Preview:** [`tabler/docs/dist/ui/components/inline-player/index.html`](../tabler/docs/dist/ui/components/inline-player/index.html)
+
+---
+
+## Plugins
+
+### 61. Flags
+
+**Template:** [`tabler/preview/pages/flags.html`](../tabler/preview/pages/flags.html)
+**Documentation:** [`tabler/docs/content/ui/plugins/flags.md`](../tabler/docs/content/ui/plugins/flags.md)
+**Preview:** [`tabler/docs/dist/ui/plugins/flags/index.html`](../tabler/docs/dist/ui/plugins/flags/index.html)
+
+### 62. Payment Icons
+
+**Template:** [`tabler/preview/pages/payment-providers.html`](../tabler/preview/pages/payment-providers.html)
+**Documentation:** [`tabler/docs/content/ui/plugins/payments.md`](../tabler/docs/content/ui/plugins/payments.md)
+**Preview:** [`tabler/docs/dist/ui/plugins/payments/index.html`](../tabler/docs/dist/ui/plugins/payments/index.html)
+
+### 63. Social Icons
+
+**Template:** [`tabler/preview/pages/social-icons.html`](../tabler/preview/pages/social-icons.html)
+**Documentation:** [`tabler/docs/content/ui/plugins/social-icons.md`](../tabler/docs/content/ui/plugins/social-icons.md)
+**Preview:** [`tabler/docs/dist/ui/plugins/social-icons/index.html`](../tabler/docs/dist/ui/plugins/social-icons/index.html)
+
+---
+
+## Utilities
+
+### 64. Borders
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/utilities/borders.md`](../tabler/docs/content/ui/utilities/borders.md)
+**Preview:** [`tabler/docs/dist/ui/utilities/borders/index.html`](../tabler/docs/dist/ui/utilities/borders/index.html)
+
+### 65. Cursors
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/utilities/cursors.md`](../tabler/docs/content/ui/utilities/cursors.md)
+**Preview:** [`tabler/docs/dist/ui/utilities/cursors/index.html`](../tabler/docs/dist/ui/utilities/cursors/index.html)
+
+### 66. Interactions
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/utilities/interactions.md`](../tabler/docs/content/ui/utilities/interactions.md)
+**Preview:** [`tabler/docs/dist/ui/utilities/interactions/index.html`](../tabler/docs/dist/ui/utilities/interactions/index.html)
+
+### 67. Margins
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/utilities/margins.md`](../tabler/docs/content/ui/utilities/margins.md)
+**Preview:** [`tabler/docs/dist/ui/utilities/margins/index.html`](../tabler/docs/dist/ui/utilities/margins/index.html)
+
+### 68. Vertical Align
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/utilities/vertical-align.md`](../tabler/docs/content/ui/utilities/vertical-align.md)
+**Preview:** [`tabler/docs/dist/ui/utilities/vertical-align/index.html`](../tabler/docs/dist/ui/utilities/vertical-align/index.html)
+
+### 69. Visually Hidden
+
+**Template:** N/A
+**Documentation:** [`tabler/docs/content/ui/utilities/visually-hidden.md`](../tabler/docs/content/ui/utilities/visually-hidden.md)
+**Preview:** [`tabler/docs/dist/ui/utilities/visually-hidden/index.html`](../tabler/docs/dist/ui/utilities/visually-hidden/index.html)
