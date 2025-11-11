@@ -139,7 +139,7 @@
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
                                 <tr>
                                     <th>Prop</th>
@@ -224,7 +224,7 @@
                     <p class="text-secondary">You can use these classes via the <code>class=""</code> attribute:</p>
 
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
                                 <tr>
                                     <th>Class</th>

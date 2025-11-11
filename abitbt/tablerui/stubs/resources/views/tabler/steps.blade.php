@@ -81,7 +81,7 @@
     }
 @endphp
 
-@if($slot->isNotEmpty())
+@if ($slot->isNotEmpty())
     {{-- Custom steps provided --}}
     <div {{ $attributes->merge(['class' => implode(' ', $classes)]) }}>
         {{ $slot }}
@@ -89,7 +89,7 @@
 @else
     {{-- Auto-generate steps from array --}}
     <div {{ $attributes->merge(['class' => implode(' ', $classes)]) }}>
-        @foreach($steps as $index => $step)
+        @foreach ($steps as $index => $step)
             @php
                 $stepNumber = $index + 1;
                 $itemClasses = ['step-item'];

@@ -77,13 +77,28 @@
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
-                                <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+                                <tr>
+                                    <th>Prop</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td><code>flush</code></td><td><span class="badge bg-purple-lt">bool</span></td><td><code>false</code></td><td>Remove borders and rounded corners</td></tr>
-                                <tr><td><code>numbered</code></td><td><span class="badge bg-purple-lt">bool</span></td><td><code>false</code></td><td>Show numbered list</td></tr>
+                                <tr>
+                                    <td><code>flush</code></td>
+                                    <td><span class="badge bg-purple-lt">bool</span></td>
+                                    <td><code>false</code></td>
+                                    <td>Remove borders and rounded corners</td>
+                                </tr>
+                                <tr>
+                                    <td><code>numbered</code></td>
+                                    <td><span class="badge bg-purple-lt">bool</span></td>
+                                    <td><code>false</code></td>
+                                    <td>Show numbered list</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

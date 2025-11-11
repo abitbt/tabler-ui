@@ -98,4 +98,4 @@
 
 <{{ $element }} {{ $attributes->merge(['class' => implode(' ', $classes)]) }}>
     {{ $slot }}
-</{{ $element }}>
+    </{{ $element }}>

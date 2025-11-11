@@ -70,14 +70,34 @@
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
-                                <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+                                <tr>
+                                    <th>Prop</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td><code>color</code></td><td><span class="badge bg-azure-lt">string</span></td><td><code>'secondary'</code></td><td>Status color</td></tr>
-                                <tr><td><code>animated</code></td><td><span class="badge bg-purple-lt">bool</span></td><td><code>false</code></td><td>Enable pulsing animation</td></tr>
-                                <tr><td><code>dot</code></td><td><span class="badge bg-purple-lt">bool</span></td><td><code>false</code></td><td>Show as dot only</td></tr>
+                                <tr>
+                                    <td><code>color</code></td>
+                                    <td><span class="badge bg-azure-lt">string</span></td>
+                                    <td><code>'secondary'</code></td>
+                                    <td>Status color</td>
+                                </tr>
+                                <tr>
+                                    <td><code>animated</code></td>
+                                    <td><span class="badge bg-purple-lt">bool</span></td>
+                                    <td><code>false</code></td>
+                                    <td>Enable pulsing animation</td>
+                                </tr>
+                                <tr>
+                                    <td><code>dot</code></td>
+                                    <td><span class="badge bg-purple-lt">bool</span></td>
+                                    <td><code>false</code></td>
+                                    <td>Show as dot only</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

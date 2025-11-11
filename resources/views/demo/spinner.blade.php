@@ -23,7 +23,7 @@
                     <x-slot:subtitle>Default rotating border style</x-slot>
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
-                    <div class="d-flex gap-3 align-items-center">
+                    <div class="d-flex align-items-center gap-3">
                         <x-tabler::spinner />
                         <x-tabler::spinner color="primary" />
                         <x-tabler::spinner color="success" />
@@ -45,7 +45,7 @@
                     <x-slot:subtitle>Pulsing grow animation</x-slot>
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
-                    <div class="d-flex gap-3 align-items-center">
+                    <div class="d-flex align-items-center gap-3">
                         <x-tabler::spinner type="grow" />
                         <x-tabler::spinner type="grow" color="primary" />
                         <x-tabler::spinner type="grow" color="success" />
@@ -67,12 +67,12 @@
                     <x-slot:subtitle>Compact size for inline use</x-slot>
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
-                    <div class="d-flex gap-3 align-items-center mb-3">
+                    <div class="d-flex align-items-center mb-3 gap-3">
                         <x-tabler::spinner size="sm" />
                         <x-tabler::spinner size="sm" color="primary" />
                         <x-tabler::spinner size="sm" color="success" />
                     </div>
-                    <div class="d-flex gap-3 align-items-center">
+                    <div class="d-flex align-items-center gap-3">
                         <x-tabler::spinner type="grow" size="sm" />
                         <x-tabler::spinner type="grow" size="sm" color="primary" />
                         <x-tabler::spinner type="grow" size="sm" color="success" />
@@ -122,7 +122,7 @@
                     <x-slot:subtitle>All available color options</x-slot>
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
-                    <div class="d-flex gap-3 align-items-center flex-wrap">
+                    <div class="d-flex align-items-center flex-wrap gap-3">
                         <x-tabler::spinner color="primary" />
                         <x-tabler::spinner color="secondary" />
                         <x-tabler::spinner color="success" />
@@ -155,7 +155,7 @@
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
                                 <tr>
                                     <th>Prop</th>
@@ -191,7 +191,7 @@
                         <h4>Available Slots</h4>
                         <p class="text-secondary">Named slots for flexible content placement.</p>
                         <div class="table-responsive">
-                            <table class="table table-vcenter">
+                            <table class="table-vcenter table">
                                 <thead>
                                     <tr>
                                         <th>Slot</th>
@@ -231,7 +231,7 @@
                     <p class="text-secondary">You can use these classes via the <code>class=""</code> attribute:</p>
 
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
                                 <tr>
                                     <th>Class</th>

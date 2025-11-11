@@ -40,11 +40,17 @@ function getNavItems()
                 'demo.accordion',
                 'demo.carousel',
                 'demo.list-group',
-                'demo.nav',
-                'demo.placeholder'
+                'demo.placeholder',
+                'demo.image'
             ),
-            'columns' => 2,
+            'columns' => 3,
             'children' => [
+                [
+                    'title' => 'Accordion',
+                    'url' => url('/demo/accordion'),
+                    'icon' => 'list',
+                    'active' => request()->routeIs('demo.accordion'),
+                ],
                 [
                     'title' => 'Alerts',
                     'url' => url('/demo/alert'),
@@ -52,12 +58,17 @@ function getNavItems()
                     'active' => request()->routeIs('demo.alert'),
                 ],
                 [
+                    'title' => 'Avatars',
+                    'url' => url('/demo/avatars'),
+                    'icon' => 'user-circle',
+                    'active' => request()->routeIs('demo.avatars'),
+                ],
+                [
                     'title' => 'Badges',
                     'url' => url('/demo/badge'),
                     'icon' => 'bookmarks',
                     'active' => request()->routeIs('demo.badge'),
                 ],
-                ['divider' => true],
                 [
                     'title' => 'Buttons',
                     'url' => url('/demo/button'),
@@ -69,55 +80,6 @@ function getNavItems()
                     'url' => url('/demo/cards'),
                     'icon' => 'layout',
                     'active' => request()->routeIs('demo.cards'),
-                ],
-                [
-                    'title' => 'Dropdowns',
-                    'url' => url('/demo/dropdowns'),
-                    'icon' => 'select',
-                    'active' => request()->routeIs('demo.dropdowns'),
-                ],
-                [
-                    'title' => 'Forms',
-                    'url' => url('/demo/forms'),
-                    'icon' => 'forms',
-                    'active' => request()->routeIs('demo.forms'),
-                ],
-                [
-                    'title' => 'Modals',
-                    'url' => url('/demo/modals'),
-                    'icon' => 'square-plus',
-                    'active' => request()->routeIs('demo.modals'),
-                ],
-                [
-                    'title' => 'Offcanvas',
-                    'url' => url('/demo/offcanvas'),
-                    'icon' => 'layout-sidebar-right',
-                    'active' => request()->routeIs('demo.offcanvas'),
-                ],
-                [
-                    'title' => 'Tables',
-                    'url' => url('/demo/tables'),
-                    'icon' => 'table',
-                    'active' => request()->routeIs('demo.tables'),
-                ],
-                [
-                    'title' => 'Toasts',
-                    'url' => url('/demo/toasts'),
-                    'icon' => 'bread',
-                    'active' => request()->routeIs('demo.toasts'),
-                ],
-                ['divider' => true],
-                [
-                    'title' => 'Accordion',
-                    'url' => url('/demo/accordion'),
-                    'icon' => 'list',
-                    'active' => request()->routeIs('demo.accordion'),
-                ],
-                [
-                    'title' => 'Avatars',
-                    'url' => url('/demo/avatars'),
-                    'icon' => 'user-circle',
-                    'active' => request()->routeIs('demo.avatars'),
                 ],
                 [
                     'title' => 'Carousel',
@@ -132,10 +94,28 @@ function getNavItems()
                     'active' => request()->routeIs('demo.divider'),
                 ],
                 [
+                    'title' => 'Dropdowns',
+                    'url' => url('/demo/dropdowns'),
+                    'icon' => 'select',
+                    'active' => request()->routeIs('demo.dropdowns'),
+                ],
+                [
                     'title' => 'Empty States',
                     'url' => url('/demo/empty'),
                     'icon' => 'folder-x',
                     'active' => request()->routeIs('demo.empty'),
+                ],
+                [
+                    'title' => 'Forms',
+                    'url' => url('/demo/forms'),
+                    'icon' => 'forms',
+                    'active' => request()->routeIs('demo.forms'),
+                ],
+                [
+                    'title' => 'Images',
+                    'url' => url('/demo/image'),
+                    'icon' => 'photo',
+                    'active' => request()->routeIs('demo.image'),
                 ],
                 [
                     'title' => 'List Group',
@@ -144,10 +124,16 @@ function getNavItems()
                     'active' => request()->routeIs('demo.list-group'),
                 ],
                 [
-                    'title' => 'Navigation',
-                    'url' => url('/demo/nav'),
-                    'icon' => 'menu',
-                    'active' => request()->routeIs('demo.nav'),
+                    'title' => 'Modals',
+                    'url' => url('/demo/modals'),
+                    'icon' => 'square-plus',
+                    'active' => request()->routeIs('demo.modals'),
+                ],
+                [
+                    'title' => 'Offcanvas',
+                    'url' => url('/demo/offcanvas'),
+                    'icon' => 'layout-sidebar-right',
+                    'active' => request()->routeIs('demo.offcanvas'),
                 ],
                 [
                     'title' => 'Pagination',
@@ -192,10 +178,22 @@ function getNavItems()
                     'active' => request()->routeIs('demo.steps'),
                 ],
                 [
+                    'title' => 'Tables',
+                    'url' => url('/demo/tables'),
+                    'icon' => 'table',
+                    'active' => request()->routeIs('demo.tables'),
+                ],
+                [
                     'title' => 'Timeline',
                     'url' => url('/demo/timeline'),
                     'icon' => 'timeline',
                     'active' => request()->routeIs('demo.timeline'),
+                ],
+                [
+                    'title' => 'Toasts',
+                    'url' => url('/demo/toasts'),
+                    'icon' => 'bread',
+                    'active' => request()->routeIs('demo.toasts'),
                 ],
             ],
         ],
@@ -224,6 +222,10 @@ function getNavItems()
 Route::get('/', function () {
     return view('home', ['navItems' => getNavItems()]);
 })->name('home');
+
+Route::get('/bootstrap', function () {
+    return view('bootstrap', ['navItems' => getNavItems()]);
+})->name('bootstrap');
 
 Route::group(['prefix' => 'demo'], function () {
     Route::get('/alert', function () {
@@ -322,13 +324,13 @@ Route::group(['prefix' => 'demo'], function () {
         return view('demo.list-group', ['navItems' => getNavItems()]);
     })->name('demo.list-group');
 
-    Route::get('/nav', function () {
-        return view('demo.nav', ['navItems' => getNavItems()]);
-    })->name('demo.nav');
-
     Route::get('/placeholder', function () {
         return view('demo.placeholder', ['navItems' => getNavItems()]);
     })->name('demo.placeholder');
+
+    Route::get('/image', function () {
+        return view('demo.image', ['navItems' => getNavItems()]);
+    })->name('demo.image');
 
     Route::get('/layout-vertical', function () {
         return view('demo.layouts.vertical', [

@@ -67,7 +67,7 @@
 @endphp
 
 <span {{ $attributes->merge(['class' => implode(' ', $classes)]) }}>
-    @if(!$dot && $slot->isNotEmpty())
+    @if (!$dot && $slot->isNotEmpty())
         {{ $slot }}
     @endif
 </span>

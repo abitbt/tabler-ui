@@ -106,7 +106,7 @@
 @endphp
 
 <div {{ $attributes->merge(['class' => implode(' ', $classes)]) }} role="status">
-    @if($slot->isEmpty())
+    @if ($slot->isEmpty())
         <span class="visually-hidden">Loading...</span>
     @else
         <span class="visually-hidden">{{ $slot }}</span>

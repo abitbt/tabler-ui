@@ -98,7 +98,7 @@
 @endphp
 
 <span {{ $attributes->merge(['class' => implode(' ', $classes)]) }}>
-    @if($slot->isNotEmpty())
+    @if ($slot->isNotEmpty())
         {{-- Custom content --}}
         {{ $slot }}
     @elseif($src)
@@ -112,7 +112,7 @@
         <x-dynamic-component :component="$iconComponent" class="icon" />
     @endif
 
-    @if($status)
+    @if ($status)
         {{-- Status indicator --}}
         <span class="badge bg-{{ $status }}"></span>
     @endif

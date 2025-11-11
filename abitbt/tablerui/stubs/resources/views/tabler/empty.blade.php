@@ -60,22 +60,22 @@
 @endphp
 
 <div {{ $attributes->merge(['class' => 'empty']) }}>
-    @if($slot->isNotEmpty())
+    @if ($slot->isNotEmpty())
         {{-- Custom empty state --}}
         {{ $slot }}
     @else
         {{-- Auto-generated empty state --}}
-        @if($iconComponent)
+        @if ($iconComponent)
             <div class="empty-icon">
                 <x-dynamic-component :component="$iconComponent" class="icon" />
             </div>
         @endif
 
-        @if($title)
+        @if ($title)
             <p class="empty-title">{{ $title }}</p>
         @endif
 
-        @if($description)
+        @if ($description)
             <p class="empty-subtitle text-secondary">{{ $description }}</p>
         @endif
 

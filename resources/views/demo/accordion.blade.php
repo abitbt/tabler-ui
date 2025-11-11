@@ -19,11 +19,12 @@
                     <x-tabler::accordion id="faq">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-1">
                                     What is Tabler?
                                 </button>
                             </h2>
-                            <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+                            <div id="faq-1" class="accordion-collapse show collapse" data-bs-parent="#faq">
                                 <div class="accordion-body">
                                     Tabler is a free and open-source admin template.
                                 </div>
@@ -31,7 +32,8 @@
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-2">
                                     Is it responsive?
                                 </button>
                             </h2>
@@ -55,11 +57,12 @@
                     <x-tabler::accordion id="settings" flush>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#settings-1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#settings-1">
                                     Account Settings
                                 </button>
                             </h2>
-                            <div id="settings-1" class="accordion-collapse collapse show" data-bs-parent="#settings">
+                            <div id="settings-1" class="accordion-collapse show collapse" data-bs-parent="#settings">
                                 <div class="accordion-body">
                                     Configure your account settings here.
                                 </div>
@@ -77,13 +80,28 @@
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
-                                <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+                                <tr>
+                                    <th>Prop</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td><code>id</code></td><td><span class="badge bg-azure-lt">string</span></td><td><code>''</code></td><td>Unique accordion ID (required)</td></tr>
-                                <tr><td><code>flush</code></td><td><span class="badge bg-purple-lt">bool</span></td><td><code>false</code></td><td>Remove default background and borders</td></tr>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td><span class="badge bg-azure-lt">string</span></td>
+                                    <td><code>''</code></td>
+                                    <td>Unique accordion ID (required)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>flush</code></td>
+                                    <td><span class="badge bg-purple-lt">bool</span></td>
+                                    <td><code>false</code></td>
+                                    <td>Remove default background and borders</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

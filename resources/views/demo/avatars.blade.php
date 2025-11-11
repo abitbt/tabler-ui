@@ -25,7 +25,7 @@
                     <x-slot:subtitle>Different size variations</x-slot>
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
-                    <div class="d-flex gap-2 align-items-end">
+                    <div class="d-flex align-items-end gap-2">
                         <x-tabler::avatar size="sm" icon="user" />
                         <x-tabler::avatar size="md" icon="user" />
                         <x-tabler::avatar size="lg" icon="user" />
@@ -166,7 +166,7 @@
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
                                 <tr>
                                     <th>Prop</th>

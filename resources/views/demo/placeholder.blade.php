@@ -11,21 +11,22 @@
 @section('content')
     <div class="row row-cards">
         {{-- Card with Image Placeholder on Top --}}
-        @for($i = 0; $i < 4; $i++)
-        <div class="col-3">
-            <div class="card placeholder-glow">
-                <div class="ratio ratio-21x9 card-img-top placeholder"></div>
-                <x-tabler::cards.body>
-                    <div class="placeholder col-9 mb-3"></div>
-                    <div class="placeholder placeholder-xs col-10"></div>
-                    <div class="placeholder placeholder-xs col-11"></div>
+        @for ($i = 0; $i < 4; $i++)
+            <div class="col-3">
+                <div class="card placeholder-glow">
+                    <div class="ratio ratio-21x9 card-img-top placeholder"></div>
+                    <x-tabler::cards.body>
+                        <div class="placeholder col-9 mb-3"></div>
+                        <div class="placeholder placeholder-xs col-10"></div>
+                        <div class="placeholder placeholder-xs col-11"></div>
 
-                    <div class="mt-3">
-                        <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-4" aria-hidden="true"></a>
-                    </div>
-                </x-tabler::cards.body>
+                        <div class="mt-3">
+                            <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-4"
+                                aria-hidden="true"></a>
+                        </div>
+                    </x-tabler::cards.body>
+                </div>
             </div>
-        </div>
         @endfor
 
         {{-- Card with Avatar and Text (Small) --}}
@@ -49,7 +50,7 @@
 
                 <div class="col-12">
                     <x-tabler::cards.card>
-                        <x-tabler::cards.body class="text-end placeholder-glow">
+                        <x-tabler::cards.body class="placeholder-glow text-end">
                             <div class="placeholder col-9 mb-3"></div>
                             <div class="placeholder placeholder-xs col-10"></div>
                             <div class="placeholder placeholder-xs col-12"></div>
@@ -74,7 +75,8 @@
                             <div class="placeholder placeholder-xs col-11"></div>
 
                             <div class="mt-3">
-                                <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-4" aria-hidden="true"></a>
+                                <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-4"
+                                    aria-hidden="true"></a>
                             </div>
                         </x-tabler::cards.body>
                     </div>
@@ -119,22 +121,22 @@
                 <div class="col-12">
                     <x-tabler::cards.card>
                         <ul class="list-group list-group-flush placeholder-glow">
-                            @for($i = 0; $i < 4; $i++)
-                            <li class="list-group-item">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <div class="avatar avatar-rounded placeholder"></div>
+                            @for ($i = 0; $i < 4; $i++)
+                                <li class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <div class="avatar avatar-rounded placeholder"></div>
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="placeholder placeholder-xs col-9"></div>
+                                            <div class="placeholder placeholder-xs col-7"></div>
+                                        </div>
+                                        <div class="col-2 ms-auto text-end">
+                                            <div class="placeholder placeholder-xs col-8"></div>
+                                            <div class="placeholder placeholder-xs col-10"></div>
+                                        </div>
                                     </div>
-                                    <div class="col-7">
-                                        <div class="placeholder placeholder-xs col-9"></div>
-                                        <div class="placeholder placeholder-xs col-7"></div>
-                                    </div>
-                                    <div class="col-2 ms-auto text-end">
-                                        <div class="placeholder placeholder-xs col-8"></div>
-                                        <div class="placeholder placeholder-xs col-10"></div>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
                             @endfor
                         </ul>
                     </x-tabler::cards.card>
@@ -208,19 +210,46 @@
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
-                                <tr><th>Class</th><th>Description</th></tr>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Description</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td><code>placeholder</code></td><td>Base placeholder element</td></tr>
-                                <tr><td><code>placeholder-glow</code></td><td>Container with glow animation</td></tr>
-                                <tr><td><code>placeholder-wave</code></td><td>Container with wave animation</td></tr>
-                                <tr><td><code>placeholder-xs</code></td><td>Extra small placeholder (thin height)</td></tr>
-                                <tr><td><code>placeholder-sm</code></td><td>Small placeholder</td></tr>
-                                <tr><td><code>placeholder-lg</code></td><td>Large placeholder</td></tr>
-                                <tr><td><code>col-{1-12}</code></td><td>Width using Bootstrap grid columns (col-6 = 50% width)</td></tr>
-                                <tr><td><code>w-{25,50,75,100}</code></td><td>Width using percentage utilities</td></tr>
+                                <tr>
+                                    <td><code>placeholder</code></td>
+                                    <td>Base placeholder element</td>
+                                </tr>
+                                <tr>
+                                    <td><code>placeholder-glow</code></td>
+                                    <td>Container with glow animation</td>
+                                </tr>
+                                <tr>
+                                    <td><code>placeholder-wave</code></td>
+                                    <td>Container with wave animation</td>
+                                </tr>
+                                <tr>
+                                    <td><code>placeholder-xs</code></td>
+                                    <td>Extra small placeholder (thin height)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>placeholder-sm</code></td>
+                                    <td>Small placeholder</td>
+                                </tr>
+                                <tr>
+                                    <td><code>placeholder-lg</code></td>
+                                    <td>Large placeholder</td>
+                                </tr>
+                                <tr>
+                                    <td><code>col-{1-12}</code></td>
+                                    <td>Width using Bootstrap grid columns (col-6 = 50% width)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>w-{25,50,75,100}</code></td>
+                                    <td>Width using percentage utilities</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

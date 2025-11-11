@@ -13,11 +13,7 @@
         <div class="col-md-6">
             <x-tabler::cards.card>
                 <x-tabler::cards.body>
-                    <x-tabler::empty
-                        icon="inbox"
-                        title="No messages"
-                        description="You don't have any messages yet."
-                    />
+                    <x-tabler::empty icon="inbox" title="No messages" description="You don't have any messages yet." />
                 </x-tabler::cards.body>
             </x-tabler::cards.card>
         </div>
@@ -41,14 +37,34 @@
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
-                                <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+                                <tr>
+                                    <th>Prop</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td><code>icon</code></td><td><span class="badge bg-azure-lt">string</span></td><td><code>null</code></td><td>Tabler icon name</td></tr>
-                                <tr><td><code>title</code></td><td><span class="badge bg-azure-lt">string</span></td><td><code>null</code></td><td>Empty state title</td></tr>
-                                <tr><td><code>description</code></td><td><span class="badge bg-azure-lt">string</span></td><td><code>null</code></td><td>Description text</td></tr>
+                                <tr>
+                                    <td><code>icon</code></td>
+                                    <td><span class="badge bg-azure-lt">string</span></td>
+                                    <td><code>null</code></td>
+                                    <td>Tabler icon name</td>
+                                </tr>
+                                <tr>
+                                    <td><code>title</code></td>
+                                    <td><span class="badge bg-azure-lt">string</span></td>
+                                    <td><code>null</code></td>
+                                    <td>Empty state title</td>
+                                </tr>
+                                <tr>
+                                    <td><code>description</code></td>
+                                    <td><span class="badge bg-azure-lt">string</span></td>
+                                    <td><code>null</code></td>
+                                    <td>Description text</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

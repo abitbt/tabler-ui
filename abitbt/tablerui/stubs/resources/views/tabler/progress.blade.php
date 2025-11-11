@@ -128,18 +128,14 @@
 @endphp
 
 <div {{ $attributes->merge(['class' => implode(' ', $progressClasses)]) }}>
-    <div class="{{ implode(' ', $barClasses) }}"
-         role="progressbar"
-         style="width: {{ $percentage }}%"
-         aria-valuenow="{{ $value }}"
-         aria-valuemin="0"
-         aria-valuemax="{{ $max }}">
-        @if($label)
+    <div class="{{ implode(' ', $barClasses) }}" role="progressbar" style="width: {{ $percentage }}%"
+        aria-valuenow="{{ $value }}" aria-valuemin="0" aria-valuemax="{{ $max }}">
+        @if ($label)
             {{ $label }}
         @endif
     </div>
 </div>
 
-@if($slot->isNotEmpty())
+@if ($slot->isNotEmpty())
     {{ $slot }}
 @endif

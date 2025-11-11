@@ -81,13 +81,28 @@
                 </x-tabler::cards.header>
                 <x-tabler::cards.body>
                     <div class="table-responsive">
-                        <table class="table table-vcenter">
+                        <table class="table-vcenter table">
                             <thead>
-                                <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+                                <tr>
+                                    <th>Prop</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td><code>position</code></td><td><span class="badge bg-azure-lt">string</span></td><td><code>'top'</code></td><td>Ribbon position: 'top', 'bottom', 'start', 'end', 'bookmark'</td></tr>
-                                <tr><td><code>color</code></td><td><span class="badge bg-azure-lt">string</span></td><td><code>null</code></td><td>Ribbon color</td></tr>
+                                <tr>
+                                    <td><code>position</code></td>
+                                    <td><span class="badge bg-azure-lt">string</span></td>
+                                    <td><code>'top'</code></td>
+                                    <td>Ribbon position: 'top', 'bottom', 'start', 'end', 'bookmark'</td>
+                                </tr>
+                                <tr>
+                                    <td><code>color</code></td>
+                                    <td><span class="badge bg-azure-lt">string</span></td>
+                                    <td><code>null</code></td>
+                                    <td>Ribbon color</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

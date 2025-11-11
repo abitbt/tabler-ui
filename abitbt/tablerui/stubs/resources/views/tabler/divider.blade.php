@@ -67,7 +67,7 @@
     }
 @endphp
 
-@if($slot->isNotEmpty())
+@if ($slot->isNotEmpty())
     <div {{ $attributes->merge(['class' => implode(' ', $classes)]) }}>
         {{ $slot }}
     </div>

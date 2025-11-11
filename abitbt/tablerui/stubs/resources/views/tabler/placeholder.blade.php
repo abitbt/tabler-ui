@@ -118,7 +118,7 @@
     }
 @endphp
 
-@if($slot->isNotEmpty())
+@if ($slot->isNotEmpty())
     {{-- Custom placeholder --}}
     <div {{ $attributes->merge(['class' => $animated ? 'placeholder-wave' : '']) }}>
         {{ $slot }}
