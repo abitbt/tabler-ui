@@ -25,10 +25,7 @@
         <div class="col-md-6">
             <x-tabler::cards.card>
                 <x-tabler::cards.body>
-                    <x-tabler::empty icon="folder" title="No files">
-                        <x-slot:description>
-                            Start by uploading your first file.
-                        </x-slot:description>
+                    <x-tabler::empty icon="folder" title="No files" description="Start by uploading your first file.">
                         <x-slot:action>
                             <x-tabler::button color="primary">Upload file</x-tabler::button>
                         </x-slot:action>
@@ -58,9 +55,8 @@
                     <div class="mt-4">
                         <h4>Available Slots</h4>
                         <ul class="text-secondary">
-                            <li><code>icon</code> - Custom icon content</li>
-                            <li><code>description</code> - Custom description</li>
-                            <li><code>action</code> - Action buttons</li>
+                            <li><code>default</code> - Custom empty state content (overrides all props)</li>
+                            <li><code>action</code> - Action buttons or links</li>
                         </ul>
                     </div>
                 </x-tabler::cards.body>

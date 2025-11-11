@@ -8,9 +8,6 @@
     @prop string|null $description - Empty state description text
 
     @slot default - Custom content (overrides auto-generated layout)
-    @slot:icon - Custom icon slot
-    @slot:title - Custom title slot
-    @slot:description - Custom description slot
     @slot:action - Action buttons or links
 
     Available CSS Classes (use via class="" attribute):
@@ -32,10 +29,7 @@
     />
 
     Empty state with action:
-    <x-tabler::empty icon="folder" title="No files">
-        <x-slot:description>
-            Start by uploading your first file.
-        </x-slot:description>
+    <x-tabler::empty icon="folder" title="No files" description="Start by uploading your first file.">
         <x-slot:action>
             <x-tabler::button color="primary">Upload file</x-tabler::button>
         </x-slot:action>
@@ -43,9 +37,9 @@
 
     Custom empty state:
     <x-tabler::empty>
-        <x-slot:icon>
-            <x-tabler-inbox class="icon empty-icon" />
-        </x-slot:icon>
+        <div class="empty-icon">
+            <x-tabler-inbox class="icon" />
+        </div>
         <p class="empty-title">No results found</p>
         <p class="empty-subtitle">Try adjusting your search or filter criteria.</p>
         <div class="empty-action">
@@ -65,42 +59,24 @@
     $iconComponent = $icon ? 'tabler-' . $icon : null;
 @endphp
 
-@if($slot->isNotEmpty())
-    {{-- Custom empty state --}}
-    <div {{ $attributes->merge(['class' => 'empty']) }}>
+<div {{ $attributes->merge(['class' => 'empty']) }}>
+    @if($slot->isNotEmpty())
+        {{-- Custom empty state --}}
         {{ $slot }}
-    </div>
-@else
-    {{-- Auto-generated empty state --}}
-    <div {{ $attributes->merge(['class' => 'empty']) }}>
-        @if($iconComponent || isset($icon))
+    @else
+        {{-- Auto-generated empty state --}}
+        @if($iconComponent)
             <div class="empty-icon">
-                @isset($icon)
-                    {{ $icon }}
-                @else
-                    <x-dynamic-component :component="$iconComponent" class="icon" />
-                @endisset
+                <x-dynamic-component :component="$iconComponent" class="icon" />
             </div>
         @endif
 
-        @if($title || isset($title))
-            <p class="empty-title">
-                @isset($title)
-                    {{ $title }}
-                @else
-                    {{ $title }}
-                @endisset
-            </p>
+        @if($title)
+            <p class="empty-title">{{ $title }}</p>
         @endif
 
-        @if($description || isset($description))
-            <p class="empty-subtitle text-secondary">
-                @isset($description)
-                    {{ $description }}
-                @else
-                    {{ $description }}
-                @endisset
-            </p>
+        @if($description)
+            <p class="empty-subtitle text-secondary">{{ $description }}</p>
         @endif
 
         @isset($action)
@@ -108,5 +84,5 @@
                 {{ $action }}
             </div>
         @endisset
-    </div>
-@endif
+    @endif
+</div>
