@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -35,4 +37,17 @@ Route::prefix('demo')->name('demo.')->controller(DemoController::class)->group(f
     Route::get('/toasts', 'toasts')->name('toasts');
     Route::get('/layout-vertical', 'layoutVertical')->name('layout-vertical');
     Route::get('/layout-boxed', 'layoutBoxed')->name('layout-boxed');
+    Route::get('/auth-pages', 'authPages')->name('auth-pages');
+});
+
+// Protected Routes (require authentication)
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::prefix('profile')->name('profile.')->controller(ProfileController::class)->group(function () {
+        Route::get('/', 'edit')->name('edit');
+        Route::patch('/', 'update')->name('update')->middleware('throttle:profile');
+        Route::put('/password', 'updatePassword')->name('password.update')->middleware('throttle:profile');
+        Route::delete('/', 'destroy')->name('destroy')->middleware('throttle:profile');
+    });
 });

@@ -8,7 +8,8 @@
  * 1. URL parameters (?theme-base=neutral) - for compatibility
  * 2. localStorage (persistent user preference)
  * 3. Server-side HTML attributes (from Laravel variables)
- * 4. Default values
+ * 4. Operating system color scheme preference (prefers-color-scheme)
+ * 5. Default values
  */
 
 const themeConfig = {
@@ -18,6 +19,17 @@ const themeConfig = {
     'theme-primary': 'blue',
     'theme-radius': '1',
 };
+
+/**
+ * Get the operating system's preferred color scheme
+ * @returns {string} 'dark' or 'light'
+ */
+function getOSColorScheme() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+    }
+    return 'light';
+}
 
 /**
  * Initialize theme on page load
@@ -47,8 +59,12 @@ function initializeTheme() {
                     // Respect server-side value
                     selectedValue = existingValue;
                 } else {
-                    // Fall back to default
-                    selectedValue = themeConfig[key];
+                    // Use OS preference for theme, default for others
+                    if (key === 'theme') {
+                        selectedValue = getOSColorScheme();
+                    } else {
+                        selectedValue = themeConfig[key];
+                    }
                 }
             }
         }
@@ -141,6 +157,19 @@ function getTheme(key) {
 // Initialize on page load
 initializeTheme();
 
+// Listen for OS color scheme changes
+if (window.matchMedia) {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkModeMediaQuery.addEventListener('change', (e) => {
+        // Only auto-update if user hasn't explicitly set a preference
+        const userPreference = localStorage.getItem('tabler-theme');
+        if (!userPreference) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            applyTheme('theme', newTheme, false);
+        }
+    });
+}
+
 // Expose functions globally for inline event handlers
 window.TablerTheme = {
     toggle: toggleTheme,
@@ -151,6 +180,7 @@ window.TablerTheme = {
     reset: resetTheme,
     get: getTheme,
     apply: applyTheme,
+    getOSColorScheme: getOSColorScheme,
 };
 
 // Setup event listeners when DOM is ready

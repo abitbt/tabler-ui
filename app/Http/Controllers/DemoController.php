@@ -242,4 +242,12 @@ class DemoController extends Controller
             'navbarSticky' => false,
         ]);
     }
+
+    /**
+     * Display the auth pages demo page.
+     */
+    public function authPages(): View
+    {
+        return view('demo.auth-pages', ['navItems' => $this->buildNavigation()]);
+    }
 }
