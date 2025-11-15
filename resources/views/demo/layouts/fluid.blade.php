@@ -1,17 +1,17 @@
 {{--
-    Demo: Boxed Layout
+    Demo: Fluid Layout
 
-    Official Tabler UI boxed layout with centered, max-width content.
+    Official Tabler UI fluid layout with full-width content.
 --}}
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
     <head>
-        @include('demo.partials.head', ['title' => 'Boxed Layout'])
+        @include('demo.partials.head', ['title' => 'Fluid Layout'])
     </head>
 
-    <body class="layout-boxed">
+    <body class="layout-fluid">
         <div class="page">
             {{-- Top Navbar: Brand + Utilities --}}
             @include('demo.partials.top-navbar')
@@ -22,7 +22,7 @@
             {{-- Page Wrapper: Header + Body + Footer --}}
             <div class="page-wrapper">
                 {{-- Page Header: Title and actions --}}
-                @include('demo.partials.page-header', ['title' => 'Boxed Layout'])
+                @include('demo.partials.page-header', ['title' => 'Fluid Layout'])
 
                 {{-- Page Body: Main content --}}
                 <main id="content" class="page-body">
@@ -31,24 +31,23 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Boxed Layout</h3>
+                                        <h3 class="card-title">Fluid Layout</h3>
                                     </div>
                                     <div class="card-body">
-                                        <p>This is the official Tabler boxed layout with centered, max-width content.
-                                        </p>
+                                        <p>This is the official Tabler fluid layout with full-width content.</p>
                                         <h4 class="mt-4">Key Features:</h4>
                                         <ul>
                                             <li>Same structure as horizontal layout</li>
-                                            <li>Body class: <code>layout-boxed</code></li>
-                                            <li>Content centered with max-width constraint</li>
-                                            <li>Background visible on sides for wider viewports</li>
-                                            <li>Perfect for focused content presentation</li>
+                                            <li>Body class: <code>layout-fluid</code></li>
+                                            <li>Content uses full viewport width (no max-width)</li>
+                                            <li>Perfect for dashboards, data tables, and wide interfaces</li>
+                                            <li>Responsive behavior maintained</li>
                                         </ul>
                                         <h4 class="mt-4">Structure:</h4>
                                         <ul>
-                                            <li>Body: <code>&lt;body class="layout-boxed"&gt;</code></li>
+                                            <li>Body: <code>&lt;body class="layout-fluid"&gt;</code></li>
                                             <li>Navbar: Same as horizontal layout</li>
-                                            <li>Max-width applied via CSS</li>
+                                            <li>Full-width applied via CSS</li>
                                         </ul>
                                     </div>
                                 </div>

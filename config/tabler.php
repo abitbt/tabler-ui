@@ -12,8 +12,8 @@ return [
     */
     'logo' => [
         // Path to custom logos (set to override the default Tabler logo)
-        'small' => null, // 32x32 logo for compact layouts
-        'full' => null,  // Full logo for standard layouts
+        'small' => 'images/logo-small.svg', // 32x32 logo for compact layouts
+        'full' => 'images/logo.svg',  // Full logo for standard layouts
 
         // Use embedded SVG if no custom logo is provided
         'fallback_svg' => true,

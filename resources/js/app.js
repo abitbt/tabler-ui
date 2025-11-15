@@ -1,4 +1,3 @@
 import './bootstrap';
 import '@tabler/core/js/tabler';
-import './tabler-theme';
-import './docs';
+import '@tabler/core/js/tabler-theme';
