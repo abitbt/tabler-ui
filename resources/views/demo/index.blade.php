@@ -232,6 +232,26 @@
                                                 <tabler:icon name="message-circle" class="me-1" />
                                                 Toasts
                                             </a>
+                                            <a href="{{ route('components.input') }}"
+                                                class="btn btn-outline-primary">
+                                                <tabler:icon name="forms" class="me-1" />
+                                                Input
+                                            </a>
+                                            <a href="{{ route('components.checkbox') }}"
+                                                class="btn btn-outline-primary">
+                                                <tabler:icon name="square-check" class="me-1" />
+                                                Checkbox
+                                            </a>
+                                            <a href="{{ route('components.radio') }}"
+                                                class="btn btn-outline-primary">
+                                                <tabler:icon name="circle-dot" class="me-1" />
+                                                Radio
+                                            </a>
+                                            <a href="{{ route('components.radio-group') }}"
+                                                class="btn btn-outline-primary">
+                                                <tabler:icon name="circles" class="me-1" />
+                                                Radio Group
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

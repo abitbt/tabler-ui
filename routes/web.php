@@ -75,4 +75,20 @@ Route::prefix('components')->name('components.')->group(function () {
     Route::get('/toasts', function () {
         return view('demo.toasts');
     })->name('toasts');
+
+    Route::get('/input', function () {
+        return view('demo.input');
+    })->name('input');
+
+    Route::get('/checkbox', function () {
+        return view('demo.checkbox');
+    })->name('checkbox');
+
+    Route::get('/radio', function () {
+        return view('demo.radio');
+    })->name('radio');
+
+    Route::get('/radio-group', function () {
+        return view('demo.radio-group');
+    })->name('radio-group');
 });

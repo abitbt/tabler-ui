@@ -187,19 +187,28 @@
     {{-- All Icons Grid --}}
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">
-                @if ($this->showPopular)
-                    All Icons
-                @else
-                    {{ $search ? 'Search Results' : 'Icons in ' . $selectedCategory }}
-                @endif
-            </h3>
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="card-title">
+                        @if ($this->showPopular)
+                            All Icons
+                        @else
+                            {{ $search ? 'Search Results' : 'Icons in ' . $selectedCategory }}
+                        @endif
+                    </h3>
+                </div>
+                <div class="col-auto">
+                    <span class="text-secondary">
+                        Showing {{ count($this->paginatedIcons()) }} of {{ $this->totalIcons }}
+                    </span>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             @if (count($this->filteredIcons()) > 0)
                 <div class="icon-grid icon-grid-{{ $iconSize }}" wire:loading.class="opacity-50">
-                    @foreach ($this->filteredIcons() as $icon)
-                        <div class="icon-grid-item" wire:key="icon-{{ $icon['name'] }}">
+                    @foreach ($this->paginatedIcons() as $icon)
+                        <div class="icon-grid-item" wire:key="icon-{{ $icon['name'] }}-{{ $this->getPage() }}">
                             <div class="icon-preview" wire:click="selectIcon('{{ $icon['name'] }}', 'outline')"
                                 role="button" tabindex="0">
                                 <tabler:icon :name="$icon['name']" variant="outline" />
@@ -215,6 +224,22 @@
                         </div>
                     @endforeach
                 </div>
+
+                {{-- Load More Button --}}
+                @if ($this->hasMorePages)
+                    <div class="mt-4 text-center">
+                        <button wire:click="loadMore" class="btn btn-primary" wire:loading.attr="disabled">
+                            <span wire:loading.remove wire:target="loadMore">
+                                <tabler:icon name="chevron-down" />
+                                Load More Icons ({{ min($perPage, $this->remainingCount) }} more)
+                            </span>
+                            <span wire:loading wire:target="loadMore">
+                                <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                Loading...
+                            </span>
+                        </button>
+                    </div>
+                @endif
             @else
                 <div class="empty">
                     <div class="empty-icon">
@@ -234,7 +259,7 @@
             @endif
 
             {{-- Loading Indicator --}}
-            <div wire:loading class="mt-3 text-center">
+            <div wire:loading wire:target="search,setCategory" class="mt-3 text-center">
                 <div class="spinner-border spinner-border-sm text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
@@ -244,8 +269,8 @@
     </div>
 
     {{-- Icon Details Modal --}}
-    @if ($selectedIconName && $this->selectedIconData)
-        <tabler:modal id="icon-detail-modal" size="lg">
+    <tabler:modal id="icon-detail-modal" size="lg">
+        @if ($selectedIconName && $this->selectedIconData)
             <tabler:modal.header :title="'Icon: '.$selectedIconName">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                     wire:click="closeModal"></button>
@@ -393,7 +418,8 @@
                         @if (isset($this->selectedIconData['styles']['outline']['unicode']))
                             <dt class="col-sm-3">Unicode:</dt>
                             <dd class="col-sm-9">
-                                <code>{{ $this->selectedIconData['styles']['outline']['unicode'] }}</code></dd>
+                                <code>{{ $this->selectedIconData['styles']['outline']['unicode'] }}</code>
+                            </dd>
                         @endif
                     </dl>
                 </div>
@@ -404,19 +430,27 @@
                     Close
                 </button>
             </tabler:modal.footer>
-        </tabler:modal>
-    @endif
+        @else
+            <tabler:modal.body>
+                <div class="py-5 text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </tabler:modal.body>
+        @endif
+    </tabler:modal>
 
-    {{-- Alpine.js for Modal Control --}}
-    @script
-        <script>
-            // Copy code function
-            window.copyCode = function(inputId) {
-                const input = document.getElementById(inputId);
-                if (input) {
-                    // Get the value and decode HTML entities
-                    const text = input.value.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
+    {{-- Modal and Utilities Scripts --}}
+    <script>
+        // Copy code function
+        function copyCode(inputId) {
+            const input = document.getElementById(inputId);
+            if (input) {
+                // Get the value and decode HTML entities
+                const text = input.value.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
 
+                if (navigator.clipboard) {
                     navigator.clipboard.writeText(text).then(() => {
                         showToast('Code copied!');
                     }).catch(err => {
@@ -424,34 +458,50 @@
                         showToast('Failed to copy code');
                     });
                 }
-            };
+            }
+        }
 
-            // Show toast notification
-            window.showToast = function(message) {
-                const toast = document.createElement('div');
-                toast.className = 'toast-notification';
-                toast.textContent = message || 'Copied!';
-                toast.style.cssText =
-                    'position: fixed; top: 20px; right: 20px; background: var(--tblr-success); color: white; padding: 1rem 1.5rem; border-radius: var(--tblr-border-radius); z-index: 9999; box-shadow: 0 4px 6px rgba(0,0,0,0.1);';
-                document.body.appendChild(toast);
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.textContent = message || 'Copied!';
+            toast.style.cssText =
+                'position: fixed; top: 20px; right: 20px; background: var(--tblr-success); color: white; padding: 1rem 1.5rem; border-radius: var(--tblr-border-radius); z-index: 9999; box-shadow: 0 4px 6px rgba(0,0,0,0.1);';
+            document.body.appendChild(toast);
 
-                setTimeout(() => {
-                    toast.style.opacity = '0';
-                    toast.style.transition = 'opacity 0.3s';
-                    setTimeout(() => toast.remove(), 300);
-                }, 2000);
-            };
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.3s';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
 
-            // Listen for open modal event
-            Livewire.on('open-icon-modal', () => {
-                const modal = new bootstrap.Modal(document.getElementById('icon-detail-modal'));
-                modal.show();
+        // Modal handling
+        document.addEventListener('DOMContentLoaded', function() {
+            let iconModal = null;
+
+            // Initialize modal instance
+            const modalElement = document.getElementById('icon-detail-modal');
+            if (modalElement && typeof bootstrap !== 'undefined') {
+                iconModal = new bootstrap.Modal(modalElement);
+            }
+
+            // Listen for Livewire events
+            document.addEventListener('livewire:init', () => {
+                Livewire.on('open-icon-modal', () => {
+                    // Wait for Livewire to finish updating DOM
+                    setTimeout(() => {
+                        if (!iconModal && modalElement && typeof bootstrap !==
+                            'undefined') {
+                            iconModal = new bootstrap.Modal(modalElement);
+                        }
+                        if (iconModal) {
+                            iconModal.show();
+                        }
+                    }, 100);
+                });
             });
-
-            // Listen for toast notifications
-            window.addEventListener('show-toast', (event) => {
-                showToast(event.detail.message);
-            });
-        </script>
-    @endscript
+        });
+    </script>
 </div>

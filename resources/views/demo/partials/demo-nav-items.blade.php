@@ -97,6 +97,22 @@
                     <tabler:icon name="message-circle" class="dropdown-item-icon" />
                     Toasts
                 </a>
+                <a class="dropdown-item" href="{{ route('components.input') }}">
+                    <tabler:icon name="forms" class="dropdown-item-icon" />
+                    Input
+                </a>
+                <a class="dropdown-item" href="{{ route('components.checkbox') }}">
+                    <tabler:icon name="square-check" class="dropdown-item-icon" />
+                    Checkbox
+                </a>
+                <a class="dropdown-item" href="{{ route('components.radio') }}">
+                    <tabler:icon name="circle-dot" class="dropdown-item-icon" />
+                    Radio
+                </a>
+                <a class="dropdown-item" href="{{ route('components.radio-group') }}">
+                    <tabler:icon name="circles" class="dropdown-item-icon" />
+                    Radio Group
+                </a>
             </div>
         </div>
     </div>

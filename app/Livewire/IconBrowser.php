@@ -5,9 +5,12 @@ namespace App\Livewire;
 use Abitbt\TablerBlade\Icon;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class IconBrowser extends Component
 {
+    use WithPagination;
+
     // Search and filter properties
     public string $search = '';
 
@@ -18,6 +21,9 @@ class IconBrowser extends Component
     public ?string $selectedIconName = null;
 
     public ?string $selectedIconVariant = null;
+
+    // Pagination
+    public int $perPage = 100;
 
     // Popular icons list
     public array $popularIcons = [
@@ -93,6 +99,28 @@ class IconBrowser extends Component
     }
 
     #[Computed]
+    public function paginatedIcons(): array
+    {
+        $filtered = $this->filteredIcons();
+        $page = $this->getPage();
+        $totalToShow = $page * $this->perPage;
+
+        return array_slice($filtered, 0, $totalToShow);
+    }
+
+    #[Computed]
+    public function hasMorePages(): bool
+    {
+        return count($this->filteredIcons()) > count($this->paginatedIcons());
+    }
+
+    #[Computed]
+    public function remainingCount(): int
+    {
+        return count($this->filteredIcons()) - count($this->paginatedIcons());
+    }
+
+    #[Computed]
     public function showPopular(): bool
     {
         return empty($this->search) && empty($this->selectedCategory);
@@ -126,11 +154,22 @@ class IconBrowser extends Component
     public function setCategory(string $category): void
     {
         $this->selectedCategory = $category === $this->selectedCategory ? '' : $category;
+        $this->resetPage();
     }
 
     public function setSize(string $size): void
     {
         $this->iconSize = $size;
+    }
+
+    public function updatedSearch(): void
+    {
+        $this->resetPage();
+    }
+
+    public function loadMore(): void
+    {
+        $this->setPage($this->getPage() + 1);
     }
 
     public function copyCode(string $code): void
