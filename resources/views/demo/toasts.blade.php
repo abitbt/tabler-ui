@@ -23,12 +23,6 @@
                                     Toasts
                                 </h2>
                             </div>
-                            <div class="col-auto">
-                                <a href="{{ route('demo.index') }}" class="btn">
-                                    <tabler:icon name="arrow-left" />
-                                    Back to home
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,6 +64,19 @@
                                             </button>
                                         </div>
                                     </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:toast.container position="bottom-end"&gt;
+    &lt;tabler:toast id="toast-simple" title="Tabler Blade" subtitle="Just now"&gt;
+        Hello, world! This is a toast message.
+    &lt;/tabler:toast&gt;
+    &lt;tabler:toast id="toast-no-header" hideHeader&gt;
+        This toast has no header.
+    &lt;/tabler:toast&gt;
+    &lt;tabler:toast id="toast-autohide" title="Auto-hide" autohide :delay="3000"&gt;
+        This toast will automatically hide after 3 seconds.
+    &lt;/tabler:toast&gt;
+&lt;/tabler:toast.container&gt;</code></pre>
+                                    </div>
                                 </div>
                             </div>
 
@@ -99,6 +106,90 @@
                                                 onclick="showToast('toast-bottom-end')">
                                                 Bottom End (Default)
                                             </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>{{-- Available positions: top-start, top-end, bottom-start, bottom-end --}}
+&lt;tabler:toast.container position="top-start"&gt;
+    &lt;tabler:toast id="toast-top-start" title="Top Start"&gt;
+        This toast appears at the top-start corner.
+    &lt;/tabler:toast&gt;
+&lt;/tabler:toast.container&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Props Reference --}}
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Props Reference</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table-bordered table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Prop</th>
+                                                        <th>Type</th>
+                                                        <th>Default</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><code>id</code></td>
+                                                        <td>string</td>
+                                                        <td>auto-generated</td>
+                                                        <td>Toast ID for targeting with JavaScript</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>show</code></td>
+                                                        <td>boolean</td>
+                                                        <td>false</td>
+                                                        <td>Show toast immediately on page load</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>autohide</code></td>
+                                                        <td>boolean</td>
+                                                        <td>false</td>
+                                                        <td>Automatically hide toast after delay</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>delay</code></td>
+                                                        <td>number</td>
+                                                        <td>5000</td>
+                                                        <td>Delay in milliseconds before auto-hiding (when autohide is
+                                                            true)
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>title</code></td>
+                                                        <td>string</td>
+                                                        <td>null</td>
+                                                        <td>Toast header title</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>subtitle</code></td>
+                                                        <td>string</td>
+                                                        <td>null</td>
+                                                        <td>Toast header subtitle (e.g., timestamp)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>hideHeader</code></td>
+                                                        <td>boolean</td>
+                                                        <td>false</td>
+                                                        <td>Hide toast header (shows only body content)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="alert alert-info mt-3">
+                                            <strong>Note:</strong> Toasts must be placed inside a
+                                            <code>&lt;tabler:toast.container&gt;</code> component. The container
+                                            supports a
+                                            <code>position</code> prop with values: top-start, top-end, bottom-start,
+                                            bottom-end.
                                         </div>
                                     </div>
                                 </div>

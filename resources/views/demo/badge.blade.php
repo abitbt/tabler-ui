@@ -18,12 +18,6 @@
                                 <div class="page-pretitle">Tabler Blade Components</div>
                                 <h2 class="page-title">Badge</h2>
                             </div>
-                            <div class="col-auto">
-                                <a href="{{ route('demo.index') }}" class="btn">
-                                    <tabler:icon name="arrow-left" />
-                                    Back to home
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,6 +44,17 @@
                                             <tabler:badge color="light">Light</tabler:badge>
                                         </div>
                                     </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge&gt;Default&lt;/tabler:badge&gt;
+&lt;tabler:badge color="primary"&gt;Primary&lt;/tabler:badge&gt;
+&lt;tabler:badge color="secondary"&gt;Secondary&lt;/tabler:badge&gt;
+&lt;tabler:badge color="success"&gt;Success&lt;/tabler:badge&gt;
+&lt;tabler:badge color="warning"&gt;Warning&lt;/tabler:badge&gt;
+&lt;tabler:badge color="danger"&gt;Danger&lt;/tabler:badge&gt;
+&lt;tabler:badge color="info"&gt;Info&lt;/tabler:badge&gt;
+&lt;tabler:badge color="dark"&gt;Dark&lt;/tabler:badge&gt;
+&lt;tabler:badge color="light"&gt;Light&lt;/tabler:badge&gt;</code></pre>
+                                    </div>
                                 </div>
                             </div>
 
@@ -74,6 +79,11 @@
                                             <tabler:badge color="teal">Teal</tabler:badge>
                                             <tabler:badge color="cyan">Cyan</tabler:badge>
                                         </div>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge color="blue"&gt;Blue&lt;/tabler:badge&gt;
+&lt;tabler:badge color="azure"&gt;Azure&lt;/tabler:badge&gt;
+&lt;tabler:badge color="indigo"&gt;Indigo&lt;/tabler:badge&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -100,6 +110,11 @@
                                             <tabler:badge color="cyan" variant="light">Cyan</tabler:badge>
                                         </div>
                                     </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge color="blue" variant="light"&gt;Blue&lt;/tabler:badge&gt;
+&lt;tabler:badge color="azure" variant="light"&gt;Azure&lt;/tabler:badge&gt;
+&lt;tabler:badge color="indigo" variant="light"&gt;Indigo&lt;/tabler:badge&gt;</code></pre>
+                                    </div>
                                 </div>
                             </div>
 
@@ -124,6 +139,11 @@
                                             <tabler:badge color="teal" variant="outline">Teal</tabler:badge>
                                             <tabler:badge color="cyan" variant="outline">Cyan</tabler:badge>
                                         </div>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge color="blue" variant="outline"&gt;Blue&lt;/tabler:badge&gt;
+&lt;tabler:badge color="azure" variant="outline"&gt;Azure&lt;/tabler:badge&gt;
+&lt;tabler:badge color="indigo" variant="outline"&gt;Indigo&lt;/tabler:badge&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -159,6 +179,11 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge color="primary" size="sm"&gt;Small&lt;/tabler:badge&gt;
+&lt;tabler:badge color="primary"&gt;Default&lt;/tabler:badge&gt;
+&lt;tabler:badge color="primary" size="lg"&gt;Large&lt;/tabler:badge&gt;</code></pre>
+                                    </div>
                                 </div>
                             </div>
 
@@ -184,6 +209,11 @@
                                             <tabler:badge color="purple" variant="pill">99+</tabler:badge>
                                             <tabler:badge color="pink" variant="pill">1.2k</tabler:badge>
                                         </div>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge color="blue" variant="pill"&gt;Blue&lt;/tabler:badge&gt;
+&lt;tabler:badge color="azure" variant="pill"&gt;Azure&lt;/tabler:badge&gt;
+&lt;tabler:badge color="indigo" variant="pill"&gt;Indigo&lt;/tabler:badge&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -226,6 +256,11 @@
                                             <tabler:badge icon="bell" color="blue" iconOnly />
                                             <tabler:badge icon="mail" color="azure" iconOnly />
                                         </div>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge icon="star" color="yellow"&gt;Featured&lt;/tabler:badge&gt;
+&lt;tabler:badge icon:trailing="arrow-right" color="blue"&gt;Next&lt;/tabler:badge&gt;
+&lt;tabler:badge icon="heart" color="red" iconOnly /&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -274,6 +309,11 @@
                                             <tabler:badge href="#" color="red" variant="light">Red
                                             </tabler:badge>
                                         </div>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge href="#" color="blue" variant="light"&gt;Click me&lt;/tabler:badge&gt;
+&lt;tabler:badge href="#" color="azure" variant="light"&gt;Azure&lt;/tabler:badge&gt;
+&lt;tabler:badge href="#" color="indigo" variant="light"&gt;Indigo&lt;/tabler:badge&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -346,6 +386,11 @@
                                             <tabler:badge color="cyan" dot />
                                         </div>
                                     </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge color="blue" dot /&gt;
+&lt;tabler:badge color="azure" dot /&gt;
+&lt;tabler:badge color="indigo" dot /&gt;</code></pre>
+                                    </div>
                                 </div>
                             </div>
 
@@ -363,6 +408,11 @@
                                             <tabler:badge color="red" variant="light" addon="3"
                                                 addonColor="red">Alerts</tabler:badge>
                                         </div>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:badge addon="2"&gt;Unread&lt;/tabler:badge&gt;
+&lt;tabler:badge addon="99+" addonColor="green"&gt;Messages&lt;/tabler:badge&gt;
+&lt;tabler:badge color="blue" addon="5"&gt;Tasks&lt;/tabler:badge&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -405,6 +455,114 @@
                                             <tabler:badge variant="pill" color="blue">Beta</tabler:badge>
                                             <tabler:badge variant="pill" color="red">Deprecated</tabler:badge>
                                             <tabler:badge variant="pill" color="yellow">Alpha</tabler:badge>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Props Reference --}}
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Props Reference</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table-bordered table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Prop</th>
+                                                        <th>Type</th>
+                                                        <th>Default</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><code>variant</code></td>
+                                                        <td>string</td>
+                                                        <td>'default'</td>
+                                                        <td>Badge style variant: default, light, outline, pill</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>color</code></td>
+                                                        <td>string</td>
+                                                        <td>null</td>
+                                                        <td>Badge color: blue, red, green, azure, indigo, purple, pink,
+                                                            orange,
+                                                            yellow, lime, teal, cyan, primary, secondary, success,
+                                                            warning,
+                                                            danger, info, dark, light</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>size</code></td>
+                                                        <td>string</td>
+                                                        <td>null</td>
+                                                        <td>Badge size: sm, lg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>icon</code></td>
+                                                        <td>string</td>
+                                                        <td>null</td>
+                                                        <td>Leading icon name</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>iconTrailing</code></td>
+                                                        <td>string</td>
+                                                        <td>null</td>
+                                                        <td>Trailing icon name (use icon:trailing attribute)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>iconOnly</code></td>
+                                                        <td>boolean</td>
+                                                        <td>false</td>
+                                                        <td>Show icon only, hide text content</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>notification</code></td>
+                                                        <td>boolean</td>
+                                                        <td>false</td>
+                                                        <td>Position badge absolutely (top-right notification style)
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>blink</code></td>
+                                                        <td>boolean</td>
+                                                        <td>false</td>
+                                                        <td>Add blinking animation to badge</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>dot</code></td>
+                                                        <td>boolean</td>
+                                                        <td>false</td>
+                                                        <td>Force dot badge style (empty circle)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>addon</code></td>
+                                                        <td>string</td>
+                                                        <td>null</td>
+                                                        <td>Addon badge text (shown as small badge inside)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>addonColor</code></td>
+                                                        <td>string</td>
+                                                        <td>null</td>
+                                                        <td>Addon badge background color</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>href</code></td>
+                                                        <td>string</td>
+                                                        <td>null</td>
+                                                        <td>Renders badge as &lt;a&gt; tag with this URL</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>as</code></td>
+                                                        <td>string</td>
+                                                        <td>'span'</td>
+                                                        <td>HTML element tag to render (span, div, etc.)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>

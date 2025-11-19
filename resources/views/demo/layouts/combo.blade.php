@@ -21,16 +21,8 @@
                 <div class="container-xl justify-content-end">
                     <div class="navbar-nav order-md-last flex-row">
                         {{-- Theme toggle --}}
-                        <div class="d-none d-md-flex me-3">
+                        <div class="d-none d-md-flex">
                             <tabler:theme-toggle />
-                        </div>
-
-                        {{-- Back to index --}}
-                        <div class="nav-item">
-                            <a href="{{ route('demo.index') }}" class="btn btn-outline-primary">
-                                <tabler:icon name="arrow-left" />
-                                Back to Showcase
-                            </a>
                         </div>
                     </div>
                 </div>

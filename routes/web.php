@@ -52,6 +52,10 @@ Route::prefix('layouts')->name('layouts.')->group(function () {
 });
 
 Route::prefix('components')->name('components.')->group(function () {
+    Route::get('/alert', function () {
+        return view('demo.alert');
+    })->name('alert');
+
     Route::get('/badge', function () {
         return view('demo.badge');
     })->name('badge');
@@ -91,4 +95,24 @@ Route::prefix('components')->name('components.')->group(function () {
     Route::get('/radio-group', function () {
         return view('demo.radio-group');
     })->name('radio-group');
+
+    Route::get('/date-picker', function () {
+        return view('demo.date-picker');
+    })->name('date-picker');
+
+    Route::get('/pagination', function () {
+        return view('demo.pagination');
+    })->name('pagination');
+
+    Route::get('/avatar', function () {
+        return view('demo.avatar');
+    })->name('avatar');
+
+    Route::get('/dropdown', function () {
+        return view('demo.dropdown');
+    })->name('dropdown');
+
+    Route::get('/table', function () {
+        return view('demo.table');
+    })->name('table');
 });

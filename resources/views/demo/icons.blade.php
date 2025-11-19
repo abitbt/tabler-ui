@@ -19,12 +19,6 @@
                                 <div class="page-pretitle">Tabler Blade Components</div>
                                 <h2 class="page-title">Icons</h2>
                             </div>
-                            <div class="col-auto">
-                                <a href="{{ route('demo.index') }}" class="btn">
-                                    <tabler:icon name="arrow-left" />
-                                    Back to home
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>

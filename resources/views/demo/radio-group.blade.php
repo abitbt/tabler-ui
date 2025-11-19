@@ -17,12 +17,6 @@
                                 <div class="page-pretitle">Tabler Blade Components</div>
                                 <h2 class="page-title">Radio Group</h2>
                             </div>
-                            <div class="col-auto">
-                                <a href="{{ route('demo.index') }}" class="btn">
-                                    <tabler:icon name="arrow-left" />
-                                    Back to home
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -38,10 +32,16 @@
                                     </div>
                                     <div class="card-body">
                                         <tabler:radio-group label="Select your plan:" name="plan">
-                                            <tabler:radio name="plan" value="free" label="Free" checked />
-                                            <tabler:radio name="plan" value="pro" label="Pro" />
-                                            <tabler:radio name="plan" value="enterprise" label="Enterprise" />
+                                            <tabler:radio name="plan" value="free" checked>Free</tabler:radio>
+                                            <tabler:radio name="plan" value="pro">Pro</tabler:radio>
+                                            <tabler:radio name="plan" value="enterprise">Enterprise</tabler:radio>
                                         </tabler:radio-group>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:radio-group label="Select your plan:" name="plan"&gt;
+    &lt;tabler:radio name="plan" value="free" checked&gt;Free&lt;/tabler:radio&gt;
+    &lt;tabler:radio name="plan" value="pro"&gt;Pro&lt;/tabler:radio&gt;
+&lt;/tabler:radio-group&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -54,11 +54,17 @@
                                     </div>
                                     <div class="card-body">
                                         <tabler:radio-group label="Size:" name="size" inline>
-                                            <tabler:radio name="size" value="s" label="S" inline />
-                                            <tabler:radio name="size" value="m" label="M" inline checked />
-                                            <tabler:radio name="size" value="l" label="L" inline />
-                                            <tabler:radio name="size" value="xl" label="XL" inline />
+                                            <tabler:radio name="size" value="s" inline>S</tabler:radio>
+                                            <tabler:radio name="size" value="m" inline checked>M</tabler:radio>
+                                            <tabler:radio name="size" value="l" inline>L</tabler:radio>
+                                            <tabler:radio name="size" value="xl" inline>XL</tabler:radio>
                                         </tabler:radio-group>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:radio-group label="Size:" name="size" inline&gt;
+    &lt;tabler:radio name="size" value="s" inline&gt;S&lt;/tabler:radio&gt;
+    &lt;tabler:radio name="size" value="m" inline checked&gt;M&lt;/tabler:radio&gt;
+&lt;/tabler:radio-group&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -71,10 +77,16 @@
                                     </div>
                                     <div class="card-body">
                                         <tabler:radio-group label="Gender:" name="gender" required>
-                                            <tabler:radio name="gender" value="male" label="Male" required />
-                                            <tabler:radio name="gender" value="female" label="Female" required />
-                                            <tabler:radio name="gender" value="other" label="Other" required />
+                                            <tabler:radio name="gender" value="male" required>Male</tabler:radio>
+                                            <tabler:radio name="gender" value="female" required>Female</tabler:radio>
+                                            <tabler:radio name="gender" value="other" required>Other</tabler:radio>
                                         </tabler:radio-group>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:radio-group label="Gender:" name="gender" required&gt;
+    &lt;tabler:radio name="gender" value="male" required&gt;Male&lt;/tabler:radio&gt;
+    &lt;tabler:radio name="gender" value="female" required&gt;Female&lt;/tabler:radio&gt;
+&lt;/tabler:radio-group&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -88,10 +100,16 @@
                                     <div class="card-body">
                                         <tabler:radio-group label="Payment method:" name="payment"
                                             error="Please select a payment method">
-                                            <tabler:radio name="payment" value="credit" label="Credit Card" />
-                                            <tabler:radio name="payment" value="debit" label="Debit Card" />
-                                            <tabler:radio name="payment" value="paypal" label="PayPal" />
+                                            <tabler:radio name="payment" value="credit">Credit Card</tabler:radio>
+                                            <tabler:radio name="payment" value="debit">Debit Card</tabler:radio>
+                                            <tabler:radio name="payment" value="paypal">PayPal</tabler:radio>
                                         </tabler:radio-group>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:radio-group label="Payment method:" name="payment"
+    error="Please select a payment method"&gt;
+    &lt;tabler:radio name="payment" value="credit"&gt;Credit Card&lt;/tabler:radio&gt;
+&lt;/tabler:radio-group&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -105,13 +123,27 @@
                                     <div class="card-body">
                                         <tabler:radio-group label="Theme preference:" name="theme"
                                             help="This will affect how the application looks">
-                                            <tabler:radio name="theme" value="light" label="Light"
-                                                description="Light color scheme" />
-                                            <tabler:radio name="theme" value="dark" label="Dark"
-                                                description="Dark color scheme" checked />
-                                            <tabler:radio name="theme" value="auto" label="Auto"
-                                                description="Match system settings" />
+                                            <tabler:field description="Light color scheme">
+                                                <tabler:radio name="theme" value="light">Light</tabler:radio>
+                                            </tabler:field>
+                                            <tabler:field description="Dark color scheme">
+                                                <tabler:radio name="theme" value="dark" checked>Dark
+                                                </tabler:radio>
+                                            </tabler:field>
+                                            <tabler:field description="Match system settings">
+                                                <tabler:radio name="theme" value="auto">Auto</tabler:radio>
+                                            </tabler:field>
                                         </tabler:radio-group>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <pre class="mb-0"><code>&lt;tabler:radio-group label="Theme:" name="theme" help="This affects appearance"&gt;
+    &lt;tabler:field description="Light scheme"&gt;
+        &lt;tabler:radio name="theme" value="light"&gt;Light&lt;/tabler:radio&gt;
+    &lt;/tabler:field&gt;
+    &lt;tabler:field description="Dark scheme"&gt;
+        &lt;tabler:radio name="theme" value="dark" checked&gt;Dark&lt;/tabler:radio&gt;
+    &lt;/tabler:field&gt;
+&lt;/tabler:radio-group&gt;</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -124,9 +156,9 @@
                                     </div>
                                     <div class="card-body">
                                         <pre class="rounded p-3"><code>&lt;tabler:radio-group label="Select option:" name="option"&gt;
-    &lt;tabler:radio name="option" value="1" label="Option 1" /&gt;
-    &lt;tabler:radio name="option" value="2" label="Option 2" checked /&gt;
-    &lt;tabler:radio name="option" value="3" label="Option 3" /&gt;
+    &lt;tabler:radio name="option" value="1"&gt;Option 1&lt;/tabler:radio&gt;
+    &lt;tabler:radio name="option" value="2" checked&gt;Option 2&lt;/tabler:radio&gt;
+    &lt;tabler:radio name="option" value="3"&gt;Option 3&lt;/tabler:radio&gt;
 &lt;/tabler:radio-group&gt;</code></pre>
                                     </div>
                                 </div>

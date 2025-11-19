@@ -73,6 +73,10 @@
     <div class="dropdown-menu">
         <div class="dropdown-menu-columns">
             <div class="dropdown-menu-column">
+                <a class="dropdown-item" href="{{ route('components.alert') }}">
+                    <tabler:icon name="alert-circle" class="dropdown-item-icon" />
+                    Alert
+                </a>
                 <a class="dropdown-item" href="{{ route('components.badge') }}">
                     <tabler:icon name="badge" class="dropdown-item-icon" />
                     Badge
@@ -112,6 +116,26 @@
                 <a class="dropdown-item" href="{{ route('components.radio-group') }}">
                     <tabler:icon name="circles" class="dropdown-item-icon" />
                     Radio Group
+                </a>
+                <a class="dropdown-item" href="{{ route('components.date-picker') }}">
+                    <tabler:icon name="calendar" class="dropdown-item-icon" />
+                    Date Picker
+                </a>
+                <a class="dropdown-item" href="{{ route('components.pagination') }}">
+                    <tabler:icon name="dots" class="dropdown-item-icon" />
+                    Pagination
+                </a>
+                <a class="dropdown-item" href="{{ route('components.avatar') }}">
+                    <tabler:icon name="user-circle" class="dropdown-item-icon" />
+                    Avatar
+                </a>
+                <a class="dropdown-item" href="{{ route('components.dropdown') }}">
+                    <tabler:icon name="chevron-down" class="dropdown-item-icon" />
+                    Dropdown
+                </a>
+                <a class="dropdown-item" href="{{ route('components.table') }}">
+                    <tabler:icon name="table" class="dropdown-item-icon" />
+                    Table
                 </a>
             </div>
         </div>
